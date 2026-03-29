@@ -2,21 +2,7 @@
 /* Dual palette: Espresso & Peach / Deep Moss & Honey */
 
 /* ===== PALETTE SYSTEM ===== */
-:root, [data-theme="espresso"] {
-  --bg: #1C1410;
-  --bg-card: #2E2018;
-  --bg-hover: #3A2C22;
-  --accent: #D4956A;
-  --accent-light: #E8AD7E;
-  --text: #E8D5C0;
-  --text-muted: #A89080;
-  --text-dim: #6B5848;
-  --sage: #7A8B6F;
-  --border: rgba(212,149,106,0.12);
-  --border-hover: rgba(212,149,106,0.25);
-  --border-strong: rgba(212,149,106,0.4);
-}
-[data-theme="moss"] {
+:root, [data-theme="moss"] {
   --bg: #18201A;
   --bg-card: #233028;
   --bg-hover: #2A3A2E;
@@ -29,6 +15,20 @@
   --border: rgba(200,169,110,0.12);
   --border-hover: rgba(200,169,110,0.25);
   --border-strong: rgba(200,169,110,0.4);
+}
+[data-theme="espresso"] {
+  --bg: #1C1410;
+  --bg-card: #2E2018;
+  --bg-hover: #3A2C22;
+  --accent: #D4956A;
+  --accent-light: #E8AD7E;
+  --text: #E8D5C0;
+  --text-muted: #A89080;
+  --text-dim: #6B5848;
+  --sage: #7A8B6F;
+  --border: rgba(212,149,106,0.12);
+  --border-hover: rgba(212,149,106,0.25);
+  --border-strong: rgba(212,149,106,0.4);
 }
 
 /* ===== RESET & BASE ===== */
@@ -333,8 +333,7 @@ section { padding: 120px 48px; max-width: 1100px; margin: 0 auto; }
   filter: brightness(0.9) saturate(0.85);
   transition: filter 0.4s ease;
 }
-.case-card:nth-child(1) .case-img,
-.case-card:nth-child(2) .case-img {
+.case-img {
   object-fit: contain;
   background: var(--bg-card);
 }
