@@ -100,7 +100,16 @@ function handleSubmit(e) {
   // Validate
   const name = form.querySelector('[name="name"]').value.trim();
   const email = form.querySelector('[name="email"]').value.trim();
+  const property = form.querySelector('[name="property"]').value.trim();
+  const message = form.querySelector('[name="message"]').value.trim();
   if (!name || !email) return;
+
+  // Send form data to Formspree
+  fetch('https://formspree.io/f/mzdkerkq', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({ name, email, property, message })
+  }).catch(() => {});
 
   // Trigger bell ding animation
   btn.classList.remove('dinged');
@@ -144,11 +153,4 @@ function handleSubmit(e) {
     `;
   }, 900);
 
-  // TODO: Wire up to your actual form endpoint (e.g. Cloudflare Worker, Formspree, etc.)
-  // Example:
-  // fetch('/api/contact', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({ name, email, property, message })
-  // });
 }
