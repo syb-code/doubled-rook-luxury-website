@@ -268,6 +268,30 @@ section { padding: 120px 48px; max-width: 1100px; margin: 0 auto; }
 }
 .section-divider { width: 40px; height: 1px; background: var(--accent); margin: 72px 0; }
 
+/* ===== ORIGIN / ABOUT ME ===== */
+.origin-layout {
+  display: grid; grid-template-columns: 260px 1fr; gap: 56px;
+  align-items: start; margin-top: 44px;
+}
+.origin-portrait { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.portrait-img {
+  width: 240px; height: 240px; object-fit: cover;
+  border: 1px solid var(--border);
+  filter: grayscale(20%);
+  transition: filter 0.4s ease, border-color 0.4s ease;
+}
+.portrait-img:hover { filter: grayscale(0%); border-color: var(--accent); }
+.linkedin-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--text-muted); text-decoration: none;
+  border: 1px solid var(--border); padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+.linkedin-link:hover { color: var(--accent); border-color: var(--accent); }
+.linkedin-link svg { flex-shrink: 0; }
+.origin-text .section-body { margin-bottom: 24px; }
+
 /* ===== PAIN GRID ===== */
 .pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 44px 0; }
 .pain-item {
@@ -551,6 +575,8 @@ footer .contact-email {
   .mobile-toggle { display: block; }
   section, .contact-section { padding: 80px 24px; }
   .hero { padding: 130px 24px 60px; }
+  .origin-layout { grid-template-columns: 1fr; justify-items: center; }
+  .origin-text { text-align: left; }
   .pain-grid, .services-grid, .hotel-types, .contact-grid, .cases-grid { grid-template-columns: 1fr; }
   .hero-services { gap: 16px; }
   .hero-service + .hero-service::before { display: none; }
