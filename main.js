@@ -60,18 +60,21 @@ document.querySelectorAll(
 ).forEach(el => staggerObserver.observe(el));
 
 // Theme toggle
+function updateThemeButtons(label) {
+  document.querySelectorAll('.theme-toggle, .mobile-theme-toggle').forEach(btn => {
+    btn.textContent = label;
+  });
+}
+
 function toggleTheme() {
   const body = document.body;
-  const btn = document.querySelector('.theme-toggle');
-  if (!btn) return;
-
   if (body.dataset.theme === 'espresso') {
     body.dataset.theme = 'moss';
-    btn.textContent = 'Espresso';
+    updateThemeButtons('Espresso');
     localStorage.setItem('dr-theme', 'moss');
   } else {
     body.dataset.theme = 'espresso';
-    btn.textContent = 'Moss';
+    updateThemeButtons('Moss');
     localStorage.setItem('dr-theme', 'espresso');
   }
 }
@@ -81,8 +84,7 @@ function toggleTheme() {
   const saved = localStorage.getItem('dr-theme');
   if (saved) {
     document.body.dataset.theme = saved;
-    const btn = document.querySelector('.theme-toggle');
-    if (btn) btn.textContent = saved === 'moss' ? 'Espresso' : 'Moss';
+    updateThemeButtons(saved === 'moss' ? 'Espresso' : 'Moss');
   }
 })();
 
