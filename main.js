@@ -111,12 +111,15 @@ function handleSubmit(e) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({ name, email, property, message })
-  }).catch(() => {});
-
-  // Trigger bell ding animation
-  btn.classList.remove('dinged');
-  void btn.offsetWidth; // force reflow
-  btn.classList.add('dinged');
+}).then(response => {
+    if (response.ok) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'form_submission',
+            'form_name': 'contact_form'
+        });
+    }
+}).catch(() => {});
 
   // Create sparkle particles around the bell
   const bellIcon = btn.querySelector('.bell-icon');
