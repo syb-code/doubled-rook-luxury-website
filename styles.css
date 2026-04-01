@@ -541,29 +541,4 @@ footer .contact-email {
   .form-row { grid-template-columns: 1fr; }
   footer { flex-direction: column; gap: 14px; text-align: center; }
   .theme-toggle { display: none; }
-  .mobile-theme-toggle { display: block; }
-}
-
-.mobile-theme-toggle {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 999;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-  font-family: 'Outfit', sans-serif;
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 8px 12px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
-}
-.mobile-theme-toggle:active {
-  border-color: var(--accent);
-  color: var(--accent);
 }
