@@ -94,7 +94,7 @@
        id="path12" />
   </g>
   <text
-     font-family="Georgia, serif"
+     font-family="DM Serif Display, serif"
      font-weight="600"
      font-size="11"
      letter-spacing="6"
@@ -103,4 +103,12 @@
      x="110"
      y="155"
      id="text12">DOUBLED ROOK</text>
+  <text
+     font-family="Playfair Display, serif"
+     font-style="italic"
+     font-size="6.8"
+     fill="#FFFFFF"
+     text-anchor="middle"
+     x="110"
+     y="166.5">Stay three moves ahead</text>
 </svg>
