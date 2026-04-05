@@ -65,7 +65,7 @@ nav {
 }
 nav.scrolled { padding: 14px 48px; background: rgba(0,0,0,0.4); }
 
-.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo { display: flex; align-items: center; gap: 5px; text-decoration: none; }
 .nav-logo-text {
   font-family: 'DM Serif Display', serif;
   font-size: 16.5px;
