@@ -345,8 +345,8 @@ section { padding: 120px 48px; max-width: 1100px; margin: 0 auto; }
 .service-tag:hover { border-color: var(--accent); color: var(--accent); }
 
 /* ===== UGC / CREATOR CONTENT ===== */
-.ugc-section { margin: 56px 0; }
-.ugc-section-head { text-align: center; margin-bottom: 36px; }
+.ugc-section { margin: 40px 0; }
+.ugc-section-head { text-align: center; margin-bottom: 28px; }
 .ugc-section-title {
   font-family: 'DM Serif Display', serif;
   font-size: 26px; color: var(--text); margin-bottom: 10px;
@@ -357,7 +357,9 @@ section { padding: 120px 48px; max-width: 1100px; margin: 0 auto; }
 }
 .ugc-grid {
   display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 22px; max-width: 1100px; margin: 0 auto;
+  gap: 22px;
+  max-width: min(860px, calc(62vh * 4 * 9 / 19.5 + 66px));
+  margin: 0 auto;
 }
 .ugc-phone {
   position: relative;
