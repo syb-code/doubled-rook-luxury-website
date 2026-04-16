@@ -344,6 +344,157 @@ section { padding: 120px 48px; max-width: 1100px; margin: 0 auto; }
 }
 .service-tag:hover { border-color: var(--accent); color: var(--accent); }
 
+/* ===== UGC / CREATOR CONTENT ===== */
+.ugc-section { margin: 56px 0; }
+.ugc-section-head { text-align: center; margin-bottom: 36px; }
+.ugc-section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px; color: var(--text); margin-bottom: 10px;
+}
+.ugc-section-sub {
+  font-size: 13px; color: var(--text-muted);
+  max-width: 560px; margin: 0 auto; line-height: 1.7;
+}
+.ugc-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 22px; max-width: 1100px; margin: 0 auto;
+}
+.ugc-phone {
+  position: relative;
+  aspect-ratio: 9 / 19.5;
+  background: #050505;
+  border-radius: 38px;
+  padding: 7px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(255,255,255,0.05) inset,
+    0 0 0 3px #1a1a1a inset;
+  transition: transform 0.45s cubic-bezier(0.23,1,0.32,1), box-shadow 0.45s ease;
+}
+.ugc-phone:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 40px 80px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(255,255,255,0.08) inset,
+    0 0 0 3px #1a1a1a inset;
+}
+.ugc-screen {
+  position: relative;
+  width: 100%; height: 100%;
+  border-radius: 31px;
+  overflow: hidden;
+  background: #000;
+}
+.ugc-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ugc-island {
+  position: absolute;
+  top: 10px; left: 50%;
+  transform: translateX(-50%);
+  width: 78px; height: 22px;
+  background: #000;
+  border-radius: 14px;
+  z-index: 4;
+}
+.ugc-tiktok-top {
+  position: absolute; top: 0; left: 0; right: 0;
+  padding: 42px 14px 20px;
+  display: flex; justify-content: center; align-items: center; gap: 20px;
+  color: rgba(255,255,255,0.7);
+  font-size: 12px; font-weight: 500;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+.ugc-tiktok-top .active {
+  color: #fff;
+  position: relative;
+  font-weight: 600;
+}
+.ugc-tiktok-top .active::after {
+  content: ""; position: absolute;
+  left: 50%; transform: translateX(-50%);
+  bottom: -6px; width: 18px; height: 2px;
+  background: #fff; border-radius: 2px;
+}
+.ugc-tiktok-actions {
+  position: absolute;
+  right: 8px; bottom: 72px;
+  display: flex; flex-direction: column; gap: 16px;
+  align-items: center;
+  z-index: 3;
+  color: #fff;
+  font-size: 10px; font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  pointer-events: none;
+}
+.ugc-tiktok-actions .action {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+}
+.ugc-tiktok-actions svg {
+  width: 28px; height: 28px; fill: #fff;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+}
+.ugc-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C8A96E, #8B6B4A);
+  border: 2px solid #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Serif Display', serif;
+  color: #fff; font-size: 16px;
+  margin-bottom: 4px;
+  position: relative;
+}
+.ugc-avatar::after {
+  content: "+"; position: absolute;
+  bottom: -7px; left: 50%;
+  transform: translateX(-50%);
+  width: 16px; height: 16px;
+  background: #FE2C55; color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-family: sans-serif; font-weight: 400;
+  line-height: 1;
+}
+.ugc-record {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, #333 0 6px, #000 6px 7px, #1a1a1a 7px 100%);
+  border: 2px solid rgba(255,255,255,0.15);
+  margin-top: 6px;
+  animation: ugc-spin 6s linear infinite;
+}
+@keyframes ugc-spin { to { transform: rotate(360deg); } }
+.ugc-caption {
+  position: absolute;
+  left: 14px; right: 64px; bottom: 20px;
+  color: #fff; z-index: 2;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+  font-size: 11px; line-height: 1.4;
+  pointer-events: none;
+}
+.ugc-caption .user { font-weight: 700; font-size: 13px; margin-bottom: 5px; }
+.ugc-caption .text { opacity: 0.95; }
+.ugc-caption .music {
+  margin-top: 7px;
+  font-size: 10px; display: flex; align-items: center; gap: 6px;
+  opacity: 0.9;
+}
+.ugc-caption .music svg { width: 11px; height: 11px; fill: #fff; flex-shrink: 0; }
+.ugc-tiktok-bottom {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 90px;
+  background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
 /* ===== HOTEL TYPES ===== */
 .hotel-types { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; margin: 44px 0; }
 .hotel-type { padding: 44px 36px; border: 1px solid var(--border); transition: border-color 0.3s ease; }
@@ -581,6 +732,7 @@ footer .contact-email {
   .origin-layout { grid-template-columns: 1fr; justify-items: center; }
   .origin-text { text-align: left; }
   .pain-grid, .services-grid, .hotel-types, .contact-grid, .cases-grid { grid-template-columns: 1fr; }
+  .ugc-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .hero-services { gap: 16px; }
   .hero-service + .hero-service::before { display: none; }
   .form-row { grid-template-columns: 1fr; }
