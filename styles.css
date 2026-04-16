@@ -387,6 +387,7 @@ section { padding: 120px 48px; max-width: 1100px; margin: 0 auto; }
   border-radius: 31px;
   overflow: hidden;
   background: #000;
+  cursor: pointer;
 }
 .ugc-video {
   position: absolute; inset: 0;

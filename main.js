@@ -59,7 +59,7 @@ document.querySelectorAll(
   '.pain-grid, .services-grid, .cases-grid, .service-tags, .hotel-types, .faq-grid'
 ).forEach(el => staggerObserver.observe(el));
 
-// Lazy-load UGC videos + click-to-unmute
+// Lazy-load UGC videos + click-to-pause + click-to-unmute
 (function setupUgcVideos() {
   const videos = document.querySelectorAll('.ugc-video[data-src]');
   if (!videos.length) return;
@@ -67,17 +67,25 @@ document.querySelectorAll(
   const SOUND_ON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>';
   const SOUND_OFF = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>';
 
+  function updateBtn(video, muted) {
+    const btn = video.parentElement.querySelector('.ugc-sound-toggle');
+    if (!btn) return;
+    btn.innerHTML = muted ? SOUND_OFF : SOUND_ON;
+    btn.setAttribute('aria-label', muted ? 'Unmute video' : 'Mute video');
+  }
+
   function muteAllExcept(target) {
     videos.forEach(v => {
       if (v !== target && !v.muted) {
         v.muted = true;
-        const btn = v.parentElement.querySelector('.ugc-sound-toggle');
-        if (btn) {
-          btn.innerHTML = SOUND_OFF;
-          btn.setAttribute('aria-label', 'Unmute video');
-        }
+        updateBtn(v, true);
       }
     });
+  }
+
+  function tryPlay(video) {
+    const p = video.play();
+    if (p && typeof p.catch === 'function') p.catch(() => {});
   }
 
   videos.forEach(video => {
@@ -94,14 +102,27 @@ document.querySelectorAll(
       if (video.muted) {
         muteAllExcept(video);
         video.muted = false;
-        btn.innerHTML = SOUND_ON;
-        btn.setAttribute('aria-label', 'Mute video');
-        const p = video.play();
-        if (p && typeof p.catch === 'function') p.catch(() => {});
+        updateBtn(video, false);
+        tryPlay(video);
       } else {
         video.muted = true;
-        btn.innerHTML = SOUND_OFF;
-        btn.setAttribute('aria-label', 'Unmute video');
+        updateBtn(video, true);
+      }
+    });
+
+    screen.addEventListener('click', () => {
+      if (video.paused) {
+        if (!video.src && video.dataset.src) {
+          video.src = video.dataset.src;
+        }
+        muteAllExcept(video);
+        video.muted = false;
+        updateBtn(video, false);
+        delete video.dataset.userPaused;
+        tryPlay(video);
+      } else {
+        video.pause();
+        video.dataset.userPaused = '1';
       }
     });
   });
@@ -113,8 +134,9 @@ document.querySelectorAll(
         if (!video.src && video.dataset.src) {
           video.src = video.dataset.src;
         }
-        const p = video.play();
-        if (p && typeof p.catch === 'function') p.catch(() => {});
+        if (!video.dataset.userPaused) {
+          tryPlay(video);
+        }
       } else {
         video.pause();
       }
