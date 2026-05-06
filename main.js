@@ -146,6 +146,71 @@ document.querySelectorAll(
   videos.forEach(v => videoObserver.observe(v));
 })();
 
+// Case study lightbox
+(function setupCaseLightbox() {
+  const cards = document.querySelectorAll('.case-card');
+  if (!cards.length) return;
+
+  const modal = document.createElement('div');
+  modal.className = 'case-modal';
+  modal.setAttribute('aria-hidden', 'true');
+  modal.innerHTML = `
+    <div class="case-modal-backdrop"></div>
+    <div class="case-modal-content" role="dialog" aria-modal="true" aria-labelledby="caseModalTitle">
+      <button type="button" class="case-modal-close" aria-label="Close">&times;</button>
+      <img class="case-modal-img" src="" alt="">
+      <div class="case-modal-details">
+        <span class="case-modal-label"></span>
+        <h3 class="case-modal-title" id="caseModalTitle"></h3>
+        <div class="case-modal-body"></div>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  const modalImg = modal.querySelector('.case-modal-img');
+  const modalLabel = modal.querySelector('.case-modal-label');
+  const modalTitle = modal.querySelector('.case-modal-title');
+  const modalBody = modal.querySelector('.case-modal-body');
+
+  function open(card) {
+    const img = card.querySelector('.case-img');
+    const label = card.querySelector('.case-label');
+    const title = card.querySelector('h3');
+    const detail = card.querySelector('.case-detail');
+    if (img) { modalImg.src = img.src; modalImg.alt = img.alt || ''; }
+    modalLabel.textContent = label ? label.textContent : '';
+    modalTitle.textContent = title ? title.textContent : '';
+    modalBody.innerHTML = detail ? detail.innerHTML : '<p>[placeholder]</p>';
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  cards.forEach(card => {
+    const img = card.querySelector('.case-img');
+    if (!img) return;
+    img.setAttribute('role', 'button');
+    img.setAttribute('tabindex', '0');
+    img.addEventListener('click', () => open(card));
+    img.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(card); }
+    });
+  });
+
+  modal.querySelector('.case-modal-backdrop').addEventListener('click', close);
+  modal.querySelector('.case-modal-close').addEventListener('click', close);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) close();
+  });
+})();
+
 // Theme toggle
 function updateThemeButtons(label) {
   document.querySelectorAll('.theme-toggle, .mobile-theme-toggle').forEach(btn => {
