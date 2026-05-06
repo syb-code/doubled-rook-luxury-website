@@ -194,12 +194,10 @@ document.querySelectorAll(
   }
 
   cards.forEach(card => {
-    const img = card.querySelector('.case-img');
-    if (!img) return;
-    img.setAttribute('role', 'button');
-    img.setAttribute('tabindex', '0');
-    img.addEventListener('click', () => open(card));
-    img.addEventListener('keydown', e => {
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.addEventListener('click', () => open(card));
+    card.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(card); }
     });
   });
