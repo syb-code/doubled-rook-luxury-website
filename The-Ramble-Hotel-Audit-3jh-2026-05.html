@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>The Ramble Hotel — Digital Audit — May 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#1C1410;--bg-card:#2E2018;--bg-hover:#3A2C22;--accent:#D4956A;--accent-light:#E8AD7E;--text:#E8D5C0;--muted:#A89080;--dim:#6B5848;--sage:#7A8B6F;--border:rgba(212,149,106,0.12);--border-hov:rgba(212,149,106,0.25);--crit:#C56B5A;--warn:#D4A05A;--ok:#7A8B6F;--f-display:'Cormorant Garamond','Georgia',serif;--f-editorial:'Playfair Display','Georgia',serif;--f-body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--f-mono:'IBM Plex Mono','SF Mono',monospace}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:var(--f-body);font-weight:400;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;-webkit-user-select:none;-moz-user-select:none;user-select:none;position:relative;overflow-x:hidden}body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:100;background-image:repeating-linear-gradient(-45deg,transparent 0,transparent 240px,rgba(212,149,106,.025) 240px,rgba(212,149,106,.025) 241px,transparent 241px,transparent 480px)}.watermark-layer{position:fixed;inset:0;pointer-events:none;z-index:99;overflow:hidden}.watermark-layer span{position:absolute;font-family:var(--f-mono);font-size:11px;color:rgba(212,149,106,.06);letter-spacing:.18em;text-transform:uppercase;transform:rotate(-30deg);white-space:nowrap;user-select:none}.doc{max-width:1080px;margin:0 auto;padding:80px 48px 120px;position:relative;z-index:1}::selection{background:transparent;color:inherit}.finding-evidence{-webkit-user-select:text;-moz-user-select:text;user-select:text}.conf-banner{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--bg) 0%,var(--bg) 70%,transparent 100%);padding:14px 0 22px;margin-top:-80px;margin-bottom:40px}.conf-banner-inner{max-width:1080px;margin:0 auto;padding:0 48px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;font-family:var(--f-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}.conf-banner .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-right:8px;vertical-align:middle;animation:pulse 2.4s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}.cover{padding:0 0 100px;border-bottom:1px solid var(--border)}.cover-meta{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:64px}.brandmark{font-family:var(--f-display);font-weight:300;font-size:14px;letter-spacing:.35em;text-transform:uppercase;color:var(--accent)}.doc-meta{font-family:var(--f-mono);font-weight:300;font-size:11px;letter-spacing:.08em;color:var(--dim);text-transform:uppercase}.cover-eyebrow{font-family:var(--f-mono);font-weight:400;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:28px}.cover-title{font-family:var(--f-display);font-weight:300;font-size:clamp(48px,7vw,84px);line-height:1.02;letter-spacing:-.025em;color:var(--text);margin-bottom:24px}.cover-title .accent{color:var(--accent);font-style:italic}.cover-sub{font-family:var(--f-display);font-weight:300;font-style:italic;font-size:clamp(20px,2.4vw,28px);color:var(--muted);line-height:1.4;max-width:800px;margin-bottom:56px}.cover-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-top:32px;border-top:1px solid var(--border)}.cover-stat-label{font-family:var(--f-mono);font-size:9px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}.cover-stat-value{font-family:var(--f-display);font-weight:400;font-size:26px;color:var(--text);letter-spacing:-.01em;line-height:1.1}.exec{margin-top:80px;margin-bottom:96px;padding:48px 56px;background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:4px}.exec-label{font-family:var(--f-mono);font-size:10px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}.exec-title{font-family:var(--f-display);font-weight:400;font-size:32px;line-height:1.15;letter-spacing:-.01em;color:var(--text);margin-bottom:20px;max-width:800px}.exec p{font-size:15.5px;line-height:1.75;color:var(--muted);max-width:800px;margin-bottom:16px}.exec p strong{color:var(--text);font-weight:500}.exec p:last-child{margin-bottom:0}.risk-banner{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;margin-top:36px;padding-top:32px;border-top:1px solid var(--border)}.risk-score-container{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:200px}.risk-score{font-family:var(--f-display);font-weight:400;font-size:96px;line-height:1;letter-spacing:-.04em;color:var(--crit)}.risk-score .of{font-family:var(--f-mono);font-size:16px;color:var(--dim);font-weight:300;letter-spacing:.05em}.risk-tier{font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--crit);margin-top:8px}.risk-summary{font-family:var(--f-display);font-weight:300;font-size:22px;line-height:1.4;color:var(--text);font-style:italic}.risk-summary strong{font-style:normal;color:var(--accent);font-weight:400}.toc{margin:48px 0 96px;padding:36px 40px;border:1px solid var(--border);border-radius:4px;background:rgba(212,149,106,.025)}.toc-label{font-family:var(--f-mono);font-size:10px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}.toc-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:14px 32px}.toc-list li{font-family:var(--f-display);font-size:18px;color:var(--text);padding:6px 0;border-bottom:1px dashed var(--border);display:flex;justify-content:space-between;align-items:baseline;gap:16px}.toc-list a{color:inherit;text-decoration:none;font-family:var(--f-display);font-size:18px}.toc-list a:hover{color:var(--accent)}.toc-num{font-family:var(--f-mono);font-size:11px;color:var(--dim);letter-spacing:.08em;flex-shrink:0}.score-card{margin:32px 0;background:var(--bg-card);border:1px solid var(--border);border-radius:4px;overflow:hidden}.score-row{display:grid;grid-template-columns:1fr 80px 100px;gap:20px;align-items:center;padding:20px 28px;border-bottom:1px solid var(--border)}.score-row:last-of-type{border-bottom:none}.factor{font-family:var(--f-display);font-size:17px;color:var(--text);margin-bottom:4px}.factor-sub{font-size:12px;color:var(--muted);font-family:var(--f-mono);font-weight:300;line-height:1.5}.score-bar{height:4px;background:var(--border);border-radius:2px;overflow:hidden}.score-fill{height:100%;border-radius:2px}.score-fill.high{background:var(--crit)}.score-fill.med{background:var(--warn)}.score-fill.low{background:var(--ok)}.score-num{font-family:var(--f-mono);font-size:13px;color:var(--text);text-align:right;letter-spacing:.04em}.score-total{display:flex;justify-content:space-between;align-items:center;padding:24px 28px;background:rgba(197,107,90,.08);border-top:2px solid var(--crit)}.score-total-label{font-family:var(--f-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}.score-total-value{font-family:var(--f-display);font-size:36px;color:var(--crit);letter-spacing:-.02em}.score-total-value .of{font-size:16px;color:var(--dim);font-family:var(--f-mono);font-weight:300}.chapter{margin-bottom:96px;scroll-margin-top:80px}.chapter-header{margin-bottom:48px}.chapter-num{font-family:var(--f-mono);font-size:10px;font-weight:400;letter-spacing:.25em;text-transform:uppercase;color:var(--dim);margin-bottom:12px}.chapter-title{font-family:var(--f-display);font-weight:300;font-size:clamp(32px,4.5vw,48px);line-height:1.1;letter-spacing:-.02em;color:var(--text);margin-bottom:20px;max-width:820px}.chapter-lede{font-family:var(--f-display);font-weight:300;font-style:italic;font-size:20px;line-height:1.5;color:var(--muted);max-width:760px;padding-bottom:32px;border-bottom:1px solid var(--border)}.finding{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:32px 0;border-bottom:1px solid var(--border)}.finding:last-child{border-bottom:none}.finding-num{font-family:var(--f-mono);font-weight:300;font-size:13px;color:var(--dim);letter-spacing:.08em;padding-top:4px}.finding-content{min-width:0}.finding-meta{display:flex;gap:14px;align-items:center;margin-bottom:12px;flex-wrap:wrap}.severity{font-family:var(--f-mono);font-weight:500;font-size:9px;letter-spacing:.2em;text-transform:uppercase;padding:4px 10px;border-radius:3px;border:1px solid currentColor}.sev-critical{color:var(--crit)}.sev-moderate{color:var(--warn)}.sev-minor{color:var(--muted);border-color:var(--dim)}.sev-positive{color:var(--ok)}.ref-tag{font-family:var(--f-mono);font-size:10px;font-weight:400;color:var(--dim);letter-spacing:.05em}.finding-title{font-family:var(--f-display);font-weight:400;font-size:24px;line-height:1.25;letter-spacing:-.01em;color:var(--text);margin-bottom:12px}.finding-body{font-size:14.5px;line-height:1.7;color:var(--muted);margin-bottom:14px}.finding-body strong{color:var(--text);font-weight:500}.finding-body code{font-family:var(--f-mono);font-size:12.5px;color:var(--accent-light);background:rgba(212,149,106,.08);padding:1px 6px;border-radius:3px}.finding-evidence{font-family:var(--f-mono);font-weight:300;font-size:12px;line-height:1.7;color:var(--dim);background:rgba(28,20,16,.4);border:1px solid var(--border);border-radius:4px;padding:14px 18px;margin-top:8px;white-space:pre-wrap;overflow-x:auto}.data-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);margin:24px 0 0 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}.data-cell{background:var(--bg-card);padding:20px 24px}.data-label{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:10px}.data-value{font-family:var(--f-display);font-size:28px;font-weight:400;color:var(--text);line-height:1.1;margin-bottom:6px}.data-value.bad{color:var(--crit)}.data-value.warn{color:var(--warn)}.data-value.ok{color:var(--ok)}.data-note{font-size:12px;color:var(--muted);font-family:var(--f-mono);font-weight:300}.data-note code{color:var(--accent-light)}.callout{margin:32px 0;padding:28px 36px;border:1px solid var(--border);border-radius:4px;background:var(--bg-card)}.callout.crit{border-left:3px solid var(--crit)}.callout-label{font-family:var(--f-mono);font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}.callout-body{font-size:14.5px;line-height:1.7;color:var(--muted)}.callout-body strong{color:var(--text);font-weight:500}.gradient-divider{height:1px;background:linear-gradient(90deg,var(--accent),transparent);margin:80px 0}.roadmap-phase{padding:36px 40px;background:var(--bg-card);border:1px solid var(--border);border-radius:4px;margin-bottom:24px}.roadmap-meta{display:flex;align-items:baseline;flex-wrap:wrap;gap:12px;margin-bottom:16px}.roadmap-phase-label{font-family:var(--f-mono);font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}.roadmap-window{font-family:var(--f-mono);font-size:11px;font-weight:300;color:var(--dim);letter-spacing:.05em}.roadmap-title{font-family:var(--f-display);font-weight:400;font-size:26px;line-height:1.2;color:var(--text);margin-bottom:18px;letter-spacing:-.01em}.roadmap-list{list-style:none}.roadmap-list li{font-size:14.5px;line-height:1.7;color:var(--muted);padding:8px 0 8px 24px;position:relative}.roadmap-list li::before{content:"→";position:absolute;left:0;top:8px;color:var(--accent);font-family:var(--f-mono)}.roadmap-list li strong{color:var(--text);font-weight:500}.doc-footer{margin-top:96px;padding-top:40px;border-top:1px solid var(--border)}.doc-footer-top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:16px;margin-bottom:32px}.footer-tagline{font-family:var(--f-display);font-style:italic;font-weight:300;font-size:18px;color:var(--accent)}.footer-meta{font-family:var(--f-mono);font-size:10px;font-weight:300;color:var(--dim);letter-spacing:.06em;text-align:right}.footer-confidential{font-family:var(--f-mono);font-size:10px;line-height:1.7;color:var(--dim);letter-spacing:.04em;padding:20px 24px;background:rgba(28,20,16,.5);border:1px solid var(--border);border-radius:4px;max-width:100%}.footer-confidential strong{color:var(--accent);letter-spacing:.18em;text-transform:uppercase;font-size:9px;display:block;margin-bottom:10px}@media(max-width:760px){.doc{padding:40px 24px 80px}.conf-banner-inner{padding:0 24px}.cover-meta{flex-direction:column;align-items:flex-start;gap:8px}.cover-grid{grid-template-columns:repeat(2,1fr)}.toc-list{grid-template-columns:1fr}.exec{padding:32px 28px}.risk-banner{grid-template-columns:1fr;gap:28px}.risk-score{font-size:72px}.finding{grid-template-columns:1fr;gap:8px}.finding-num{padding-top:0}.roadmap-phase{padding:24px 22px}}
+  </style>
+</head>
+<body>
+
+<!-- Watermark Layer -->
+<div class="watermark-layer" aria-hidden="true">
+  <span style="top:8%;left:-5%">Confidential — The Ramble Hotel — Digital Audit — May 2026</span>
+  <span style="top:22%;left:15%">Confidential — The Ramble Hotel — Digital Audit — May 2026</span>
+  <span style="top:36%;left:-8%">Confidential — The Ramble Hotel — Digital Audit — May 2026</span>
+  <span style="top:50%;left:20%">Confidential — The Ramble Hotel — Digital Audit — May 2026</span>
+  <span style="top:64%;left:-3%">Confidential — The Ramble Hotel — Digital Audit — May 2026</span>
+  <span style="top:78%;left:10%">Confidential — The Ramble Hotel — Digital Audit — May 2026</span>
+  <span style="top:90%;left:-6%">Confidential — The Ramble Hotel — Digital Audit — May 2026</span>
+</div>
+
+<!-- Confidential Banner -->
+<div class="conf-banner" role="banner">
+  <div class="conf-banner-inner">
+    <span><span class="dot"></span>Confidential &amp; Privileged</span>
+    <span>The Ramble Hotel · Denver, CO · Digital Audit · May 2026</span>
+    <span>Not for Distribution</span>
+  </div>
+</div>
+
+<div class="doc">
+
+  <!-- ═══════════════════════════════════════════════
+       COVER
+  ════════════════════════════════════════════════ -->
+  <section class="cover">
+    <div class="cover-meta">
+      <div class="brandmark">Digital Hospitality Audit</div>
+      <div class="doc-meta">May 2026 · Confidential</div>
+    </div>
+
+    <div class="cover-eyebrow">Property Intelligence Report</div>
+
+    <h1 class="cover-title">
+      The Ramble<br>
+      <span class="accent">Hotel</span>
+    </h1>
+
+    <p class="cover-sub">
+      A comprehensive digital audit of website accessibility, marketing measurement, OTA distribution, and online reputation — prepared for ownership and management review.
+    </p>
+
+    <div class="cover-grid">
+      <div>
+        <div class="cover-stat-label">Property</div>
+        <div class="cover-stat-value" style="font-size:18px;line-height:1.3;">1280 25th Street<br>Denver, CO 80205</div>
+      </div>
+      <div>
+        <div class="cover-stat-label">Overall Rating</div>
+        <div class="cover-stat-value" style="color:var(--crit);">Critically<br><span style="font-size:18px;">in need</span></div>
+      </div>
+      <div>
+        <div class="cover-stat-label">ADA Litigation Risk</div>
+        <div class="cover-stat-value" style="color:var(--crit);">6.5 <span style="font-size:16px;color:var(--dim);font-family:var(--f-mono);">/ 10</span></div>
+      </div>
+      <div>
+        <div class="cover-stat-label">WCAG Level A Failures</div>
+        <div class="cover-stat-value" style="color:var(--crit);">5 <span style="font-size:18px;color:var(--dim);">categories</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       EXECUTIVE SUMMARY
+  ════════════════════════════════════════════════ -->
+  <section class="exec" id="exec-summary">
+    <div class="exec-label">Executive Summary</div>
+    <h2 class="exec-title">A design-forward property with meaningful digital exposure across accessibility, measurement, and distribution.</h2>
+
+    <p>The Ramble Hotel occupies a compelling position in Denver's RiNo Art District — a 50-room boutique property with a Michelin Guide listing, national media coverage (including the New York Times), Design Hotels membership, and Marriott Bonvoy bookability. Rates ranging from <strong>$316 to $427 per night</strong> place the property firmly in the luxury boutique segment. OTA scores are broadly strong: Booking.com ranks the hotel <strong>#2 of 138 Denver properties</strong>, and Expedia sits at <strong>9.6 / 10</strong>. Instagram shows an engaged community of <strong>31,000 followers</strong>.</p>
+
+    <p>Against that foundation, this audit identified significant and time-sensitive digital risks. Colorado is a <strong>high-filing ADA state</strong> — 33 federal ADA website cases were filed in the state in 2023, and HB21-1110 signals active legislative attention to accessibility compliance. The site's current posture — five confirmed WCAG Level A failure categories, an accessiBe overlay deployed without a compliant accessibility statement, and a viewport meta tag that blocks user zoom — meets the automatic trigger threshold for the <strong>"Critically in need"</strong> rating. The installed overlay, rather than mitigating risk, may compound it: 25% of 2024 ADA website lawsuits specifically targeted overlay-only implementations, and the FTC has taken enforcement action in this space.</p>
+
+    <p>Beyond accessibility, the audit found a Google Maps API key exposed in HTML source, no structured data markup for hotel rooms or the restaurant, zero native lazy loading on homepage images, jQuery 1.12.4 (released 2016) still in the dependency chain, no skip-navigation link, four empty anchor tags, and no Google Ads conversion tracking — meaning the property is building no remarketing audiences from paid traffic. TripAdvisor rank has declined to <strong>#68 of 170 Denver hotels</strong>, a position that warrants active review strategy.</p>
+
+    <p>The findings below are organized into four chapters and a prioritized remediation roadmap. Phase 1 actions — ADA remediation, API key rotation, and accessibility statement correction — should be treated as <strong>urgent and non-deferrable</strong>.</p>
+
+    <!-- Risk Banner -->
+    <div class="risk-banner">
+      <div class="risk-score-container">
+        <div class="risk-score">6.5<span class="of"> / 10</span></div>
+        <div class="risk-tier">Elevated Risk</div>
+      </div>
+      <div class="risk-summary">
+        Colorado's high-filing ADA litigation environment, combined with <strong>five confirmed WCAG Level A failure categories</strong> and an overlay-only remediation posture, creates measurable and immediate plaintiff-attraction risk for a property of this profile and rate tier.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       TABLE OF CONTENTS
+  ════════════════════════════════════════════════ -->
+  <nav class="toc" aria-label="Table of Contents">
+    <div class="toc-label">Contents</div>
+    <ul class="toc-list">
+      <li>
+        <a href="#ada-risk">ADA Litigation Risk Score</a>
+        <span class="toc-num">§ Risk</span>
+      </li>
+      <li>
+        <a href="#chapter-1">Website &amp; Accessibility</a>
+        <span class="toc-num">Ch. 1</span>
+      </li>
+      <li>
+        <a href="#chapter-2">Marketing &amp; Measurement</a>
+        <span class="toc-num">Ch. 2</span>
+      </li>
+      <li>
+        <a href="#chapter-3">Google &amp; OTA Distribution</a>
+        <span class="toc-num">Ch. 3</span>
+      </li>
+      <li>
+        <a href="#chapter-4">Social Media</a>
+        <span class="toc-num">Ch. 4</span>
+      </li>
+      <li>
+        <a href="#remediation">Recommended Remediation</a>
+        <span class="toc-num">§ Road</span>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
+       ADA LITIGATION RISK SCORE — DEDICATED SECTION
+  ════════════════════════════════════════════════ -->
+  <section class="chapter" id="ada-risk">
+    <div class="chapter-header">
+      <div class="chapter-num">ADA Litigation Risk · Colorado Trigger</div>
+      <h2 class="chapter-title">ADA Litigation Risk Score</h2>
+      <p class="chapter-lede">Colorado is a designated high-filing ADA state. This section documents the six-factor scoring model that produced a composite score of 6.5 / 10 — the threshold above which immediate remediation is non-optional.</p>
+    </div>
+
+    <div class="callout crit">
+      <div class="callout-label">Auto-Trigger #1 Active</div>
+      <div class="callout-body">
+        <strong>Colorado high-filing state designation + 5 confirmed WCAG Level A failure categories = "Critically in need" rating.</strong> This combination satisfies the automatic escalation trigger regardless of other factors. The score below reflects the full six-factor analysis.
+      </div>
+    </div>
+
+    <div class="score-card">
+      <!-- Factor 1 -->
+      <div class="score-row">
+        <div>
+          <div class="factor">Jurisdiction Risk — Colorado</div>
+          <div class="factor-sub">High-filing state · HB21-1110 proactive stance · 10th Circuit exposure · 33 federal ADA website cases in CO (2023)</div>
+        </div>
+        <div>
+          <div class="score-bar"><div class="score-fill high" style="width:50%"></div></div>
+        </div>
+        <div class="score-num">1.0 / 2.0</div>
+      </div>
+
+      <!-- Factor 2 -->
+      <div class="score-row">
+        <div>
+          <div class="factor">Vertical Exposure — Luxury Boutique Hotel</div>
+          <div class="factor-sub">NYT coverage · Michelin Guide listing · Design Hotels / Marriott Bonvoy · Death &amp; Co marquee F&amp;B — highly attractive plaintiff target</div>
+        </div>
+        <div>
+          <div class="score-bar"><div class="score-fill high" style="width:75%"></div></div>
+        </div>
+        <div class="score-num">1.5 / 2.0</div>
+      </div>
+
+      <!-- Factor 3 -->
+      <div class="score-row">
+        <div>
+          <div class="factor">Scanner-Visible WCAG Defects</div>
+          <div class="factor-sub">5 Level A failure categories confirmed from HTML source: empty alt on logos, no skip nav, empty anchors, form label absent, 13 empty alt on rooms page</div>
+        </div>
+        <div>
+          <div class="score-bar"><div class="score-fill high" style="width:75%"></div></div>
+        </div>
+        <div class="score-num">1.5 / 2.0</div>
+      </div>
+
+      <!-- Factor 4 -->
+      <div class="score-row">
+        <div>
+          <div class="factor">Posture &amp; Defenses</div>
+          <div class="factor-sub">ADA statement page exists at /ada-accessibility-statement/ (partial credit) — but: no WCAG conformance claim, no digital accessibility contact, no feedback link; accessiBe statementLink and feedbackLink are both empty strings</div>
+        </div>
+        <div>
+          <div class="score-bar"><div class="score-fill med" style="width:25%"></div></div>
+        </div>
+        <div class="score-num">0.5 / 1.0</div>
+      </div>
+
+      <!-- Factor 5 -->
+      <div class="score-row">
+        <div>
+          <div class="factor">Monetary Attractiveness</div>
+          <div class="factor-sub">KAYAK from $316–$427/night · 50-room boutique at luxury ADR · Design Hotels / Marriott affiliation signals institutional resources</div>
+        </div>
+        <div>
+          <div class="score-bar"><div class="score-fill high" style="width:75%"></div></div>
+        </div>
+        <div class="score-num">1.5 / 2.0</div>
+      </div>
+
+      <!-- Factor 6 — Mitigating -->
+      <div class="score-row">
+        <div>
+          <div class="factor">Mitigating Factors</div>
+          <div class="factor-sub">ADA statement page exists · Physical property ADA documentation is comprehensive · accessiBe installation demonstrates stated awareness of issue</div>
+        </div>
+        <div>
+          <div class="score-bar"><div class="score-fill low" style="width:50%"></div></div>
+        </div>
+        <div class="score-num">−0.5</div>
+      </div>
+
+      <div class="score-total">
+        <span class="score-total-label">Composite ADA Litigation Risk Score</span>
+        <span class="score-total-value">6.5 <span class="of">/ 10</span></span>
+      </div>
+    </div>
+
+    <div class="callout crit" style="margin-top:32px;">
+      <div class="callout-label">Overlay Warning</div>
+      <div class="callout-body">
+        The installed <strong>accessiBe overlay</strong> does not constitute WCAG conformance and may actively increase litigation risk. Approximately 25% of 2024 ADA website lawsuits targeted sites that relied solely on overlay tools, and the FTC has taken enforcement action in this space. The overlay's <code>statementLink</code> and <code>feedbackLink</code> parameters are both empty strings in the current initialization — the overlay itself is therefore non-compliant on its own stated terms.
+      </div>
+    </div>
+
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       CHAPTER 1 — WEBSITE & ACCESSIBILITY
+  ════════════════════════════════════════════════ -->
+  <section class="chapter" id="chapter-1">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 01</div>
+      <h2 class="chapter-title">Website &amp; Accessibility</h2>
+      <p class="chapter-lede">Five confirmed WCAG 2.1 Level A failure categories, a zoom-blocking viewport, an exposed API key, and a dependency stack anchored to 2016 — the site's technical foundation requires urgent structural remediation.</p>
+    </div>
+
+    <!-- Data Grid -->
+    <div class="data-grid">
+      <div class="data-cell">
+        <div class="data-label">Homepage img tags</div>
+        <div class="data-value">15</div>
+        <div class="data-note">4 empty alt, 1 missing alt attribute</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-label">Rooms page img tags</div>
+        <div class="data-value bad">32</div>
+        <div class="data-note">13 empty alt — WCAG 1.1.1 failure</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-label">Native lazy loading</div>
+        <div class="data-value bad">0</div>
+        <div class="data-note">No images use loading="lazy"</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-label">jQuery version</div>
+        <div class="data-value warn">1.12.4</div>
+        <div class="data-note">Released 2016 — EOL</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-label">WCAG Level A failures</div>
+        <div class="data-value bad">5</div>
+        <div class="data-note">Categories — auto-trigger threshold</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-label">Skip navigation</div>
+        <div class="data-value bad">None</div>
+        <div class="data-note">WCAG 2.4.1 — keyboard users blocked</div>
+      </div>
+    </div>
+
+    <!-- Finding 1.1 -->
+    <div class="finding">
+      <div class="finding-num">1.1</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-critical">Critical</span>
+          <span class="ref-tag">WCAG 1.1.1 · Level A</span>
+        </div>
+        <h3 class="finding-title">Empty and Missing Alt Text on Non-Decorative Images</h3>
+        <p class="finding-body">
+          Both logo images on the homepage carry <code>alt=""</code> — rendering them invisible to screen readers and marking them as decorative, which is incorrect for a brand identifier. Additionally, two content images of a named individual (Adam S.) carry empty alt attributes, and the Facebook pixel noscript image has no alt attribute at all. On the rooms page, <strong>13 of 32 images</strong> carry empty alt text — a failure affecting the primary revenue-generating page of the site.
+        </p>
+        <div class="finding-evidence">// Homepage — logo images
+&lt;img src="logo-with-title-white.png" alt=""&gt;          ← FAIL
+&lt;img src="logo-ramble-hotel-300x148.jpg" alt=""&gt;     ← FAIL
+
+// Homepage — content images
+&lt;img src="adam-s-[...].jpg" alt=""&gt;                  ← FAIL (×2)
+
+// Facebook Pixel noscript (no alt attribute at all)
+&lt;img height="1" width="1" style="display:none" src="https://www.facebook.com/..."&gt;  ← FAIL
+
+// Rooms page
+13 of 32 img tags: alt=""                              ← FAIL</div>
+      </div>
+    </div>
+
+    <!-- Finding 1.2 -->
+    <div class="finding">
+      <div class="finding-num">1.2</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-critical">Critical</span>
+          <span class="ref-tag">WCAG 2.4.1 · Level A</span>
+        </div>
+        <h3 class="finding-title">No Skip Navigation Link</h3>
+        <p class="finding-body">
+          The site does not implement a skip-navigation mechanism. Keyboard-only users and screen reader users are required to tab through the full navigation on every page load before reaching main content. This is a baseline WCAG 2.1 Level A requirement and one of the most commonly cited failures in ADA website litigation. Its absence, combined with the empty anchor tags documented in finding 1.3, creates a compounding keyboard navigation failure.
+        </p>
+        <div class="finding-evidence">// Expected pattern — not present anywhere in source
+&lt;a href="#main-content" class="skip-link"&gt;Skip to main content&lt;/a&gt;
+
+// Actual source — no skip link found in &lt;body&gt; opening</div>
+      </div>
+    </div>
+
+    <!-- Finding 1.3 -->
+    <div class="finding">
+      <div class="finding-num">1.3</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-critical">Critical</span>
+          <span class="ref-tag">WCAG 2.4.4 · Level A</span>
+        </div>
+        <h3 class="finding-title">Four Empty Anchor Tags — No Discernible Link Text</h3>
+        <p class="finding-body">
+          Four <code>&lt;a&gt;</code> elements in the page source contain no text, no aria-label, and no title attribute. Screen readers announce these as simply "link" with no destination context. This is a direct violation of WCAG 2.4.4 (Link Purpose) at Level A, and is one of the most easily automated-test-detected failures — meaning plaintiff tooling will find and document it within seconds.
+        </p>
+        <div class="finding-evidence">// 4 instances found — empty anchors
+&lt;a href="[url]"&gt;&lt;/a&gt;
+&lt;a href="[url]"&gt;&lt;/a&gt;
+&lt;a href="[url]"&gt;&lt;/a&gt;
+&lt;a href="[url]"&gt;&lt;/a&gt;
+
+// Screen reader output: "link" (no context)
+// Fix: add descriptive aria-label or visible text to each</div>
+      </div>
+    </div>
+
+    <!-- Finding 1.4 -->
+    <div class="finding">
+      <div class="finding-num">1.4</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-critical">Critical</span>
+          <span class="ref-tag">WCAG 1.3.1 · 1.3.5 · 3.3.2 · Level A</span>
+        </div>
+        <h3 class="finding-title">Email Subscription Field — Wrong Input Type, No Visible Label</h3>
+        <p class="finding-body">
+          The email subscription input uses <code>type="text"</code> instead of <code>type="email"</code>. This prevents mobile keyboards from displaying the email-optimized layout, prevents browser autofill from correctly identifying the field, and disables native format validation. More critically, the field has no associated <code>&lt;label&gt;</code> element — a WCAG 1.3.1 failure that breaks screen reader association between the field and its purpose. The combination of wrong type and absent label constitutes two simultaneous Level A failures on a single form element.
+        </p>
+        <div class="finding-evidence">// Actual source
+&lt;input type="text" placeholder="Your email address" name="email"&gt;
+
+// Required
+&lt;label for="newsletter-email"&gt;Email address&lt;/label&gt;
+&lt;input type="email" id="newsletter-email" name="email"
+       placeholder="your@email.com" autocomplete="email"&gt;</div>
+      </div>
+    </div>
+
+    <!-- Finding 1.5 -->
+    <div class="finding">
+      <div class="finding-num">1.5</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-critical">Critical</span>
+          <span class="ref-tag">WCAG 1.4.4 · Level AA · Zoom Blocking</span>
+        </div>
+        <h3 class="finding-title">Viewport Meta Blocks User Zoom</h3>
+        <p class="finding-body">
+          The page's viewport meta tag includes <code>maximum-scale=1</code>, which prevents users from pinching to zoom on mobile devices. This disproportionately affects users with low vision who rely on zoom as their primary magnification method and do not use a dedicated screen magnifier. WCAG 1.4.4 (Resize Text, Level AA) requires that text can be resized up to 200% without assistive technology — this implementation actively blocks that mechanism. While Level AA rather than Level A, this failure is frequently cited alongside Level A failures in ADA complaints.
+        </p>
+        <div class="finding-evidence">// Current — blocks zoom
+&lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"&gt;
+
+// Required — remove maximum-scale restriction
+&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</div>
+      </div>
+    </div>
+
+    <!-- Finding 1.6 -->
+    <div class="finding">
+      <div class="finding-num">1.6</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-critical">Critical</span>
+          <span class="ref-tag">Security · API Exposure</span>
+        </div>
+        <h3 class="finding-title">Google Maps API Key Exposed in HTML Source</h3>
+        <p class="finding-body">
+          A Google Maps JavaScript API key is plaintext-visible in the page HTML source. Any visitor who views source can extract this key and use it to make authenticated Google Maps API calls billed to the property's Google Cloud account. Depending on the key's scope and restriction settings, exposure could extend beyond Maps billing to other enabled Google Cloud services. This key should be rotated immediately, and the replacement key should be restricted by HTTP referrer domain.
+        </p>
+        <div class="finding-evidence">// Exposed in source — rotate immediately
+AIzaSyCUZKE8AmgTx5LPaBrpEaPvRUCrfJeyqDk
+
+// Remediation
+1. Rotate key in Google Cloud Console immediately
+2. Set HTTP referrer restriction: theramblehotel.com/*
+3. Restrict key scope to Maps JavaScript API only
+4. Enable billing alerts and daily quota limits</div>
+      </div>
+    </div>
+
+    <!-- Finding 1.7 -->
+    <div class="finding">
+      <div class="finding-num">1.7</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-moderate">Moderate</span>
+          <span class="ref-tag">WCAG 1.3.1 · Heading Hierarchy</span>
+        </div>
+        <h3 class="finding-title">Non-Sequential Heading Hierarchy Across Homepage and Rooms Page</h3>
+        <p class="finding-body">
+          The homepage heading structure reads H1 → H3 → H3 → H2 → H3: headings skip levels and then reverse direction, producing a document outline that assistive technologies cannot parse logically. The rooms page similarly skips from H1 directly to H3 then H4, with no H2. Screen readers use heading structure as the primary navigation mechanism for sighted-equivalent skimming — broken hierarchy removes this affordance entirely.
+        </p>
+        <div class="finding-evidence">// Homepage — broken sequence
+H1: "la GRANDE OUVERTURE"
+  H3: "Dine &amp; Drink"          ← skips H2
+  H3: "Rooms &amp; Suites"
+H2: "River North Art District"  ← H2 after H3 — reverses hierarchy
+  H3: [additional sections]
+
+// Rooms page — broken sequence
+H1: [page title]
+  H3: [room name]               ← skips H2
+    H4: [room detail]</div>
+      </div>
+    </div>
+
+    <!-- Finding 1.8 -->
+    <div class="finding">
+      <div class="finding-num">1.8</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-moderate">Moderate</span>
+          <span class="ref-tag">Performance · Core Web Vitals</span>
+        </div>
+        <h3 class="finding-title">No Native Lazy Loading on Homepage Images — jQuery 1.12.4</h3>
+        <p class="finding-body">
+          Zero of the 15 homepage images use the <code>loading="lazy"</code> attribute, meaning all images are fetched on initial page load regardless of viewport position. Combined with multiple render-blocking scripts, this materially degrades Largest Contentful Paint (LCP) and may suppress organic search rankings via Core Web Vitals signals. Additionally, jQuery 1.12.4 — released in 2016 and long past end-of-life — remains in the dependency stack, adding unnecessary payload and known vulnerability surface.
+        </p>
+        <div class="finding-evidence">// All homepage images — none use lazy loading
+&lt;img src="[...]" alt="[...]"&gt;  ← no loading="lazy" on any of 15 images
+
+// jQuery version in source
+jquery-1.12.4.min.js  ← released May 2016 — EOL
+
+// Recommendation
+- Add loading="lazy" to all below-fold images
+- Add fetchpriority="high" to hero / LCP image
+- Evaluate removing jQuery; replace with vanilla JS or upgrade to v3.x</div>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       CHAPTER 2 — MARKETING & MEASUREMENT
+  ════════════════════════════════════════════════ -->
+  <section class="chapter" id="chapter-2">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 02</div>
+      <h2 class="chapter-title">Marketing &amp; Measurement</h2>
+      <p class="chapter-lede">Tag infrastructure is partially in place, but gaps in conversion tracking, schema markup, and direct-book strategy leave meaningful revenue and audience intelligence on the table.</p>
+    </div>
+
+    <div class="data-grid">
+      <div class="data-cell">
+        <div class="data-label">GTM Container</div>
+        <div class="data-value ok">Present</div>
+        <div class="data-note"><code>GTM-M96CGHQ</code> — loads correctly in head</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-label">Meta Pixel</div>
+        <div class="data-value ok">Present</div>
+        <div class="data-note">ID <code>209049873001021</code> — fbq() + noscript confirmed</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-label">Google Ads AW Tag</div>
+        <div class="data-value bad">Absent</div>
+        <div class="data-note">Not found in HTML source or GTM</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-label">Consent Mode v2</div>
+        <div class="data-value ok">Correct</div>
+        <div class="data-note">Deny-by-default implemented via Moove GDPR</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-label">Hotel Schema</div>
+        <div class="data-value bad">None</div>
+        <div class="data-note">Only generic Yoast auto-generated WebPage/WebSite</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-label">Direct-Book Incentive</div>
+        <div class="data-value bad">None</div>
+        <div class="data-note">No best-rate guarantee or exclusive offers visible</div>
+      </div>
+    </div>
+
+    <!-- Finding 2.1 -->
+    <div class="finding">
+      <div class="finding-num">2.1</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-critical">Critical</span>
+          <span class="ref-tag">Structured Data · Schema.org</span>
+        </div>
+        <h3 class="finding-title">No Hotel, HotelRoom, Restaurant, or FAQPage Schema</h3>
+        <p class="finding-body">
+          The site's structured data is limited to the generic <code>WebPage</code>, <code>WebSite</code>, and <code>BreadcrumbList</code> types that Yoast SEO generates automatically. There is no <code>LodgingBusiness</code> or <code>Hotel</code> entity, no <code>HotelRoom</code> markup on the rooms page, no <code>Restaurant</code> schema for the Death &amp; Co Denver venue, and no <code>FAQPage</code> schema despite a dedicated <code>/faq/</code> page containing more than 20 question-and-answer pairs. Missing schema suppresses eligibility for rich results in Google Search, removes the property from potential Google Hotels enhanced listings, and reduces the signal quality Google uses to populate the Knowledge Panel.
+        </p>
+        <div class="finding-evidence">// Current structured data (Yoast auto-generated only)
+@type: WebPage
+@type: WebSite
+@type: BreadcrumbList
+
+// Missing — high-impact additions
+@type: LodgingBusiness / Hotel
+@type: HotelRoom (×N — rooms page)
+@type: Restaurant (Death &amp; Co Denver)
+@type: FAQPage (/faq/ — 20+ Q&amp;As present, zero markup)
+
+// Impact
+- No FAQ rich results in Google Search
+- No HotelRoom rich results
+- Reduced Google Hotels eligibility for enhanced display</div>
+      </div>
+    </div>
+
+    <!-- Finding 2.2 -->
+    <div class="finding">
+      <div class="finding-num">2.2</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-moderate">Moderate</span>
+          <span class="ref-tag">Paid Media · Conversion Tracking</span>
+        </div>
+        <h3 class="finding-title">No Google Ads Conversion Tag — Remarketing Audiences Not Building</h3>
+        <p class="finding-body">
+          No Google Ads AW tag (<code>AW-XXXXXXXXX</code>) was found in the HTML source or inferred from the GTM container. Without this tag, the property is building no Google Ads remarketing audiences from organic or paid website traffic, and no conversion events are available for Performance Max or Search campaign optimization. Given the SynXis booking engine integration, at minimum a booking-confirmation conversion action should be configured. Without audience data, any future Google Ads activation starts from zero with no historical signal.
+        </p>
+        <div class="finding-evidence">// Not found in source
+window.gtag('config', 'AW-XXXXXXXXX');  ← absent
+
+// Minimum viable setup
+1. Create Google Ads account conversion action for SynXis booking confirmation
+2. Implement AW tag via GTM
+3. Enable Google Ads audience lists: site visitors, rooms page viewers, booking abandoners
+4. Configure GA4 → Google Ads audience import</div>
+      </div>
+    </div>
+
+    <!-- Finding 2.3 -->
+    <div class="finding">
+      <div class="finding-num">2.3</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-moderate">Moderate</span>
+          <span class="ref-tag">Revenue Strategy · Direct Booking</span>
+        </div>
+        <h3 class="finding-title">No Direct-Book Incentive or Best-Rate Guarantee on Site</h3>
+        <p class="finding-body">
+          No best-rate guarantee, exclusive offer, or direct-book benefit is visible anywhere on theramblehotel.com. For a 50-room boutique property generating rates of $316–$427/night, OTA commission rates (typically 15–25%) represent a meaningful per-booking cost. Without a visible direct-book value proposition, the site effectively functions as a referral vehicle to OTA platforms. The Marriott Bonvoy affiliation creates additional complexity, but owned-channel messaging around exclusive packages, complimentary amenities, or flexible cancellation could shift a meaningful share of bookings from commission-bearing to direct.
+        </p>
+      </div>
+    </div>
+
+    <!-- Finding 2.4 -->
+    <div class="finding">
+      <div class="finding-num">2.4</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-positive">Positive</span>
+          <span class="ref-tag">Tag Management · Consent</span>
+        </div>
+        <h3 class="finding-title">GTM, Meta Pixel, and Consent Mode v2 Correctly Implemented</h3>
+        <p class="finding-body">
+          GTM container <code>GTM-M96CGHQ</code> is present and loads correctly in the document <code>&lt;head&gt;</code>. The Meta Pixel (ID <code>209049873001021</code>) is implemented via both the <code>fbq()</code> JavaScript call and the noscript fallback image. Google Consent Mode v2 is implemented with deny-by-default behavior via the Moove GDPR cookie banner — a technically correct posture for EU/UK compliance. These elements represent a solid measurement foundation on which additional tags (Google Ads AW, GA4 enhanced ecommerce) can be built without a full rebuild.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       CHAPTER 3 — GOOGLE & OTA DISTRIBUTION
+  ════════════════════════════════════════════════ -->
+  <section class="chapter" id="chapter-3">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 03</div>
+      <h2 class="chapter-title">Google &amp; OTA Distribution</h2>
+      <p class="chapter-lede">Booking.com and Expedia scores are genuinely outstanding. TripAdvisor rank is a concern. Google Hotels presence is confirmed; Performance Max for Travel activation is unconfirmed. Three forward test dates are established for ongoing monitoring.</p>
+    </div>
+
+    <div class="data-grid">
+      <div class="data-cell">
+        <div class="data-label">Booking.com Rank</div>
+        <div class="data-value ok">#2</div>
+        <div class="data-note">of 138 Denver hotels · Guests' Choice Award · 165 reviews</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-label">Expedia Score</div>
+        <div class="data-value ok">9.6</div>
+        <div class="data-note">/ 10 · 941 reviews</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-label">TripAdvisor Rank</div>
+        <div class="data-value bad">#68</div>
+        <div class="data-note">of 170 Denver hotels — position ≥21 triggers critical flag</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-label">Google Hotels</div>
+        <div class="data-value">4.6★</div>
+        <div class="data-note">455 reviews · confirmed in Denver searches</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-label">KAYAK from</div>
+        <div class="data-value">$316</div>
+        <div class="data-note">to $427 / night</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-label">TripAdvisor Rating</div>
+        <div class="data-value warn">4 / 5</div>
+        <div class="data-note">122 reviews — good rating, rank requires attention</div>
+      </div>
+    </div>
+
+    <!-- Finding 3.1 -->
+    <div class="finding">
+      <div class="finding-num">3.1</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-positive">Positive</span>
+          <span class="ref-tag">OTA · Booking.com</span>
+        </div>
+        <h3 class="finding-title">Booking.com — #2 of 138 Denver Hotels, Guests' Choice Award</h3>
+        <p class="finding-body">
+          The Ramble Hotel holds a <strong>#2 ranking among 138 Denver properties</strong> on Booking.com, accompanied by a Guests' Choice Award. Cleanliness scores 9.3, Location 9.6, and Value 9.7 — the last figure being particularly strong for a property at this rate tier and a meaningful differentiator. With 165 reviews, the review volume is relatively modest for the ranking position, indicating that maintaining quality standards and encouraging review submission will be important to sustain this position as the review base grows.
+        </p>
+        <div class="finding-evidence">Booking.com — as of audit date (May 2026)
+Rank:        #2 of 138 Denver hotels
+Award:       Guests' Choice
+Reviews:     165
+Cleanliness: 9.3
+Location:    9.6
+Value:       9.7</div>
+      </div>
+    </div>
+
+    <!-- Finding 3.2 -->
+    <div class="finding">
+      <div class="finding-num">3.2</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-positive">Positive</span>
+          <span class="ref-tag">OTA · Expedia</span>
+        </div>
+        <h3 class="finding-title">Expedia — 9.6/10 Across 941 Reviews</h3>
+        <p class="finding-body">
+          A 9.6 score on Expedia across 941 reviews represents both strong sentiment and statistically meaningful sample size for a 50-room property. This is a genuinely exceptional result. The review volume (941 vs. Booking's 165) suggests higher transaction share through Expedia channels — an opportunity to balance channel mix if direct booking rates improve.
+        </p>
+      </div>
+    </div>
+
+    <!-- Finding 3.3 -->
+    <div class="finding">
+      <div class="finding-num">3.3</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-critical">Critical</span>
+          <span class="ref-tag">OTA · TripAdvisor · Rank Alert</span>
+        </div>
+        <h3 class="finding-title">TripAdvisor — #68 of 170 Denver Hotels (Position ≥21 Critical Flag)</h3>
+        <p class="finding-body">
+          Despite a respectable 4/5 guest rating across 122 reviews, the property ranks <strong>#68 of 170 Denver hotels</strong> on TripAdvisor — a position that places it in the bottom 60% of the competitive set and triggers the critical rank flag (position ≥21). TripAdvisor rank is a composite of recency, volume, and quality; with only 122 reviews compared to Expedia's 941, the volume gap is likely the dominant suppressor. An active review solicitation strategy targeting TripAdvisor specifically — including post-stay email sequences and front-desk prompts — should be a near-term priority. Management response rate to existing reviews should also be audited.
+        </p>
+        <div class="finding-evidence">TripAdvisor — as of audit date (May 2026)
+Rating:   4 / 5
+Reviews:  122
+Rank:     #68 of 170 Denver hotels  ← critical threshold ≥21
+Action:   Review solicitation strategy required
+          Management response rate audit required</div>
+      </div>
+    </div>
+
+    <!-- Finding 3.4 -->
+    <div class="finding">
+      <div class="finding-num">3.4</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-moderate">Moderate</span>
+          <span class="ref-tag">Google Hotels · Performance Max</span>
+        </div>
+        <h3 class="finding-title">Google Hotels Listed at 4.6★ — Performance Max for Travel Unconfirmed</h3>
+        <p class="finding-body">
+          The Ramble Hotel appears in Denver hotel searches on Google Hotels at 4.6 stars across 455 reviews — a solid presence. However, Google Hotel Ads activation via Performance Max for Travel Goals could not be confirmed from HTML source analysis (no AW tag present, as noted in Chapter 2). Without confirmed Google Hotel Ads participation, the property may be yielding hotel search impression share to OTA partners who are actively bidding on these placements. Confirming and activating Google Hotel Ads through the SynXis rate feed connection should be evaluated.
+        </p>
+        <div class="finding-evidence">Google Hotels — as of audit date (May 2026)
+Stars:    4.6
+Reviews:  455
+Status:   Listed and appearing in Denver searches — confirmed
+
+Performance Max for Travel Goals: UNCONFIRMED
+  - No AW tag in HTML source
+  - Cannot confirm without Google Ads account access
+  - Recommend: verify with channel manager / SynXis rate feed status</div>
+      </div>
+    </div>
+
+    <!-- Finding 3.5 — Test Dates -->
+    <div class="finding">
+      <div class="finding-num">3.5</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-minor">Minor</span>
+          <span class="ref-tag">Google Hotels · Rate Parity · Monitoring</span>
+        </div>
+        <h3 class="finding-title">Google Hotels Forward Test Dates — Rate Parity Monitoring</h3>
+        <p class="finding-body">
+          Three forward check-in dates are established for ongoing rate parity and Google Hotels display monitoring. These dates should be checked on Google Hotels against the direct-book rate on theramblehotel.com and key OTA rates (Booking.com, Expedia) to confirm parity and assess OTA impression share.
+        </p>
+        <div class="finding-evidence">Audit date: Wednesday, May 5, 2026
+
+Test Date 1 — ≥4 weeks forward
+  Check-in:  Wednesday, June 3, 2026
+  Purpose:   Near-term rate parity and Google Hotels display check
+
+Test Date 2 — ≥2 months forward
+  Check-in:  Wednesday, July 8, 2026
+  Purpose:   Summer peak season rate parity and OTA share check
+
+Test Date 3 — ≥3 months forward
+  Check-in:  Wednesday, August 5, 2026
+  Purpose:   Extended horizon visibility and Performance Max confirmation
+
+For each date, verify:
+  □ Direct rate visible on Google Hotels (SynXis feed active)
+  □ Rate parity vs. Booking.com / Expedia for same dates
+  □ OTA impression share in hotel search results
+  □ Google Hotel Ads winner for each check-in date query</div>
+      </div>
+    </div>
+
+    <!-- Finding 3.6 -->
+    <div class="finding">
+      <div class="finding-num">3.6</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-positive">Positive</span>
+          <span class="ref-tag">Distribution · Affiliations</span>
+        </div>
+        <h3 class="finding-title">Design Hotels Membership + Michelin Guide Listing + Marriott Bonvoy</h3>
+        <p class="finding-body">
+          The Ramble Hotel's triple affiliation — Design Hotels membership, Michelin Guide listing, and Marriott Bonvoy bookability — represents exceptional distribution breadth for a 50-room independent boutique. Each affiliation drives a distinct traveler segment: Design Hotels attracts design-conscious international travelers, the Michelin listing drives F&amp;B-motivated guests, and Marriott Bonvoy provides access to one of the world's largest loyalty program databases. This multi-channel affiliation strategy is a genuine competitive advantage and should be prominently featured in site messaging and schema markup.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       CHAPTER 4 — SOCIAL MEDIA
+  ════════════════════════════════════════════════ -->
+  <section class="chapter" id="chapter-4">
+    <div class="chapter-header">
+      <div class="chapter-num">Chapter 04</div>
+      <h2 class="chapter-title">Social Media</h2>
+      <p class="chapter-lede">Instagram is a genuine strength. TikTok remains primarily UGC-driven without a clear owned strategy. No Google Ads remarketing audiences are building from any paid social or search traffic.</p>
+    </div>
+
+    <div class="data-grid">
+      <div class="data-cell">
+        <div class="data-label">Instagram Followers</div>
+        <div class="data-value ok">31K</div>
+        <div class="data-note">@theramblehotel · 737 posts · active</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-label">Instagram on Site</div>
+        <div class="data-value ok">Embedded</div>
+        <div class="data-note">4 most recent posts on homepage</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-label">Facebook</div>
+        <div class="data-value">Linked</div>
+        <div class="data-note">facebook.com/theramblehotel</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-label">TikTok</div>
+        <div class="data-value warn">UGC</div>
+        <div class="data-note">channel exists · primarily user-generated content</div>
+      </div>
+    </div>
+
+    <!-- Finding 4.1 -->
+    <div class="finding">
+      <div class="finding-num">4.1</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-positive">Positive</span>
+          <span class="ref-tag">Social · Instagram</span>
+        </div>
+        <h3 class="finding-title">Instagram — 31,000 Followers, Active Feed, Homepage Integration</h3>
+        <p class="finding-body">
+          <strong>@theramblehotel</strong> holds 31,000 followers across 737 posts with an active publishing cadence. The homepage embeds the four most recent posts via a live feed integration, creating a natural visual freshness signal for the site without requiring manual content updates. For a 50-room boutique property in an art district, this follower count reflects meaningful earned brand equity. The visual language of the feed — consistent with the property's design identity — is well-suited to the platform.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- Finding 4.2 -->
+    <div class="finding">
+      <div class="finding-num">4.2</div>
+      <div class="finding-content">
+        <div class="finding-meta">
+          <span class="severity sev-moderate">Moderate</span>
+          <span class="ref-tag">Paid Social · Remarketing</span>
+        </div>
+        <h3 class="finding-title">No Google Ads Remarketing Audiences Accumulating from Any Traffic Source</h3>
+        <p class="finding-body">
+          As documented in Chapter 2, no Google Ads AW tag is present. This means that website visitors driven by Meta paid social campaigns, organic Instagram traffic, or any other source are not being added to Google Ads audience pools. The Meta Pixel is in place, enabling Meta-side retargeting — but cross-platform remarketing (showing Google Display or Performance Max ads to Instagram visitors who did not convert) is not possible without the AW tag. Given the rate tier and booking consideration cycle, cross-platform retargeting typically delivers strong return on ad spend for this property type.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       REMEDIATION ROADMAP
+  ════════════════════════════════════════════════ -->
+  <section class="chapter" id="remediation">
+    <div class="chapter-header">
+      <div class="chapter-num">Recommended Remediation</div>
+      <h2 class="chapter-title">Four-Phase Remediation Roadmap</h2>
+      <p class="chapter-lede">Phase 1 actions are non-deferrable. The ADA and security items carry legal and financial exposure that increases daily without remediation.</p>
+    </div>
+
+    <div class="roadmap-phase">
+      <div class="roadmap-meta">
+        <span class="roadmap-phase-label">Phase 1 — Urgent</span>
+        <span class="roadmap-window">Weeks 1–3 · Non-Deferrable</span>
+      </div>
+      <h3 class="roadmap-title">ADA Remediation &amp; Security</h3>
+      <ul class="roadmap-list">
+        <li><strong>Rotate the exposed Google Maps API key immediately.</strong> Apply HTTP referrer restriction (theramblehotel.com/*) and restrict key scope to Maps JavaScript API only. Enable billing alerts.</li>
+        <li><strong>Remove maximum-scale=1 from the viewport meta tag.</strong> One-line change, zero visual impact, removes a WCAG 1.4.4 failure.</li>
+        <li><strong>Add descriptive alt text to all logo and non-decorative images</strong> on homepage and rooms page. Coordinate with developer on the 13 empty-alt images on the rooms page.</li>
+        <li><strong>Implement a skip-navigation link.</strong> Add a visually hidden skip link as the first focusable element in the body: <code>&lt;a href="#main-content" class="skip-link"&gt;Skip to main content&lt;/a&gt;</code>.</li>
+        <li><strong>Correct the email subscription input:</strong> change <code>type="text"</code> to <code>type="email"</code> and add an associated <code>&lt;label&gt;</code> element.</li>
+        <li><strong>Add aria-label attributes to the four empty anchor tags.</strong> Each should describe its destination or function.</li>
+        <li><strong>Update the ADA accessibility statement</strong> at /ada-accessibility-statement/ to include a WCAG conformance claim, digital accessibility contact email, and feedback mechanism. Update the accessiBe init to populate <code>statementLink</code> and <code>feedbackLink</code>.</li>
+        <li><strong>Evaluate the overlay strategy.</strong> Retain legal counsel to assess whether accessiBe alone is sufficient given Colorado's ADA litigation environment and the 2024 enforcement trend against overlay-only sites.</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-phase">
+      <div class="roadmap-meta">
+        <span class="roadmap-phase-label">Phase 2 — High Priority</span>
+        <span class="roadmap-window">Weeks 4–8</span>
+      </div>
+      <h3 class="roadmap-title">Structured Data &amp; Measurement</h3>
+      <ul class="roadmap-list">
+        <li><strong>Implement LodgingBusiness / Hotel schema</strong> on the homepage and primary property pages. Include name, address, telephone, priceRange, starRating, amenityFeature, and affiliation (Design Hotels, Michelin, Marriott Bonvoy).</li>
+        <li><strong>Add HotelRoom schema to each room type page</strong> with name, description, occupancy, bed details, and amenities.</li>
+        <li><strong>Implement FAQPage schema</strong> on /faq/ — 20+ Q&amp;As are present and unmarked. FAQ rich results in Google Search are high-visibility and require no new content.</li>
+        <li><strong>Add Restaurant schema</strong> for the Death &amp; Co Denver venue page.</li>
+        <li><strong>Implement Google Ads AW tag via GTM.</strong> Configure a booking-confirmation conversion action from the SynXis confirmation page. Create audience lists: all visitors, rooms page visitors, booking abandoners.</li>
+        <li><strong>Confirm GA4 implementation</strong> within GTM container. Verify enhanced measurement events and ecommerce tracking from SynXis booking flow.</li>
+        <li><strong>Fix heading hierarchy</strong> across homepage and rooms page to follow sequential H1 → H2 → H3 structure.</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-phase">
+      <div class="roadmap-meta">
+        <span class="roadmap-phase-label">Phase 3 — Growth</span>
+        <span class="roadmap-window">Months 2–4</span>
+      </div>
+      <h3 class="roadmap-title">Performance, Distribution &amp; Direct Booking</h3>
+      <ul class="roadmap-list">
+        <li><strong>Add loading="lazy" to all below-fold images</strong> and <code>fetchpriority="high"</code> to the hero / LCP image. Audit and reduce render-blocking scripts.</li>
+        <li><strong>Upgrade or remove jQuery 1.12.4.</strong> Evaluate jQuery dependency; migrate to vanilla JS or upgrade to v3.x minimum.</li>
+        <li><strong>Develop a direct-book value proposition</strong> — best-rate guarantee messaging, exclusive packages, or complimentary amenities for direct reservations. Implement as a persistent site element and in the booking flow entry.</li>
+        <li><strong>Confirm Google Hotel Ads / Performance Max for Travel</strong> activation via SynXis rate feed. If not active, initiate setup with Google account team or channel manager.</li>
+        <li><strong>Initiate TripAdvisor review volume strategy:</strong> post-stay email sequence with direct TripAdvisor link, front-desk prompt training, management response protocol. Target moving from #68 to top-30 within 6 months.</li>
+        <li><strong>Run Google Hotels rate parity checks</strong> on the three established test dates (June 3, July 8, August 5, 2026). Document direct vs. OTA rate delta for each.</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-phase">
+      <div class="roadmap-meta">
+        <span class="roadmap-phase-label">Phase 4 — Ongoing</span>
+        <span class="roadmap-window">Months 4–12</span>
+      </div>
+      <h3 class="roadmap-title">Content, Social &amp; Paid Activation</h3>
+      <ul class="roadmap-list">
+        <li><strong>Develop an owned TikTok content strategy.</strong> 4–6 short-form videos per month: Death &amp; Co moments, RiNo neighborhood walks, room reveals, staff storytelling. No large production budget required at launch.</li>
+        <li><strong>Activate Google Ads campaigns</strong> with the now-built audience lists and conversion tracking. Start with branded search protection and remarketing to rooms-page visitors.</li>
+        <li><strong>Implement cross-platform remarketing</strong> — show Google Display / Performance Max ads to users who arrived via Instagram organic or Meta paid and did not convert.</li>
+        <li><strong>Quarterly WCAG audit cadence.</strong> Schedule recurring accessibility reviews (automated + manual) to prevent regression. Document and retain results for legal protection.</li>
+        <li><strong>Monitor ADA accessibility statement compliance</strong> — update statement annually with current conformance status and any remediation progress.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════ -->
+  <footer class="doc-footer">
+    <div class="doc-footer-top">
+      <div class="footer-tagline">Prepared with care for The Ramble Hotel.</div>
+      <div class="footer-meta">
+        Digital Audit · May 2026<br>
+        theramblehotel.com · Denver, CO<br>
+        Confidential &amp; Privileged
+      </div>
+    </div>
+    <div class="footer-confidential">
+      <strong>Confidential</strong>
+      This document is prepared exclusively for the ownership and management of The Ramble Hotel, 1280 25th Street, Denver, CO 80205. It contains proprietary analysis, findings derived from technical examination of the property's digital presence, and strategic recommendations intended solely for internal review. This document is not for distribution, reproduction, or disclosure to third parties without express written consent. Nothing in this document constitutes legal advice; independent legal counsel should be retained for all ADA compliance and litigation risk matters. Findings reflect conditions as of the audit date (May 2026) and are subject to change as site implementations evolve.
+    </div>
+  </footer>
+
+</div><!-- end .doc -->
+</body>
+</html>
