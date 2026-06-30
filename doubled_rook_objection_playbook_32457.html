@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doubled Rook — The Onboarding Objection Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,opsz,wght@0,5..1200,400;0,5..1200,500;0,5..1200,600;0,5..1200,700;1,5..1200,400;1,5..1200,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#1C1410;
+    --card:#2E2018;
+    --hover:#3A2C22;
+    --accent:#D4956A;
+    --accent-light:#E8AD7E;
+    --text:#E8D5C0;
+    --muted:#A89080;
+    --dim:#6B5848;
+    --sage:#7A8B6F;
+    --border:rgba(212,149,106,0.12);
+    --border-hover:rgba(212,149,106,0.28);
+    --recess:rgba(0,0,0,0.22);
+    --display:'Playfair Display', Georgia, serif;
+    --body:'DM Sans', system-ui, sans-serif;
+    --mono:'IBM Plex Mono', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--body);
+    font-size:15px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:0 28px;}
+
+  /* ── HERO ── */
+  .hero{padding:72px 0 40px;border-bottom:1px solid var(--border);}
+  .brandline{display:flex;align-items:center;gap:14px;margin-bottom:40px;}
+  .rooks{flex:0 0 auto;}
+  .brandwords{font-family:var(--display);font-weight:500;font-size:15px;letter-spacing:0.34em;text-transform:uppercase;color:var(--accent);}
+  .eyebrow{font-family:var(--mono);font-size:10px;font-weight:400;letter-spacing:0.26em;text-transform:uppercase;color:var(--dim);margin-bottom:20px;}
+  .hero h1{font-family:var(--display);font-weight:400;font-size:clamp(38px,6vw,60px);line-height:1.04;letter-spacing:-0.015em;color:var(--text);max-width:14ch;}
+  .hero h1 em{font-style:italic;color:var(--accent);}
+  .hero .lede{font-family:var(--body);font-weight:400;font-size:17px;line-height:1.62;color:var(--muted);max-width:60ch;margin-top:26px;}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:34px;font-family:var(--mono);font-size:11px;letter-spacing:0.05em;color:var(--dim);}
+  .meta span strong{color:var(--accent);font-weight:500;}
+
+  /* ── HOW TO USE ── */
+  .howto{margin:44px 0 8px;background:var(--card);border:1px solid var(--border);border-left:2px solid var(--sage);border-radius:0 10px 10px 0;padding:26px 30px;}
+  .howto-h{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:14px;}
+  .howto-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .step{}
+  .step .n{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:0.1em;}
+  .step .t{font-family:var(--body);font-weight:600;font-size:13px;color:var(--text);margin:6px 0 4px;}
+  .step .d{font-size:12.5px;color:var(--muted);line-height:1.55;}
+
+  /* ── NAV: personas ── */
+  .pnav{display:flex;flex-wrap:wrap;gap:10px;margin:40px 0 18px;}
+  .pnav a{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:7px 14px;border:1px solid var(--border);border-radius:6px;transition:all .2s ease;}
+  .pnav a:hover{color:var(--accent);border-color:var(--border-hover);background:var(--hover);}
+
+  /* ── FILTER BAR (theme index) ── */
+  .filterbar{position:sticky;top:0;z-index:20;background:rgba(28,20,16,0.92);backdrop-filter:blur(10px);border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:0 -28px;padding:16px 28px;}
+  .filter-label{font-family:var(--mono);font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:11px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;}
+  .chip{font-family:var(--mono);font-size:10.5px;letter-spacing:0.04em;color:var(--muted);background:transparent;border:1px solid var(--border);border-radius:20px;padding:5px 12px;cursor:pointer;transition:all .18s ease;white-space:nowrap;}
+  .chip:hover{border-color:var(--border-hover);color:var(--text);}
+  .chip .ct{color:var(--dim);margin-left:5px;}
+  .chip.is-active{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:500;}
+  .chip.is-active .ct{color:rgba(28,20,16,0.6);}
+  .chip.all.is-active{background:var(--sage);border-color:var(--sage);}
+
+  /* ── PERSONA SECTIONS ── */
+  .persona{padding-top:54px;}
+  .persona-head{margin-bottom:8px;}
+  .persona-tag{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);}
+  .persona-title{font-family:var(--display);font-weight:400;font-size:30px;letter-spacing:-0.01em;color:var(--text);margin:8px 0 6px;}
+  .persona-sub{font-size:13.5px;color:var(--muted);max-width:64ch;line-height:1.6;}
+  .persona-divider{height:1px;background:linear-gradient(90deg,var(--border-hover),transparent);margin:22px 0 28px;}
+
+  /* ── CARD ── */
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:0;margin-bottom:18px;overflow:hidden;transition:border-color .25s ease;}
+  .card:hover{border-color:var(--border-hover);}
+  .card-tags{display:flex;flex-wrap:wrap;gap:6px;padding:18px 26px 0;}
+  .tag{font-family:var(--mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);background:rgba(212,149,106,0.08);border-radius:4px;padding:3px 8px;cursor:pointer;transition:background .18s ease;}
+  .tag:hover{background:rgba(212,149,106,0.2);}
+  .objection{padding:14px 26px 18px;border-bottom:1px solid var(--border);background:var(--recess);}
+  .objection .lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);margin-bottom:9px;}
+  .objection .q{font-family:var(--display);font-weight:400;font-style:italic;font-size:21px;line-height:1.34;color:var(--text);}
+  .objection .q::before{content:"\201C";color:var(--accent);}
+  .objection .q::after{content:"\201D";color:var(--accent);}
+  .body{padding:20px 26px 8px;}
+  .field{margin-bottom:16px;}
+  .field .lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
+  .field .lbl.under{color:var(--muted);}
+  .field p{font-size:14.5px;line-height:1.62;color:var(--muted);}
+  .field.counter p{color:var(--text);}
+  .sayline{margin:2px 26px 22px;padding:15px 18px;background:rgba(122,139,111,0.08);border-left:2px solid var(--sage);border-radius:0 8px 8px 0;}
+  .sayline .lbl{font-family:var(--mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:7px;}
+  .sayline p{font-family:var(--display);font-weight:400;font-size:16px;line-height:1.45;color:var(--text);}
+
+  /* ── PROOF PANEL ── */
+  .proof{margin:8px 0 4px;background:var(--card);border:1px solid var(--border);border-left:2px solid var(--accent);border-radius:0 12px 12px 0;padding:28px 30px;}
+  .proof-top{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .proof-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);}
+  .proof-note-top{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:0.04em;}
+  .proof-h{font-family:var(--display);font-weight:400;font-size:24px;letter-spacing:-0.01em;color:var(--text);margin:8px 0 6px;}
+  .proof-sub{font-size:13px;color:var(--muted);max-width:66ch;margin-bottom:22px;line-height:1.55;}
+  .proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .proof-case{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:20px 18px;}
+  .pc-label{font-family:var(--mono);font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);margin-bottom:8px;}
+  .pc-title{font-family:var(--display);font-weight:500;font-size:16px;line-height:1.26;color:var(--text);margin-bottom:16px;}
+  .pc-stats{display:flex;gap:20px;margin-bottom:14px;}
+  .pc-num{font-family:var(--mono);font-weight:500;font-size:23px;color:var(--accent);line-height:1;}
+  .pc-cap{font-family:var(--mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:6px;}
+  .pc-desc{font-size:12.5px;color:var(--muted);line-height:1.52;border-top:1px solid var(--border);padding-top:12px;}
+  .proof-foot{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:0.03em;margin-top:18px;line-height:1.5;}
+  @media (max-width:720px){.proof-grid{grid-template-columns:1fr;}.proof-case{padding:18px;}}
+
+  .noresult{display:none;text-align:center;padding:60px 0;font-family:var(--display);font-style:italic;font-size:20px;color:var(--dim);}
+
+  /* ── FOOTER ── */
+  .foot{margin-top:72px;padding:40px 0 90px;border-top:1px solid var(--border);}
+  .foot-thesis{font-family:var(--display);font-weight:400;font-size:22px;line-height:1.4;color:var(--muted);max-width:58ch;}
+  .foot-thesis em{font-style:italic;color:var(--accent);}
+  .foot-row{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:14px;margin-top:32px;}
+  .foot-brand{font-family:var(--display);font-weight:500;font-size:14px;letter-spacing:0.24em;text-transform:uppercase;color:var(--muted);}
+  .foot-tag{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;color:var(--dim);}
+
+  /* ── RESPONSIVE ── */
+  @media (max-width:720px){
+    .wrap{padding:0 18px;}
+    .filterbar{margin:0 -18px;padding:14px 18px;}
+    .howto-grid{grid-template-columns:1fr 1fr;}
+    .hero{padding:48px 0 32px;}
+    .persona-title{font-size:25px;}
+    .objection .q{font-size:18px;}
+  }
+  @media (max-width:430px){
+    .howto-grid{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+
+  /* ── PRINT ── */
+  @media print{
+    body{background:#fff;color:#1a1208;font-size:11px;}
+    .filterbar,.pnav,.howto{display:none !important;}
+    .card,.persona{display:block !important;page-break-inside:avoid;}
+    .card{border:1px solid #ccc;background:#fff;}
+    .objection{background:#f6f1ea;}
+    .objection .q,.field.counter p,.sayline p,.persona-title,.hero h1{color:#1a1208;}
+    .field p{color:#3a3028;}
+    .sayline{background:#f2f4ef;}
+    .hero{padding:0 0 18px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ───────── HERO ───────── -->
+  <header class="hero">
+    <div class="brandline">
+      <svg class="rooks" width="46" height="39" viewBox="72 65 80 68" fill="none" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" aria-hidden="true">
+        <g><g stroke="var(--accent)" fill="none" transform="translate(49.79044,20)"><path d="m 38,105 4,-4 h 26 l 4,4 -4,4 H 42 Z" stroke-width="1"/><path d="m 42,101 3,-15 h 20 l 3,15" stroke-width="1"/><path d="m 45,86 3,-15 h 14 l 3,15" stroke-width="1"/><path d="m 48,71 -4,-7 h 22 l -4,7" stroke-width="1"/><path d="m 44,64 -2,-3 h 26 l -2,3" stroke-width="1"/><path d="M 42,61 V 51 h 4.5 v 5 H 51 v -5 h 4 v 5 h 4 v -5 h 4.5 v 5 H 68 v 5" stroke-width="1"/></g></g>
+        <g><g stroke="var(--accent)" fill="none" opacity="0.45" transform="matrix(-1,0,0,1,173.79044,20)"><path d="m 38,105 4,-4 h 26 l 4,4 -4,4 H 42 Z" stroke-width="0.9"/><path d="m 42,101 3,-15 h 20 l 3,15" stroke-width="0.9"/><path d="m 45,86 3,-15 h 14 l 3,15" stroke-width="0.9"/><path d="m 48,71 -4,-7 h 22 l -4,7" stroke-width="0.9"/><path d="m 44,64 -2,-3 h 26 l -2,3" stroke-width="0.9"/><path d="M 42,61 V 51 h 4.5 v 5 H 51 v -5 h 4 v 5 h 4 v -5 h 4.5 v 5 H 68 v 5" stroke-width="0.9"/></g></g>
+      </svg>
+      <span class="brandwords">Doubled Rook</span>
+    </div>
+
+    <div class="eyebrow">Sales Enablement · Internal Playbook</div>
+    <h1>The Onboarding <em>Objection</em> Playbook</h1>
+    <p class="lede">Every property team brings the same handful of openings to the table before they sign — about cost, control, risk, attribution, and whether an outside agency is worth the disruption. None of them are deal-killers. They're predictable moves with prepared responses. This is the answer book, organized by who's across the table and by what's really driving the question.</p>
+
+    <div class="meta">
+      <span><strong>46</strong> objections</span>
+      <span><strong>3</strong> personas + universal</span>
+      <span><strong>13</strong> themes</span>
+      <span>doubledrook.com</span>
+    </div>
+  </header>
+
+  <!-- ───────── HOW TO USE ───────── -->
+  <div class="howto">
+    <div class="howto-h">How each card works</div>
+    <div class="howto-grid">
+      <div class="step">
+        <div class="n">01</div>
+        <div class="t">The objection</div>
+        <div class="d">What they actually say, in their own words.</div>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <div class="t">What's underneath</div>
+        <div class="d">The real fear or driver behind the words.</div>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <div class="t">The counter</div>
+        <div class="d">The reframe — anchored to how Doubled Rook actually works.</div>
+      </div>
+      <div class="step">
+        <div class="n">04</div>
+        <div class="t">Say this</div>
+        <div class="d">One tight, sayable line you can use on the call.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───────── VERIFIED RESULTS · PROOF AMMUNITION ───────── -->
+  <section class="proof">
+    <div class="proof-top">
+      <div class="proof-eyebrow">Verified Results · The proof on the board</div>
+      <div class="proof-note-top">Published live · doubledrook.com/#cases</div>
+    </div>
+    <h2 class="proof-h">Three engagements you can put on the table</h2>
+    <p class="proof-sub">When proof gets challenged anywhere in this playbook — O4, O6, O7, U6 — these are the receipts. Real outcomes, published on the site, anonymized for client confidentiality. Lead with these instead of a logo wall.</p>
+    <div class="proof-grid">
+
+      <div class="proof-case">
+        <div class="pc-label">Client A · Direct Booking Breakout</div>
+        <div class="pc-title">Conversion nearly doubled; revenue up sharply</div>
+        <div class="pc-stats">
+          <div><div class="pc-num">+44%</div><div class="pc-cap">YoY Revenue</div></div>
+          <div><div class="pc-num">+98%</div><div class="pc-cap">Conv. rate</div></div>
+        </div>
+        <div class="pc-desc">$3.42M vs $2.37M revenue · transactions +64% · acquisition and onsite conversion rebuilt together.</div>
+      </div>
+
+      <div class="proof-case">
+        <div class="pc-label">Client B · Steady Ecommerce Growth</div>
+        <div class="pc-title">Reliable, profitable growth in a live operation</div>
+        <div class="pc-stats">
+          <div><div class="pc-num">+9.6%</div><div class="pc-cap">YoY Revenue</div></div>
+          <div><div class="pc-num">+12%</div><div class="pc-cap">Transactions</div></div>
+        </div>
+        <div class="pc-desc">$2.54M vs $2.32M revenue · the un-flashy graph that proves consistency, not a one-off spike.</div>
+      </div>
+
+      <div class="proof-case">
+        <div class="pc-label">Client C · Freefall to Comeback</div>
+        <div class="pc-title">An eight-month decline, reversed</div>
+        <div class="pc-stats">
+          <div><div class="pc-num">+$102K</div><div class="pc-cap">Jan Rev. lift</div></div>
+          <div><div class="pc-num">3.77%</div><div class="pc-cap">Jan Conv. rate</div></div>
+        </div>
+        <div class="pc-desc">Conversion 2.63% → 3.77% · 79 RFPs in January · CRO + lower-funnel PPC + metasearch. A true turnaround.</div>
+      </div>
+
+    </div>
+    <div class="proof-foot">Figures as published at doubledrook.com/#cases. Anonymized for client confidentiality; full breakdowns available on request.</div>
+  </section>
+
+  <!-- ───────── PERSONA NAV ───────── -->
+  <nav class="pnav">
+    <a href="#owner">Owner / Asset Manager</a>
+    <a href="#gm">General Manager</a>
+    <a href="#dorm">Director of Revenue / Marketing</a>
+    <a href="#universal">Universal</a>
+  </nav>
+
+  <!-- ───────── FILTER BAR ───────── -->
+  <div class="filterbar">
+    <div class="filter-label">Filter by theme — the same objections, sorted by what's driving them</div>
+    <div class="chips" id="chips">
+      <button class="chip all is-active" data-filter="all">All<span class="ct"></span></button>
+      <button class="chip" data-filter="cost">Cost &amp; ROI<span class="ct"></span></button>
+      <button class="chip" data-filter="trust">Trust &amp; Proof<span class="ct"></span></button>
+      <button class="chip" data-filter="measure">Measurement<span class="ct"></span></button>
+      <button class="chip" data-filter="control">Control &amp; Approvals<span class="ct"></span></button>
+      <button class="chip" data-filter="ops">Operational Load<span class="ct"></span></button>
+      <button class="chip" data-filter="politics">Role &amp; Politics<span class="ct"></span></button>
+      <button class="chip" data-filter="fit">Fit &amp; Specialization<span class="ct"></span></button>
+      <button class="chip" data-filter="vendors">Existing Vendors<span class="ct"></span></button>
+      <button class="chip" data-filter="flag">Brand / Flag<span class="ct"></span></button>
+      <button class="chip" data-filter="ota">OTA &amp; Channel<span class="ct"></span></button>
+      <button class="chip" data-filter="exit">Contract &amp; Exit<span class="ct"></span></button>
+      <button class="chip" data-filter="scale">Capacity &amp; Scale<span class="ct"></span></button>
+      <button class="chip" data-filter="timing">Timing<span class="ct"></span></button>
+    </div>
+  </div>
+
+  <div class="noresult" id="noresult">No objections in this theme.</div>
+
+  <!-- ═════════ OWNER / ASSET MANAGER ═════════ -->
+  <section class="persona" id="owner">
+    <div class="persona-head">
+      <div class="persona-tag">Persona 01 · The check-writer</div>
+      <h2 class="persona-title">Owner &amp; Asset Manager</h2>
+      <p class="persona-sub">Optimizes for return on capital, downside protection, and comp-set performance. Sees marketing as a line on the P&amp;L and wants to know it earns its keep. Skeptical of agency promises and allergic to lock-in.</p>
+    </div>
+    <div class="persona-divider"></div>
+
+    <!-- O1 -->
+    <article class="card" data-themes="vendors cost">
+      <div class="card-tags"><span class="tag" data-jump="vendors">Existing Vendors</span><span class="tag" data-jump="cost">Cost &amp; ROI</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">I'm already paying my management company and brand for marketing. Why pay you on top?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Fear of duplicate spend. Assumes the flag and the manager already cover this ground.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Brand and management marketing is built for the flag's averages, not your property's specifics — it rarely touches your vanity site, local SEO, OTA content and ads, AEO/GEO, or lifecycle email at the property level. We operate the levers your property actually controls, and charge no commission on media, so the spend you're already running works harder without a percentage skim. The kickoff audit shows exactly where the brand program stops and the gaps begin.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>The brand markets the flag. We market your four walls — and we don't take a cut of your media.</p></div>
+    </article>
+
+    <!-- O2 -->
+    <article class="card" data-themes="cost measure">
+      <div class="card-tags"><span class="tag" data-jump="cost">Cost &amp; ROI</span><span class="tag" data-jump="measure">Measurement</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">Show me the ROI. How do I know this returns more than it costs?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>The owner needs the math to pencil and is wary of agency vagueness dressed up as confidence.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>We don't lead with a promised number — we lead with a baseline. The engagement opens with a tracking audit, comp-set review, and opportunity map, so within the first weeks you can see your current direct mix, the leaks, and the realistic upside before the engine scales. A flat fee with zero media commission means your cost is fixed and predictable, so ROI is measured against a known number, not a moving percentage.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>I'll show you the baseline and the leaks first. You decide if the upside pencils — before the spend scales.</p></div>
+    </article>
+
+    <!-- O3 -->
+    <article class="card" data-themes="cost timing">
+      <div class="card-tags"><span class="tag" data-jump="cost">Cost &amp; ROI</span><span class="tag" data-jump="timing">Timing</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">Marketing is the first thing I cut when the market softens.</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Treats marketing as discretionary cost rather than demand insurance.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>A soft market is exactly when direct mix and tight attribution protect margin — every point you shift off OTA commission drops to the bottom line when you need it most. Cutting marketing usually means leaning harder on OTAs at 15–25% commission right when you can least afford it. And the tiers let you scale down to Foundations rather than going dark.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>In a soft market, the cut isn't marketing — it's the OTA commission you pay when you go dark.</p></div>
+    </article>
+
+    <!-- O4 -->
+    <article class="card" data-themes="trust">
+      <div class="card-tags"><span class="tag" data-jump="trust">Trust &amp; Proof</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">Every agency promises direct-booking lift. What makes yours real?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Heard the pitch before. Pattern-matches all agencies as interchangeable.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Most agencies promise the outcome and bill on a percentage of the spend that produces it — their incentive grows with your budget. We charge a flat fee with no media commission, so we're paid the same whether your spend is $5k or $50k. The only way this works for us is if the efficiency improves. And the plan is built from the operator's seat — the founder ran this work property-side through turnaround portfolios — not from a generic agency template. These aren't projections: recent engagements include a 44% revenue lift with a near-doubled conversion rate, and a turnaround that reversed an eight-month decline — both published above.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>Other agencies get paid more when you spend more. We don't. Our only lever is making it work better.</p></div>
+    </article>
+
+    <!-- O5 -->
+    <article class="card" data-themes="scale trust">
+      <div class="card-tags"><span class="tag" data-jump="scale">Capacity &amp; Scale</span><span class="tag" data-jump="trust">Trust &amp; Proof</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">You're a newer, smaller shop. What if you can't scale with me, or you fold?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Continuity risk. Doesn't want to bet the property on a single-point dependency.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Boutique means principal-level attention instead of being account #340 handed to a junior. Everything is built on documented systems from kickoff, and you retain ownership of every account, asset, and data source — so there's no hostage situation if we ever part ways. We size the engagement to your property, and the à la carte structure lets you expand as you grow rather than buying capacity you don't need.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>You keep every account and every login. The work is yours — we're the operator, not the owner of it.</p></div>
+    </article>
+
+    <!-- O6 -->
+    <article class="card" data-themes="trust measure">
+      <div class="card-tags"><span class="tag" data-jump="trust">Trust &amp; Proof</span><span class="tag" data-jump="measure">Measurement</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">I've been burned before — paid for dashboards, never saw revenue.</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Scar tissue from a vanity-metrics agency that reported activity instead of revenue.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Dashboard theatre is the failure mode we're built against — reporting that tracks impressions and engagement while revenue sits flat. We tie reporting to direct mix, booking-path friction, and channel efficiency, and we fix the measurement first so the numbers mean something. If the GA4/GTM setup is broken at kickoff — it usually is — every report after that is fiction until it's repaired. The results we publish are revenue, conversion, and transactions — not impressions.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>If your last agency showed you impressions, they were hiding from the only number that matters.</p></div>
+    </article>
+
+    <!-- O7 -->
+    <article class="card" data-themes="measure">
+      <div class="card-tags"><span class="tag" data-jump="measure">Measurement</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">Prove the incremental revenue is yours, not just market tailwind.</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Sophisticated owner who won't let an agency claim credit for the market.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Fair — and most agencies dodge it. We set a pre-engagement baseline and a comp-set benchmark at kickoff specifically so lift reads against the market, not just against last year. We report on the channels we actually run and reconcile to your revenue manager's source of truth, rather than claiming the whole RevPAR move. Where the market is doing the work, we'll say so. The turnaround in our Verified Results — reversing an eight-month decline — is the cleanest version of this: lift a rising market can't explain.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>We set the baseline against your comp set on day one — so we can both tell our work apart from the market's.</p></div>
+    </article>
+
+    <!-- O8 -->
+    <article class="card" data-themes="timing">
+      <div class="card-tags"><span class="tag" data-jump="timing">Timing</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">We're mid-transition — a sale, a refi, a brand change. Now's not the time.</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Bandwidth and uncertainty. Doesn't want to start something that might be undone.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Transitions are when digital drift does the most damage — listings go stale, tracking breaks, and direct demand erodes quietly while attention is elsewhere. A Foundations engagement keeps the essentials current and the measurement intact through the transition without adding to the team's load. And a clean, well-attributed direct channel is an asset that shows up in the sale or refi narrative.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>A transition is exactly when the digital footprint slips. We hold the line so it's an asset at closing, not a cleanup.</p></div>
+    </article>
+
+    <!-- O9 -->
+    <article class="card" data-themes="cost fit">
+      <div class="card-tags"><span class="tag" data-jump="cost">Cost &amp; ROI</span><span class="tag" data-jump="fit">Fit &amp; Specialization</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">Why an agency at all? Shouldn't my GM or DORM own this?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Reluctant to add cost when there's already staff on payroll.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Your GM and DORM own the strategy and the property. What they almost never have is the hours to run paid media, rebuild the vanity site, chase listings, produce creative, and keep AEO/GEO current on top of running the hotel. We're the execution layer that frees them to do the high-value work, not a replacement for it. At a flat fee with creative included, it's a fraction of a single in-house hire with a far wider skill set.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>Your team owns the strategy. We own the 200 hours a month of execution they don't have.</p></div>
+    </article>
+
+    <!-- O10 -->
+    <article class="card" data-themes="exit">
+      <div class="card-tags"><span class="tag" data-jump="exit">Contract &amp; Exit</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">What am I locked into? I won't sign a long contract for unproven work.</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Exit risk. Fear of being stuck paying for non-performance.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>The kickoff audit and opportunity map are designed to prove competence before the long game — you see the diagnosis and the plan early. You own all accounts and data throughout, so leaving is clean, not punitive. We'd rather earn the renewal each quarter than trap you in a term you regret.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>You keep your accounts and your data the whole way through. We earn the next quarter — we don't trap you in it.</p></div>
+    </article>
+  </section>
+
+  <!-- ═════════ GENERAL MANAGER ═════════ -->
+  <section class="persona" id="gm">
+    <div class="persona-head">
+      <div class="persona-tag">Persona 02 · The operator on the floor</div>
+      <h2 class="persona-title">General Manager</h2>
+      <p class="persona-sub">Optimizes for operational simplicity and a calm building. Accountable for the P&amp;L but time-poor. Protective of the property's image and wary of anything that adds to the team's plate or risks going live without a sign-off.</p>
+    </div>
+    <div class="persona-divider"></div>
+
+    <!-- G1 -->
+    <article class="card" data-themes="ops">
+      <div class="card-tags"><span class="tag" data-jump="ops">Operational Load</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">I don't have time to manage another vendor.</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Vendor fatigue. Assumes managing the agency is itself a job.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>The point of the engagement is to remove work from your plate, not add a management task. After a bounded kickoff, the cadence is a single recurring call and an approval queue you clear on your own schedule — we manage the platforms, the creative, and the listings so you don't. The agency that needs constant babysitting is the one to worry about; this one is built to run quietly.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>You're not managing us. You're approving — and getting time back.</p></div>
+    </article>
+
+    <!-- G2 -->
+    <article class="card" data-themes="ops">
+      <div class="card-tags"><span class="tag" data-jump="ops">Operational Load</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">My team is stretched. I can't absorb an onboarding right now.</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>A real bandwidth ceiling. Onboarding feels like a project the team can't take on.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Onboarding is front-loaded onto us — we run the tracking audit, pull the listings, and build the baseline. What we need from your team is access and a few hours of context, not a project. We sequence it so the property's lift is minimal and time-boxed, and Foundations exists precisely for teams that need the essentials handled without the heavy lift.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>Onboarding is our work, not yours. Give us access and a couple of hours — we take it from there.</p></div>
+    </article>
+
+    <!-- G3 -->
+    <article class="card" data-themes="trust scale">
+      <div class="card-tags"><span class="tag" data-jump="trust">Trust &amp; Proof</span><span class="tag" data-jump="scale">Capacity &amp; Scale</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">Who's actually doing the work — you, or juniors and offshore?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Wants to know they're not paying premium for a body shop.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>This is founder-led and operator-built — the person who diagnoses your property is the person accountable for the work, not a pod of rotating juniors. That's the trade-off of boutique: fewer clients, principal attention. Where we use automation, it's to do the repetitive work faster, with a human owning the output.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>The person in your kickoff is the person on the hook. No handoff to a junior bench.</p></div>
+    </article>
+
+    <!-- G4 -->
+    <article class="card" data-themes="fit">
+      <div class="card-tags"><span class="tag" data-jump="fit">Fit &amp; Specialization</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">Will you get our voice, or make us sound generic and corporate?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Protective of property character. Fears brand homogenization that flattens what makes them distinct.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Generic is the enemy of a boutique property's entire value proposition — flattening your voice would defeat the point of hiring a boutique-focused agency. We start by auditing your existing voice and content, and everything runs through your approval before it's live. Our own brand is editorial and specific on purpose; we treat yours the same way.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>Sounding like everyone else is how boutique hotels lose. We protect the voice — and you approve every word.</p></div>
+    </article>
+
+    <!-- G5 -->
+    <article class="card" data-themes="control">
+      <div class="card-tags"><span class="tag" data-jump="control">Control &amp; Approvals</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">I need sign-off. Nothing goes live without my approval.</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Control over the public-facing image — non-negotiable for most GMs.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>That's built in, not a concession. The content approval workflow means the property reviews and signs off before anything publishes, with a shared calendar so you always see what's queued. You hold the final yes. We move faster when approvals are timely, but the gate is always yours.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>Nothing publishes without your yes. The approval gate is a feature, not a favor.</p></div>
+    </article>
+
+    <!-- G6 -->
+    <article class="card" data-themes="vendors">
+      <div class="card-tags"><span class="tag" data-jump="vendors">Existing Vendors</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">We already have someone — a coordinator, a freelancer, the brand's program.</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Sees overlap. Doesn't want to pay twice or displace a person they like.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>We often work alongside an in-house coordinator or freelancer rather than replacing them — they handle day-to-day capture and posting, we bring the paid media, measurement, SEO/AEO, and OTA strategy they're not resourced for. The kickoff audit maps exactly what's covered and what's leaking, so you see the gap before deciding. If the freelancer is enough, we'll tell you.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>We don't replace your coordinator — we cover the strategy and measurement they were never resourced to run.</p></div>
+    </article>
+
+    <!-- G7 -->
+    <article class="card" data-themes="timing">
+      <div class="card-tags"><span class="tag" data-jump="timing">Timing</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">How fast do I see something? I can't wait six months.</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Needs an early signal to justify the spend internally and to ownership.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>The first weeks produce something tangible — the audit, the fixed tracking, the listings cleanup, and the opportunity map are visible deliverables, not a black box. Paid media and listing fixes can move within the first cycle; SEO and authority compound over months. We're explicit about what's fast and what's slow so there are no surprises at the 90-day mark.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>You see the audit and the fixes in weeks. We tell you up front what's fast and what compounds.</p></div>
+    </article>
+
+    <!-- G8 -->
+    <article class="card" data-themes="ops control">
+      <div class="card-tags"><span class="tag" data-jump="ops">Operational Load</span><span class="tag" data-jump="control">Control &amp; Approvals</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">What do you need from me and my team every week?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Wants the true ongoing cost in hours before committing.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Steady-state, the ask is small: timely content approvals, access to brand assets and photography, and occasionally a staffer grabbing short casual video for Stories. That last one is recommended at every tier because it lifts organic reach for free — but it's minutes, not a production. The heavy lifting stays with us.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>Weekly: approve the queue, share assets, and grab the occasional phone video. That's it.</p></div>
+    </article>
+
+    <!-- G9 -->
+    <article class="card" data-themes="flag">
+      <div class="card-tags"><span class="tag" data-jump="flag">Brand / Flag</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">Our flag restricts brand.com changes and which vendors we can use.</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Franchise constraints are real. Doesn't want to buy something they can't actually deploy.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>We work inside franchise rules, not against them. The engine runs on the levers franchisees actually control: your vanity site, local SEO, OTA content and ads, Meta, email, and AEO/GEO — plus optimizing the brand co-op programs you're entitled to: Marriott PLUS, Hilton Amplify, IHG Boost, and the rest. Where brand.com is locked, we focus where you have authority and squeeze the brand programs harder. The kickoff maps what's in-bounds for your specific flag.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>We don't fight your flag — we run the levers you control and max out the brand programs you already pay into.</p></div>
+    </article>
+
+    <!-- G10 -->
+    <article class="card" data-themes="ops fit">
+      <div class="card-tags"><span class="tag" data-jump="ops">Operational Load</span><span class="tag" data-jump="fit">Fit &amp; Specialization</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">We don't have photo and video assets, and we can't host shoots constantly.</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Content is the perennial bottleneck. Fears an endless production demand they can't sustain.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>We build from what exists first — editing and recutting your current footage into Reels-ready content before asking for anything new. Quarterly on-property planning (Premium) handles the bigger shoots in a single coordinated block, not a constant ask. And the free, high-leverage habit is a staffer grabbing short casual clips for Stories — no crew required.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>We make your existing footage work first, batch the real shoots quarterly, and the rest is phone video.</p></div>
+    </article>
+  </section>
+
+  <!-- ═════════ DIRECTOR OF REVENUE / MARKETING ═════════ -->
+  <section class="persona" id="dorm">
+    <div class="persona-head">
+      <div class="persona-tag">Persona 03 · The domain expert</div>
+      <h2 class="persona-title">Director of Revenue &amp; Marketing</h2>
+      <p class="persona-sub">Optimizes for rigor, control of rate and channel, and being right in front of ownership. Knows the tools and the numbers. The objections here are sharper and quieter — about turf, attribution, and not being second-guessed.</p>
+    </div>
+    <div class="persona-divider"></div>
+
+    <!-- D1 -->
+    <article class="card" data-themes="politics">
+      <div class="card-tags"><span class="tag" data-jump="politics">Role &amp; Politics</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">Bringing you in implies I'm not doing my job.</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Ego and job security — the real objection, and the one rarely said out loud.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>The opposite is the pitch. We're the leverage that makes the director look good to ownership — absorbing the execution grind you don't have hours for and handing you cleaner data to make rate and channel calls. The director who scales their impact with a specialist execution partner outperforms the one running paid media, creative, and SEO solo. We report into your strategy; we don't grade it.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>We don't replace you — we give you back the hours and the clean data that make you look sharper to ownership.</p></div>
+    </article>
+
+    <!-- D2 -->
+    <article class="card" data-themes="control">
+      <div class="card-tags"><span class="tag" data-jump="control">Control &amp; Approvals</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">I own rate, channel mix, and the CRS. Where does your work stop and mine start?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Wants clean lines. Protective of the revenue domain.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>You own rate, inventory, channel strategy, and the CRS — full stop. We own demand generation and the digital surfaces that feed it: paid media, the vanity site, SEO/AEO/GEO, OTA content and ads, and lifecycle email, executed to your channel strategy. We surface the demand-side levers; you make the revenue calls. The kickoff draws that boundary explicitly so there's no overlap.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>You own rate and channel. We own demand and the digital surfaces that drive it — to your strategy.</p></div>
+    </article>
+
+    <!-- D3 -->
+    <article class="card" data-themes="measure">
+      <div class="card-tags"><span class="tag" data-jump="measure">Measurement</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">Your attribution will fight my STR and RevPAR numbers. Whose data wins?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Doesn't want two conflicting sources of truth to reconcile every month.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Yours wins. Your CRS and STR are the source of truth, and we reconcile to them rather than competing. We fix GA4/GTM hygiene at kickoff specifically so the digital data is clean and stops contradicting your reporting. We report channel-level contribution and the direct-booking path, framed to sit underneath your RevPAR story, not beside it.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>Your CRS is the source of truth. We clean the digital data so it stops fighting your numbers.</p></div>
+    </article>
+
+    <!-- D4 -->
+    <article class="card" data-themes="vendors">
+      <div class="card-tags"><span class="tag" data-jump="vendors">Existing Vendors</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">I already run paid search and Meta in-house. What do you add?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Sees overlap with their own competence and budget.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Then you know how much time it eats. We add the surrounding system most in-house teams can't get to: AEO/GEO for AI discovery, OTA content and metasearch (Koddi, Travel Ads, TripAdvisor), the vanity site, lifecycle email, and the measurement hygiene underneath all of it — with no commission on the spend you're already running. If your in-house paid program is strong, we build around it rather than duplicate it.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>You run the ads; we run everything around them — AEO, metasearch, lifecycle, and the tracking — with no cut of your spend.</p></div>
+    </article>
+
+    <!-- D5 -->
+    <article class="card" data-themes="measure trust">
+      <div class="card-tags"><span class="tag" data-jump="measure">Measurement</span><span class="tag" data-jump="trust">Trust &amp; Proof</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">Agencies claim credit for organic demand they didn't create.</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Has watched agencies over-attribute and distrusts the credit grab.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>That's the industry's worst habit, and we won't do it. The baseline and comp-set benchmark we set at kickoff exist precisely to separate our work from existing demand. We report incremental, channel-level contribution against that baseline and defer to your source of truth on the topline. Where brand demand or the market is carrying it, we'll name it.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>We benchmark against your comp set on day one so we can't quietly claim credit for demand you already had.</p></div>
+    </article>
+
+    <!-- D6 -->
+    <article class="card" data-themes="ota">
+      <div class="card-tags"><span class="tag" data-jump="ota">OTA &amp; Channel</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">Cut OTA dependence? OTAs drive real volume. Don't cannibalize me.</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Knows OTAs are both a billboard and a channel. Fears losing volume to chase a direct-share vanity metric.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>This isn't anti-OTA — it's mix and margin. We monitor rate parity, optimize your OTA content and Travel Ads, and rebalance toward higher-margin direct without torching the volume OTAs bring. The goal is net RevPAR and contribution after commission, not a direct-share number for its own sake. We protect the OTA billboard effect while moving the bookings that don't need to pay 18%.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>We don't kill OTA volume — we move the bookings that don't need to pay commission and protect the rest.</p></div>
+    </article>
+
+    <!-- D7 -->
+    <article class="card" data-themes="ops measure">
+      <div class="card-tags"><span class="tag" data-jump="ops">Operational Load</span><span class="tag" data-jump="measure">Measurement</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">I don't want another tool, login, and reporting layer to reconcile.</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Martech fatigue. The reconciliation tax of a parallel system is real.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>We work inside your existing stack — GA4, GTM, your CRS, your CDP — rather than bolting on a proprietary dashboard you have to reconcile. Reporting maps to the metrics you already track, not a parallel system. Fewer logins, not more.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>No new dashboard to reconcile. We report inside the stack you already trust.</p></div>
+    </article>
+
+    <!-- D8 -->
+    <article class="card" data-themes="fit">
+      <div class="card-tags"><span class="tag" data-jump="fit">Fit &amp; Specialization</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">Your AI, AEO, and GEO pitch — is it real, or buzzword bingo?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Skeptical of trend-chasing. Wants substance, not a slide.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Fair skepticism. Concretely: AEO/GEO is structuring your content and entities so your property surfaces in ChatGPT, Gemini, and Claude answers and in Google's AI results — where a growing share of trip research now starts. It's the same discipline as SEO applied to answer engines, with measurable presence checks, not vibes. The AI automation work is operational — removing repetitive production steps — not a magic-revenue claim.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>AEO is SEO for the answer engines travelers now ask first. It's a discipline with checks, not a buzzword.</p></div>
+    </article>
+
+    <!-- D9 -->
+    <article class="card" data-themes="control fit">
+      <div class="card-tags"><span class="tag" data-jump="control">Control &amp; Approvals</span><span class="tag" data-jump="fit">Fit &amp; Specialization</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">How do you coordinate with my revenue strategy instead of working at cross-purposes?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Wants assurance the agency won't quietly undercut their plan.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Your channel and rate strategy is the input that drives our execution. The recurring call exists to align media weight, need-date pushes, and promotional calendars to your revenue plan. We steer budget toward your need dates, not against them. If your strategy shifts, the execution shifts with it.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>Your revenue plan is our brief. We steer spend to your need dates — the call keeps us in lockstep.</p></div>
+    </article>
+
+    <!-- D10 -->
+    <article class="card" data-themes="fit control">
+      <div class="card-tags"><span class="tag" data-jump="fit">Fit &amp; Specialization</span><span class="tag" data-jump="control">Control &amp; Approvals</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">Will you respect our martech — GA4, GTM, CRS, CDP — and our brand standards?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Protective of a stack and standards they've invested in building.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>We operate inside your stack and to your standards, not over them. The kickoff includes a GA4/GTM audit and a standards review so we're additive, not disruptive. We document what we touch and leave your configuration cleaner than we found it. Brand standards are a constraint we design within — the same way we treat each property's voice.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>We work to your stack and your standards — and hand them back cleaner than we found them.</p></div>
+    </article>
+  </section>
+
+  <!-- ═════════ UNIVERSAL ═════════ -->
+  <section class="persona" id="universal">
+    <div class="persona-head">
+      <div class="persona-tag">Cross-persona · Anyone at the table</div>
+      <h2 class="persona-title">Universal Objections</h2>
+      <p class="persona-sub">The questions that surface regardless of who's asking — about your model, your competition, ownership, and proof. These are where Doubled Rook's structural advantages do the most work.</p>
+    </div>
+    <div class="persona-divider"></div>
+
+    <!-- U1 -->
+    <article class="card" data-themes="fit trust">
+      <div class="card-tags"><span class="tag" data-jump="fit">Fit &amp; Specialization</span><span class="tag" data-jump="trust">Trust &amp; Proof</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">Why you over a big, established hospitality agency or a brand-preferred vendor?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>The safety of the known name — nobody got fired for hiring the big shop.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Big agencies are built for big flags and bill on a percentage of spend; boutique and independent properties become a small line item served by junior staff. We're built specifically for independents and boutiques — founder-led, no media commission, creative included — so you get principal attention and aligned incentives instead of a rate card. The brand-preferred vendor optimizes for the brand's averages; we optimize for your property.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>The big shops bill on your spend and staff you with juniors. We're built for your property — flat fee, no commission, principal attention.</p></div>
+    </article>
+
+    <!-- U2 -->
+    <article class="card" data-themes="cost">
+      <div class="card-tags"><span class="tag" data-jump="cost">Cost &amp; ROI</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">What's your commission on ad spend?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Expects the standard 10–20% media cut every agency takes.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>None. We charge a flat monthly fee and take zero percentage of media spend — a deliberate break from the agency norm. The practical effect: as your budget scales, our fee doesn't, so we're never incentivized to inflate spend, and every dollar of budget goes to media instead of commission.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>Zero. Flat fee, no cut of your media — so we win by spending it well, not by spending more of it.</p></div>
+    </article>
+
+    <!-- U3 -->
+    <article class="card" data-themes="cost">
+      <div class="card-tags"><span class="tag" data-jump="cost">Cost &amp; ROI</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">Creative always costs extra. What's actually included?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Bracing for hourly creative billing and scope-creep invoices.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Creative is in scope by tier, billed flat — no hourly creative invoices, no per-asset surprises. Templated and custom creative are part of the monthly engagement, with social content packages and bigger production handled as defined add-ons, not surprise line items. You know your cost before the month starts.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>Creative's included and billed flat. No hourly invoices, no per-asset surprises.</p></div>
+    </article>
+
+    <!-- U4 -->
+    <article class="card" data-themes="exit">
+      <div class="card-tags"><span class="tag" data-jump="exit">Contract &amp; Exit</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">Do we keep our accounts and data if we leave?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Hostage-data fear — agencies that hold accounts ransom on the way out.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Always. You own every account, asset, and data source from day one, and you keep them if we part ways. We operate inside your accounts rather than locking work behind ours. Leaving is clean by design.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>Everything is in your accounts, owned by you. Leaving is clean — nothing's held hostage.</p></div>
+    </article>
+
+    <!-- U5 -->
+    <article class="card" data-themes="scale">
+      <div class="card-tags"><span class="tag" data-jump="scale">Capacity &amp; Scale</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">Can you handle a portfolio or multiple properties?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Wants to know there's room to grow the relationship across assets.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Yes. The tiered, à la carte structure is built to scale across properties, with shared strategy and per-property execution. You can standardize the engine across the portfolio while tailoring voice and channel mix to each asset. We size it to the number of properties rather than forcing one package.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>Yes — one engine across the portfolio, tailored per property. It scales with you.</p></div>
+    </article>
+
+    <!-- U6 -->
+    <article class="card" data-themes="trust">
+      <div class="card-tags"><span class="tag" data-jump="trust">Trust &amp; Proof</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">References and case studies — who else have you done this for?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>The hard one for a newer, selective agency. They want proof before they commit.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Now you lead with proof, not a dodge. Point to the Verified Results above — three real engagements published on the site: a 44% revenue lift with a near-doubled conversion rate, steady profitable growth in a live operation, and a true turnaround that reversed an eight-month revenue decline. They're anonymized for client confidentiality, and the kickoff audit then shows the same thinking applied to <em>your</em> property before you commit — the strongest reference of all.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>Three published results — including a reversed eight-month decline — plus an audit on your own property. That's the reference that matters.</p></div>
+    </article>
+
+    <!-- U7 -->
+    <article class="card" data-themes="cost fit">
+      <div class="card-tags"><span class="tag" data-jump="cost">Cost &amp; ROI</span><span class="tag" data-jump="fit">Fit &amp; Specialization</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">Why not just hire someone in-house for the same money?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>The build-versus-buy calculation, run on salary alone.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>A single in-house hire gives you one skill set and one set of hours. The engagement gives you paid media, SEO/AEO/GEO, creative, OTA strategy, email, and measurement — a full stack — for a fraction of a loaded salary, with no recruiting, ramp, or turnover risk, and no commission or hourly creative on top. When the volume justifies a dedicated in-house team, we'll help you build it.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>One hire is one skill set. We're the whole stack for less than that salary — no ramp, no turnover.</p></div>
+    </article>
+
+    <!-- U8 -->
+    <article class="card" data-themes="measure trust">
+      <div class="card-tags"><span class="tag" data-jump="measure">Measurement</span><span class="tag" data-jump="trust">Trust &amp; Proof</span></div>
+      <div class="objection"><div class="lbl">The objection</div><div class="q">What actually happens on your calls and in your reporting?</div></div>
+      <div class="body">
+        <div class="field"><div class="lbl under">What's underneath</div><p>Wary of status-meeting theater and dashboard filler.</p></div>
+        <div class="field counter"><div class="lbl">The counter</div><p>Calls run on a tier cadence — bi-monthly or monthly — and they're working sessions: what moved, what we're steering toward your need dates, and what decision we need from you. Reporting ties to direct mix, channel efficiency, and booking-path friction, plus a sentiment read where it's in scope. No vanity-metric slide decks.</p></div>
+      </div>
+      <div class="sayline"><div class="lbl">Say this</div><p>Working calls, not status theater: what moved, what's next, what we need from you.</p></div>
+    </article>
+  </section>
+
+  <!-- ───────── FOOTER ───────── -->
+  <footer class="foot">
+    <p class="foot-thesis">Every objection on this board is a known opening. The property team that hesitates isn't saying no — they're asking you to <em>show them the next three moves.</em> This is how you answer.</p>
+    <div class="foot-row">
+      <div class="foot-brand">Doubled Rook</div>
+      <div class="foot-tag">Objection Playbook · Internal · Stay three moves ahead of your comp set</div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var groups = Array.prototype.slice.call(document.querySelectorAll('.persona'));
+  var noresult = document.getElementById('noresult');
+
+  // populate counts
+  chips.forEach(function(chip){
+    var f = chip.getAttribute('data-filter');
+    var n = (f === 'all') ? cards.length : cards.filter(function(c){
+      return c.getAttribute('data-themes').split(' ').indexOf(f) !== -1;
+    }).length;
+    var ct = chip.querySelector('.ct');
+    if(ct) ct.textContent = n;
+  });
+
+  function apply(f){
+    var anyAtAll = false;
+    cards.forEach(function(c){
+      var match = (f === 'all') || c.getAttribute('data-themes').split(' ').indexOf(f) !== -1;
+      c.style.display = match ? '' : 'none';
+      if(match) anyAtAll = true;
+    });
+    groups.forEach(function(g){
+      var visible = Array.prototype.slice.call(g.querySelectorAll('.card')).some(function(c){
+        return c.style.display !== 'none';
+      });
+      g.style.display = visible ? '' : 'none';
+    });
+    chips.forEach(function(ch){
+      ch.classList.toggle('is-active', ch.getAttribute('data-filter') === f);
+    });
+    noresult.style.display = anyAtAll ? 'none' : 'block';
+  }
+
+  chips.forEach(function(ch){
+    ch.addEventListener('click', function(){ apply(ch.getAttribute('data-filter')); });
+  });
+
+  document.querySelectorAll('.tag[data-jump]').forEach(function(t){
+    t.addEventListener('click', function(){
+      var f = t.getAttribute('data-jump');
+      apply(f);
+      var bar = document.querySelector('.filterbar');
+      if(bar){ window.scrollTo({top: bar.offsetTop - 8, behavior: 'smooth'}); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
