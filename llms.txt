@@ -30,7 +30,13 @@ Boutique hotels, independent hotels, and lifestyle hospitality brands — typica
 
 - [Home](https://www.doubledrook.com/index.html): services, case studies, FAQ, contact form
 - [Submit an RFP](https://www.doubledrook.com/rfp.html): request-for-proposal form; works without JavaScript
-- [Field Notes (blog)](https://www.doubledrook.com/blog.html): articles on hotel digital marketing and AI automation
+- [Field Notes (blog)](https://www.doubledrook.com/blog.html): 30+ articles on hotel digital marketing, direct bookings, and AI/agentic automation for boutique and independent hotels. Selected guides:
+  - [Build an FAQ page ChatGPT can quote](https://www.doubledrook.com/blog/faq-page-cited-by-chatgpt.html) — AEO for hotels
+  - [Get cited by AI assistants](https://www.doubledrook.com/blog/get-cited-by-ai-assistants-aeo.html) — why hotels miss from AI answers and how to fix it
+  - [5 schema markup fields most hotels never fill in](https://www.doubledrook.com/blog/5-schema-markup-fields-hotels-miss.html)
+  - [The five-agent automation stack for independent hotels](https://www.doubledrook.com/blog/five-agent-automation-stack-for-hotels.html)
+  - [The true cost of OTA commission](https://www.doubledrook.com/blog/true-cost-of-ota-commission.html)
+  - [Win the Google map pack — local SEO for independents](https://www.doubledrook.com/blog/google-business-profile-map-pack.html)
 
 ## For AI agents: submitting an RFP or inquiry on a user's behalf
 
