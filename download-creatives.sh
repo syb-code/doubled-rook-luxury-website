@@ -34,6 +34,12 @@ curl -fsSL -o "assets/blog/28-front-desk-email-triage-agents.png" "https://stati
 curl -fsSL -o "assets/blog/29-pre-arrival-email-sequence.png" "https://static.metricool.com/planner/202607/6158319-file-8281457845591251251.png"
 curl -fsSL -o "assets/blog/30-personalized-upsell-agent.png" "https://static.metricool.com/planner/202607/6158319-file-17410057121807556435.png"
 curl -fsSL -o "assets/blog/31-get-cited-by-ai-assistants-aeo.png" "https://static.metricool.com/planner/202607/6158319-file-3931895038281163561.png"
+curl -fsSL -o "assets/blog/32-pre-stay-concierge-agent.png" "https://static.metricool.com/planner/202607/6158319-file-14437690889504043693.png"
+curl -fsSL -o "assets/blog/33-metasearch-google-hotel-ads.png" "https://static.metricool.com/planner/202607/6158319-file-16582181371087385598.png"
+curl -fsSL -o "assets/blog/34-abandoned-booking-recovery-agent.png" "https://static.metricool.com/planner/202607/6158319-file-17226806824091770924.png"
+curl -fsSL -o "assets/blog/35-booking-engine-conversion-cro.png" "https://static.metricool.com/planner/202607/6158319-file-1947758875831346055.png"
+curl -fsSL -o "assets/blog/36-review-analysis-agent-ranked-fixes.png" "https://static.metricool.com/planner/202607/6158319-file-9210960383234645724.png"
+curl -fsSL -o "assets/blog/37-hotel-marketing-attribution-blind-spot.png" "https://static.metricool.com/planner/202607/6158319-file-16653691274337551931.png"
 
 # Swap CDN URLs for self-hosted absolute URLs across the blog pages
 sed -i 's|https://static.metricool.com/common/202605/6242339-mtr_13756425821000743658.png|https://www.doubledrook.com/assets/blog/01-faq-page-cited-by-chatgpt.png|g' blog/*.html blog.html sitemap.xml
@@ -65,4 +71,10 @@ sed -i 's|https://static.metricool.com/planner/202607/6158319-file-1711989674108
 sed -i 's|https://static.metricool.com/planner/202607/6158319-file-8281457845591251251.png|https://www.doubledrook.com/assets/blog/29-pre-arrival-email-sequence.png|g' blog/*.html blog.html sitemap.xml
 sed -i 's|https://static.metricool.com/planner/202607/6158319-file-17410057121807556435.png|https://www.doubledrook.com/assets/blog/30-personalized-upsell-agent.png|g' blog/*.html blog.html sitemap.xml
 sed -i 's|https://static.metricool.com/planner/202607/6158319-file-3931895038281163561.png|https://www.doubledrook.com/assets/blog/31-get-cited-by-ai-assistants-aeo.png|g' blog/*.html blog.html sitemap.xml
+sed -i 's|https://static.metricool.com/planner/202607/6158319-file-14437690889504043693.png|https://www.doubledrook.com/assets/blog/32-pre-stay-concierge-agent.png|g' blog/*.html blog.html sitemap.xml
+sed -i 's|https://static.metricool.com/planner/202607/6158319-file-16582181371087385598.png|https://www.doubledrook.com/assets/blog/33-metasearch-google-hotel-ads.png|g' blog/*.html blog.html sitemap.xml
+sed -i 's|https://static.metricool.com/planner/202607/6158319-file-17226806824091770924.png|https://www.doubledrook.com/assets/blog/34-abandoned-booking-recovery-agent.png|g' blog/*.html blog.html sitemap.xml
+sed -i 's|https://static.metricool.com/planner/202607/6158319-file-1947758875831346055.png|https://www.doubledrook.com/assets/blog/35-booking-engine-conversion-cro.png|g' blog/*.html blog.html sitemap.xml
+sed -i 's|https://static.metricool.com/planner/202607/6158319-file-9210960383234645724.png|https://www.doubledrook.com/assets/blog/36-review-analysis-agent-ranked-fixes.png|g' blog/*.html blog.html sitemap.xml
+sed -i 's|https://static.metricool.com/planner/202607/6158319-file-16653691274337551931.png|https://www.doubledrook.com/assets/blog/37-hotel-marketing-attribution-blind-spot.png|g' blog/*.html blog.html sitemap.xml
 echo "Done. Creatives localized to assets/blog/ and references updated."
