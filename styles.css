@@ -978,3 +978,13 @@ footer .contact-email {
   .article-body { font-size: 16px; }
   .article-body blockquote { font-size: 19px; padding-left: 20px; }
 }
+
+/* ===== In-content text links (FAQ, contact note, RFP page) ===== */
+.faq-item p a, .contact-info p a:not(.contact-email), .rfp-wrap a:not(.btn-primary):not(.nav-cta) {
+  color: var(--accent); text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.faq-item p a:hover, .contact-info p a:not(.contact-email):hover, .rfp-wrap a:not(.btn-primary):not(.nav-cta):hover {
+  color: var(--accent-light, var(--accent)); border-bottom-color: var(--accent);
+}

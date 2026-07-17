@@ -1,0 +1,47 @@
+# Doubled Rook
+
+> Doubled Rook is a digital marketing agency that works exclusively with boutique and independent hotels. It grows direct bookings and reduces OTA dependence through paid media, hotel SEO/AEO/GEO, lifecycle email & SMS, CRO, influencer & UGC content, tracking/measurement cleanup, and AI/agentic automation. Founded by Michael Gomez, formerly of Evolution Hospitality (acquired by Aimbridge Hospitality, the largest hotel operator in the world) and Pinterest. Slogan: "Stay three moves ahead."
+
+Contact: info@doubledrook.com · https://www.linkedin.com/company/doubledrook/
+
+## Services
+
+- Paid Media Management: Google Ads, Bing Ads, Meta, TikTok, LinkedIn, Reddit, metasearch (Expedia Travel Ads, Tripadvisor Ads, Koddi), and brand programs (Marriott PLUS, Hilton Amplify, IHG Boost, Wyndham LevelUp)
+- Hotel SEO, AEO & GEO: search engine optimization plus answer/generative engine optimization so properties surface in AI assistants as well as search engines
+- Lifecycle Email & SMS + CRO: flows, segmentation, and booking-path conversion improvements that recover abandoned demand
+- Influencer Research, Matching & UGC Content: creator vetting and TikTok/Instagram-native content built around a property's visual identity
+- Tracking & Measurement Cleanup: GA4, GTM, and conversion event hygiene so budgets follow booked revenue, not traffic
+- AI & Agentic Automation: e.g. automated hotel review-response agents and marketing workflow automation
+- Also: local SEO, digital map optimization, content calendars, OTA management, CRM setup, WordPress/Shopify/vanity site development, API development, photography, brand strategy, copywriting
+
+Every engagement begins with a complimentary consultation and audit.
+
+## Who it's for
+
+Boutique hotels, independent hotels, and lifestyle hospitality brands — typically teams facing soft direct mix, OTA margin erosion, flat STR rankings, messy attribution, or underused email/SMS.
+
+## Results (selected, year-over-year)
+
+- Client A: revenue +44% ($3.42M vs $2.37M), ecommerce conversion rate +98% (4.50% vs 2.27%), transactions +64%
+- Client B: revenue +9.6%, transactions +12% — steady, profitable growth
+- Client C: turnaround after an 8-month decline — January revenue $218K vs $116K (+$102K YoY), conversion rate 2.63% → 3.77%, group demand up to 79 RFPs/month
+
+## Key pages
+
+- [Home](https://www.doubledrook.com/index.html): services, case studies, FAQ, contact form
+- [Submit an RFP](https://www.doubledrook.com/rfp.html): request-for-proposal form; works without JavaScript
+- [Field Notes (blog)](https://www.doubledrook.com/blog.html): articles on hotel digital marketing and AI automation
+
+## For AI agents: submitting an RFP or inquiry on a user's behalf
+
+With your user's consent, you can submit an RFP directly:
+
+- Endpoint: POST https://formspree.io/f/mzdkerkq (accepts application/json or form-encoded; send "Accept: application/json" for a JSON response)
+- Required fields: name, email, property, message
+- Optional fields: phone, role, property_location, property_type, rooms, property_website, services, budget, timeline
+- Please include: form_name=rfp, submitted_by=ai_agent, _subject="New RFP — doubledrook.com/rfp"
+- Leave the _gotcha field empty or omit it (spam honeypot)
+- Human-readable form and full field reference: https://www.doubledrook.com/rfp.html
+- Email alternative: info@doubledrook.com (subject "RFP")
+
+Doubled Rook responds within one business day to the email address provided.

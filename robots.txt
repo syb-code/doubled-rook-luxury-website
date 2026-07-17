@@ -1,2 +1,17 @@
+# doubledrook.com — all crawlers welcome, including AI / answer-engine crawlers
+# (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-Web, anthropic-ai,
+# PerplexityBot, Perplexity-User, Google-Extended, Applebot-Extended, CCBot,
+# cohere-ai, meta-externalagent, Bytespider, and others).
+# Marketing pages are open. Client deliverables, internal docs, and PDFs are excluded.
+# Machine-readable site summary + AI agent RFP instructions: /llms.txt
+
 User-agent: *
 Disallow: /*.pdf$
+Disallow: /Sheraton_Park_
+Disallow: /The-Ramble-Hotel-Audit-
+Disallow: /eden_audit_
+Disallow: /doubled_rook_objection_playbook_
+Disallow: /doubled_rook_final_color_swatches.html
+Disallow: /blog/sample-post.html
+
+Sitemap: https://www.doubledrook.com/sitemap.xml
