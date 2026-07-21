@@ -2,7 +2,7 @@
 /* Style Sheet v3 Final — Grand Hotel stack · Baize (dark, default) + Sealed Move (light) + Seal (rationed secondary) */
 
 /* ===== PALETTE SYSTEM ===== */
-:root, [data-theme="baize"], [data-theme="moss"], [data-theme="espresso"] {
+:root, [data-theme="sealed-move"] {
   /* Grand Hotel stack */
   --display: 'Cinzel', serif;
   --body: 'Sorts Mill Goudy', Georgia, serif;
@@ -19,36 +19,36 @@
   --sl-rule: #7A3A42;
   --sl-rules: #8F4A50;
 
-  /* Baize — the tournament table (dark, default for the website) */
-  --bg: #1B2921;
-  --bg-card: #243830;
-  --bg-hover: #2C443A;
-  --accent: #B08D3E;
-  --accent-light: #8A6C2C; /* interaction state: accents deepen, never lighten */
-  --text: #E9E0C8;
-  --text-muted: #97947E;
-  --text-dim: #97947E; /* one muted text tier per ground */
-  --border: #37473C;
-  --border-hover: #48594C;
-  --border-strong: #48594C;
-  --nav-bg: rgba(20, 32, 25, 0.25);
-  --nav-bg-scrolled: rgba(20, 32, 25, 0.8);
-}
-[data-theme="sealed-move"] {
-  /* Sealed Move — the adjournment envelope (light) */
+  /* Sealed Move — the adjournment envelope (light, default for the website) */
   --bg: #F1E9D6;
   --bg-card: #FAF4E6;
   --bg-hover: #FFFDF5;
   --accent: #7A2E38;
-  --accent-light: #571F27; /* interaction state: Wax Deep */
+  --accent-light: #571F27; /* interaction state: Wax Deep — accents deepen, never lighten */
   --text: #29221B;
   --text-muted: #6F6455;
-  --text-dim: #6F6455;
+  --text-dim: #6F6455; /* one muted text tier per ground */
   --border: #D9CDB4;
   --border-hover: #C2B392;
   --border-strong: #C2B392;
   --nav-bg: rgba(250, 244, 230, 0.55);
   --nav-bg-scrolled: rgba(250, 244, 230, 0.92);
+}
+[data-theme="baize"], [data-theme="moss"], [data-theme="espresso"] {
+  /* Baize — the tournament table (dark) */
+  --bg: #1B2921;
+  --bg-card: #243830;
+  --bg-hover: #2C443A;
+  --accent: #B08D3E;
+  --accent-light: #8A6C2C; /* interaction state: Brass Deep */
+  --text: #E9E0C8;
+  --text-muted: #97947E;
+  --text-dim: #97947E;
+  --border: #37473C;
+  --border-hover: #48594C;
+  --border-strong: #48594C;
+  --nav-bg: rgba(20, 32, 25, 0.25);
+  --nav-bg-scrolled: rgba(20, 32, 25, 0.8);
 }
 
 /* ===== RESET & BASE ===== */

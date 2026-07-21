@@ -229,14 +229,14 @@ function toggleTheme() {
   }
 }
 
-// Restore saved theme (values from the retired palettes fall back to Baize)
+// Restore saved theme (values from the retired palettes fall back to the Sealed Move default)
 (function() {
   const saved = localStorage.getItem('dr-theme');
   if (saved === 'baize' || saved === 'sealed-move') {
     document.body.dataset.theme = saved;
-    updateThemeButtons(saved === 'sealed-move' ? 'Baize' : 'Sealed Move');
+    updateThemeButtons(saved === 'baize' ? 'Sealed Move' : 'Baize');
   } else if (saved) {
-    localStorage.setItem('dr-theme', 'baize');
+    localStorage.removeItem('dr-theme');
   }
 })();
 
