@@ -1,5 +1,5 @@
 /* ===== DOUBLED ROOK — styles.css ===== */
-/* Style Sheet v3 Final — Grand Hotel stack · Baize (dark, default) + Sealed Move (light) + Seal (rationed secondary) */
+/* Style Sheet v3 Final — Grand Hotel stack · Sealed Move (light, default) + Baize (dark) + Seal (rationed secondary) */
 
 /* ===== PALETTE SYSTEM ===== */
 :root, [data-theme="baize"], [data-theme="moss"], [data-theme="espresso"] {
@@ -19,7 +19,7 @@
   --sl-rule: #7A3A42;
   --sl-rules: #8F4A50;
 
-  /* Baize — the tournament table (dark, default for the website) */
+  /* Baize — the tournament table (dark) */
   --bg: #1B2921;
   --bg-card: #243830;
   --bg-hover: #2C443A;
@@ -35,7 +35,7 @@
   --nav-bg-scrolled: rgba(20, 32, 25, 0.8);
 }
 [data-theme="sealed-move"] {
-  /* Sealed Move — the adjournment envelope (light) */
+  /* Sealed Move — the adjournment envelope (light, default for the website) */
   --bg: #F1E9D6;
   --bg-card: #FAF4E6;
   --bg-hover: #FFFDF5;
