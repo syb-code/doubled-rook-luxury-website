@@ -218,23 +218,25 @@ function updateThemeButtons(label) {
 
 function toggleTheme() {
   const body = document.body;
-  if (body.dataset.theme === 'espresso') {
-    body.dataset.theme = 'moss';
-    updateThemeButtons('Espresso');
-    localStorage.setItem('dr-theme', 'moss');
+  if (body.dataset.theme === 'sealed-move') {
+    body.dataset.theme = 'baize';
+    updateThemeButtons('Sealed Move');
+    localStorage.setItem('dr-theme', 'baize');
   } else {
-    body.dataset.theme = 'espresso';
-    updateThemeButtons('Moss');
-    localStorage.setItem('dr-theme', 'espresso');
+    body.dataset.theme = 'sealed-move';
+    updateThemeButtons('Baize');
+    localStorage.setItem('dr-theme', 'sealed-move');
   }
 }
 
-// Restore saved theme
+// Restore saved theme (values from the retired palettes fall back to Baize)
 (function() {
   const saved = localStorage.getItem('dr-theme');
-  if (saved) {
+  if (saved === 'baize' || saved === 'sealed-move') {
     document.body.dataset.theme = saved;
-    updateThemeButtons(saved === 'moss' ? 'Espresso' : 'Moss');
+    updateThemeButtons(saved === 'sealed-move' ? 'Baize' : 'Sealed Move');
+  } else if (saved) {
+    localStorage.setItem('dr-theme', 'baize');
   }
 })();
 
