@@ -3,6 +3,10 @@
    desktop file if the mobile file fails to load, and defers below-fold
    videos until they approach the viewport. */
 (function () {
+  var conn = navigator.connection || {};
+  /* on genuinely unusable connections keep the poster instead of a
+     stalled video; normal cellular (3g/4g/5g) still gets video */
+  if (conn.effectiveType === '2g' || conn.effectiveType === 'slow-2g') return;
   var mobile = window.matchMedia && window.matchMedia('(max-width: 740px)').matches;
   function load(v) {
     var desktop = v.getAttribute('data-src');
