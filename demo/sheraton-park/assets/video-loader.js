@@ -1,15 +1,31 @@
 /* Sheraton Park demo — adaptive video loading.
-   Picks the mobile or desktop encode per viewport, defers below-fold
-   videos until they approach the viewport, and leaves the poster image
-   in place for reduced-motion / Save-Data visitors. */
+   Serves the smaller mobile encode to narrow viewports, falls back to the
+   desktop file if the mobile file fails to load, and defers below-fold
+   videos until they approach the viewport. */
 (function () {
-  var conn = navigator.connection || {};
-  if ((window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || conn.saveData) return;
   var mobile = window.matchMedia && window.matchMedia('(max-width: 740px)').matches;
   function load(v) {
-    v.src = (mobile && v.getAttribute('data-src-mobile')) || v.getAttribute('data-src');
-    var p = v.play();
-    if (p && p.catch) p.catch(function () {});
+    var desktop = v.getAttribute('data-src');
+    var small = mobile && v.getAttribute('data-src-mobile');
+    /* set as properties, not just attributes — iOS/Android require both
+       for programmatic autoplay */
+    v.muted = true;
+    v.playsInline = true;
+    v.autoplay = true;
+    function attempt() {
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+    if (small && small !== desktop) {
+      v.addEventListener('error', function () {
+        v.src = desktop;
+        v.load();
+        attempt();
+      }, { once: true });
+    }
+    v.addEventListener('canplay', function () { if (v.paused) attempt(); });
+    v.src = small || desktop;
+    attempt();
   }
   var eager = document.querySelectorAll('video[data-src]:not([data-lazy])');
   for (var i = 0; i < eager.length; i++) load(eager[i]);
