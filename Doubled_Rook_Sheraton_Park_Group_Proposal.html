@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doubled Rook · Group Business Proposal · Sheraton Park Hotel at the Anaheim Resort</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Sorts+Mill+Goudy:ital@0;1&family=Tenor+Sans&family=Alegreya+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sm-g:#F1E9D6; --sm-pn:#FAF4E6; --sm-ink:#29221B; --sm-wax:#7A2E38; --sm-waxd:#571F27;
+    --sm-brass:#A98B4C; --sm-drab:#6F6455; --sm-rule:#D9CDB4; --sm-rules:#C2B392;
+    --sl-g:#571F27; --sl-rs:#6B2A33; --sl-manila:#F1E9D6; --sl-drab:#C6A096;
+    --sl-brass:#BD9848; --sl-rule:#7A3A42; --sl-rules:#8F4A50;
+    --display:'Cinzel', serif;
+    --body:'Sorts Mill Goudy', Georgia, serif;
+    --ui:'Tenor Sans', 'Helvetica Neue', sans-serif;
+    --caps:'Alegreya Sans SC', sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--sm-g);color:var(--sm-ink);font-family:var(--body);font-size:15.5px;line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 46px}
+  em{font-style:italic}
+
+  /* ---- Cover: the single Seal moment ---- */
+  .cover{background:var(--sl-g);color:var(--sl-manila);padding:74px 0 68px}
+  .cover .eyebrow{font-family:var(--caps);font-weight:700;font-size:12.5px;letter-spacing:.16em;color:var(--sl-brass)}
+  .cover h1{font-family:var(--display);font-weight:600;font-size:33px;letter-spacing:.09em;line-height:1.28;margin-top:16px}
+  .cover .lede{font-size:16px;color:var(--sl-drab);line-height:1.75;margin-top:16px;max-width:660px}
+  .cover .hair{width:64px;height:1px;background:var(--sl-brass);margin:24px 0 16px}
+  .cover .meta{font-family:var(--caps);font-weight:500;font-size:11.5px;letter-spacing:.13em;color:var(--sl-drab);line-height:2}
+  .cover .prop{font-family:var(--display);font-weight:400;font-size:15px;letter-spacing:.2em;color:var(--sl-manila);margin-top:26px}
+
+  /* ---- Sections ---- */
+  .sec{padding:50px 0 6px}
+  .kicker{font-family:var(--caps);font-weight:700;font-size:12.5px;letter-spacing:.13em;color:var(--sm-drab)}
+  h2{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:.1em;margin:9px 0 20px;line-height:1.3}
+  h3{font-family:var(--display);font-weight:400;font-size:16px;letter-spacing:.11em;margin:30px 0 12px}
+  p{margin-bottom:14px;max-width:780px}
+  .pull{font-style:italic;color:var(--sm-wax);font-size:17px;line-height:1.6;margin:20px 0;max-width:720px}
+  .divider{height:1px;background:var(--sm-rule);margin-top:44px}
+
+  /* ---- Panels ---- */
+  .panel{background:var(--sm-pn);border:1px solid var(--sm-rule);border-radius:12px;padding:26px 30px;margin:20px 0}
+  .panel-t{font-family:var(--caps);font-weight:700;font-size:12.5px;letter-spacing:.09em;color:var(--sm-ink);margin-bottom:10px}
+  .note{font-size:14px;color:var(--sm-drab);line-height:1.72;padding:17px 22px;background:var(--sm-pn);border-left:2px solid var(--sm-wax);border-radius:0 10px 10px 0;margin:20px 0;max-width:820px}
+  .note strong{color:var(--sm-ink);font-weight:400;font-family:var(--caps);font-size:12.5px;letter-spacing:.06em}
+
+  /* ---- Tables ---- */
+  table{width:100%;border-collapse:collapse;margin:16px 0 6px}
+  th{font-family:var(--caps);font-weight:700;font-size:11.5px;letter-spacing:.09em;color:var(--sm-drab);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--sm-rules);vertical-align:bottom}
+  th.n,td.n{text-align:right;padding-right:0}
+  td{padding:11px 12px 11px 0;border-bottom:1px solid var(--sm-rule);vertical-align:top;font-size:14px}
+  td.m{font-family:var(--caps);font-weight:500;font-size:12px;letter-spacing:.05em;color:var(--sm-drab)}
+  td.lab{font-family:var(--caps);font-weight:500;font-size:12.5px;letter-spacing:.05em;color:var(--sm-ink)}
+  td.num{font-family:var(--caps);font-weight:500;font-size:13px;letter-spacing:.04em;text-align:right}
+  tr.grp td{background:var(--sm-pn);font-family:var(--caps);font-weight:700;font-size:11.5px;letter-spacing:.1em;color:var(--sm-drab);padding:8px 12px 8px 10px;border-bottom:1px solid var(--sm-rules)}
+  tr.tot td{border-bottom:2px solid var(--sm-rules);border-top:1px solid var(--sm-rules);font-family:var(--caps);font-weight:700;font-size:13px;letter-spacing:.05em;color:var(--sm-ink)}
+  .tick{color:var(--sm-wax)}
+  .dash{color:var(--sm-rules)}
+
+  /* ---- Phase rail ---- */
+  .phase{display:grid;grid-template-columns:150px 1fr;gap:0 26px;border-top:1px solid var(--sm-rule);padding:20px 0}
+  .phase:last-of-type{border-bottom:1px solid var(--sm-rule)}
+  .ph-when{font-family:var(--caps);font-weight:700;font-size:12px;letter-spacing:.1em;color:var(--sm-wax);padding-top:2px}
+  .ph-when span{display:block;font-weight:500;color:var(--sm-drab);letter-spacing:.07em;margin-top:3px}
+  .ph-t{font-family:var(--display);font-weight:400;font-size:15.5px;letter-spacing:.09em;margin-bottom:9px}
+  .ph-body ul{list-style:none;margin:0}
+  .ph-body li{font-size:14px;line-height:1.65;padding-left:16px;position:relative;margin-bottom:5px;color:var(--sm-ink)}
+  .ph-body li:before{content:"—";position:absolute;left:0;color:var(--sm-brass)}
+
+  /* ---- Metric strip ---- */
+  .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}
+  .met{background:var(--sm-pn);border:1px solid var(--sm-rule);border-radius:10px;padding:18px 18px 16px}
+  .met .v{font-family:var(--display);font-weight:600;font-size:25px;letter-spacing:.03em;color:var(--sm-wax);line-height:1.1}
+  .met .l{font-family:var(--caps);font-weight:500;font-size:11px;letter-spacing:.09em;color:var(--sm-drab);margin-top:8px;line-height:1.5}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  ul.plain{list-style:none;margin:6px 0 14px}
+  ul.plain li{font-size:14.5px;line-height:1.68;padding-left:17px;position:relative;margin-bottom:6px;max-width:760px}
+  ul.plain li:before{content:"—";position:absolute;left:0;color:var(--sm-brass)}
+
+  .flag{font-family:var(--caps);font-weight:700;font-size:10px;letter-spacing:.11em;color:var(--sm-wax);border:1px solid var(--sm-rules);border-radius:4px;padding:2px 7px;background:var(--sm-g);white-space:nowrap;display:inline-block;vertical-align:1px}
+
+  .footer{border-top:1px solid var(--sm-rule);margin-top:46px;padding:24px 0 54px;display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .foot-mark{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.2em;color:var(--sm-drab)}
+  .foot-meta{font-family:var(--caps);font-weight:500;font-size:10.5px;letter-spacing:.07em;color:var(--sm-drab)}
+
+  @page{size:Letter;margin:0}
+  @media print{
+    body{background:#fff;font-size:9.6pt;line-height:1.58}
+    .wrap{max-width:none;padding:0 0.62in}
+    .cover{padding:0.7in 0 0.62in;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .cover h1{font-size:26pt}
+    .panel,.note,.met,tr.grp td,.cover{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .sec{padding:0.2in 0 0}
+    h2{font-size:14.5pt;margin:6px 0 11px}
+    h3{font-size:11.5pt;margin:17px 0 7px}
+    p{margin-bottom:8px}
+    td{padding:6px 10px 6px 0;font-size:9.2pt}
+    th{padding:6px 10px 6px 0;font-size:8pt}
+    td.num,td.lab,td.m{font-size:8.6pt}
+    tr.grp td{padding:5px 10px 5px 8px}
+    .panel{padding:16px 20px;margin:13px 0}
+    .note{padding:12px 17px;margin:13px 0;font-size:9pt}
+    .phase{padding:12px 0}
+    .ph-body li{font-size:9.2pt;margin-bottom:3px}
+    ul.plain li{font-size:9.4pt;margin-bottom:4px}
+    .strip{margin:14px 0;gap:10px}
+    .met{padding:12px 13px}
+    .met .v{font-size:17pt}
+    .divider{margin-top:24px}
+    .pull{font-size:11.5pt;margin:13px 0}
+    .footer{margin-top:26px;padding:16px 0 20px}
+    .pagebreak{page-break-before:always}
+    table,.phase,.panel,.met,.strip{page-break-inside:avoid}
+    h2,h3{page-break-after:avoid}
+  }
+  @media (max-width:800px){
+    .wrap{padding:0 22px}
+    .strip{grid-template-columns:1fr 1fr}
+    .two{grid-template-columns:1fr}
+    .phase{grid-template-columns:1fr;gap:10px}
+    table{font-size:13px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="cover"><div class="wrap">
+  <div class="eyebrow">Doubled Rook · Hotel Digital Marketing</div>
+  <h1>GROUP BUSINESS<br>ACQUISITION PROPOSAL</h1>
+  <div class="lede">A five-month program to build, launch, and run a measured group-demand engine for the Sheraton Park Hotel at the Anaheim Resort: a dedicated group microsite, a segment-mapped paid search and social structure, and reporting your leadership team can audit.</div>
+  <div class="hair"></div>
+  <div class="meta">
+    Prepared for &nbsp;·&nbsp; Sheraton Park Hotel at the Anaheim Resort<br>
+    1855 S. Harbor Blvd, Anaheim, CA 92802<br>
+    Term &nbsp;·&nbsp; August 1 – December 31, 2026<br>
+    Prepared July 2026 &nbsp;·&nbsp; Confidential
+  </div>
+  <div class="prop">STAY THREE MOVES AHEAD</div>
+</div></div>
+
+<!-- ============ 01 ============ -->
+<div class="sec"><div class="wrap">
+  <div class="kicker">01 · The Position</div>
+  <h2>BUILT FOR GROUPS, INVISIBLE TO THEM</h2>
+  <p>This is not a property with a product problem. A $33 million renovation completed in 2022. 34,892 square feet of function space across 17 event rooms and 31 configurations. A Park Ballroom that seats 1,100 theater and 680 banquet. 490 guest rooms, 395 of them two-queen. Outdoor lawn and patio venues for 500–600. On-site bus parking. One block from the Anaheim Convention Center, walking distance to the Disneyland Resort.</p>
+  <p>Every one of those facts is a reason a planner should choose this hotel. The question is whether a planner ever encounters them at the moment they are deciding.</p>
+  <div class="pull">Group buyers do not shop the way transient guests shop. They search in plain language, by segment, months or years ahead, and they compare on published specifics.</div>
+  <p>Today, a sports coordinator searching for a tournament block near the Anaheim Convention Center, a couple searching for a ballroom that seats 680, and a tour operator searching for bus parking on Harbor Boulevard are all served the same brand page: one built for transient room sales, competing for attention with the rest of the Marriott estate, and syndicating capacity numbers that are not always current.</p>
+  <p>The program below fixes that in three moves: publish the specifics on a site built for group buyers, buy the exact searches those buyers make, and measure which segment produced which lead.</p>
+  <div class="divider"></div>
+</div></div>
+
+<!-- ============ 02 ============ -->
+<div class="sec"><div class="wrap">
+  <div class="kicker">02 · The Asset</div>
+  <h2>THE GROUP MICROSITE</h2>
+  <p>A working concept has already been built and is available for your team to review at <em>doubledrook.com/demo/sheraton-park</em>. It is not a mockup of a homepage. It is the actual proposed architecture, with a dedicated landing page for each way groups use this hotel.</p>
+
+  <table>
+    <tr><th>SEGMENT PAGE</th><th>THE BUYER</th><th>WHAT THE PAGE ANSWERS</th></tr>
+    <tr><td class="lab">Meetings &amp; Conventions</td><td>Corporate &amp; association planners</td><td>Citywide overflow blocks, self-contained programs to 1,100 theater, 15 dedicated breakouts, ACC proximity, on-site Encore AV</td></tr>
+    <tr><td class="lab">Weddings &amp; Celebrations</td><td>Couples, families, planners</td><td>680-guest ballroom, Tiffany Patio and Lawn ceremonies, the nightly fireworks as backdrop, plain-language packages</td></tr>
+    <tr><td class="lab">Sports Teams</td><td>Tournament &amp; club directors</td><td>395 two-queen rooms, team meal options, walk to the Convention Center tournament floor</td></tr>
+    <tr><td class="lab">Reunions</td><td>Family, military, faith, fraternal</td><td>Gathering space, plain-language pricing, the logistics this segment actually asks about</td></tr>
+    <tr><td class="lab">Tour &amp; Crew</td><td>Operators &amp; road coordinators</td><td>Bus parking, late checkouts, laundry, and quiet blocks, published rather than quoted on request</td></tr>
+  </table>
+
+  <h3>WHAT THE BUILD INCLUDES</h3>
+  <ul class="plain">
+    <li><strong>One source of truth.</strong> A published property fact sheet covering capacities, configurations, renovation year, and parking, so that when a listing elsewhere disagrees, there is an authoritative page to correct it against.</li>
+    <li><strong>Search engine optimization (SEO).</strong> Page-level meta strategy, on-page copy, internal linking architecture, and segment-level keyword targeting across all five pages.</li>
+    <li><strong>Answer engine optimization (AEO).</strong> Schema.org Hotel, EventVenue, and FAQ structured data embedded on every page, so ChatGPT, Gemini, Claude, and Google's AI surfaces return <em>your</em> capacity figures rather than outdated syndicated ones.</li>
+    <li><strong>Measurement-first lead capture.</strong> The RFP form routes directly to the group sales office with full source attribution (GA4 events plus lead tracking), so every submission arrives tagged with the segment page and campaign that produced it.</li>
+    <li><strong>Maintenance for the full term.</strong> Content updates, capacity corrections, page additions, and conversion-rate work throughout the engagement.</li>
+  </ul>
+
+  <div class="note"><strong>Brand compliance:</strong> The concept uses property photography from the Marriott.com listing and AI-animated motion clips for demonstration only. The production build replaces these with videos approved by the property team, and the final site is subject to Marriott franchise digital guidelines.</div>
+  <div class="divider"></div>
+</div></div>
+
+<!-- ============ 03 ============ -->
+<div class="sec pagebreak"><div class="wrap">
+  <div class="kicker">03 · The Engine</div>
+  <h2>CAMPAIGN STRUCTURE</h2>
+  <p>Paid media runs in Doubled Rook's standard structure. It is deliberately narrower than what most agencies deploy, and the constraints are the point: at a $1,500 monthly budget, waste is the only thing that can kill the program.</p>
+
+  <div class="panel">
+    <div class="panel-t">THE HOUSE RULES</div>
+    <table style="margin-top:6px">
+      <tr><td class="lab" style="width:44%">Match types</td><td>Phrase and exact only. No broad match, at any budget level.</td></tr>
+      <tr><td class="lab">Google Search Partners</td><td>Off.</td></tr>
+      <tr><td class="lab">Google Display Network</td><td>Off on all search campaigns.</td></tr>
+      <tr><td class="lab">Microsoft Audience Network</td><td>Off. Syndicated search partners off.</td></tr>
+      <tr><td class="lab">Ad copy claims</td><td>Proximity and capacity claims only where verifiable against the published fact sheet.</td></tr>
+      <tr><td class="lab">Negative keywords</td><td>Curated library maintained weekly. Transient, employment, and competitor-adjacent traffic excluded.</td></tr>
+      <tr><td class="lab" style="border-bottom:none">Campaign architecture</td><td style="border-bottom:none">One campaign per segment, mapped one-to-one to its landing page. No cross-segment pooling.</td></tr>
+    </table>
+  </div>
+
+  <h3>RECOMMENDED MEDIA ALLOCATION · $1,500 / MONTH</h3>
+  <table>
+    <tr><th>PLATFORM</th><th>ROLE</th><th class="n">MONTHLY</th><th class="n">SHARE</th></tr>
+    <tr><td class="lab">Google Search</td><td>Primary intent capture across all five segments. Highest-value planner and coordinator queries.</td><td class="num">$1,000</td><td class="num">67%</td></tr>
+    <tr><td class="lab">Microsoft (Bing) Search</td><td>Corporate and association planners on managed desktop environments, a segment that over-indexes on Bing and clears at a materially lower cost per click.</td><td class="num">$400</td><td class="num">27%</td></tr>
+    <tr><td class="lab">Instagram, Facebook</td><td>Organic demand generation and paid retargeting for weddings, reunions, and sports.</td><td class="num">$100</td><td class="num">6%</td></tr>
+    <tr><td class="lab">TikTok</td><td>Organic demand generation for weddings, reunions, and sports.</td><td class="num">$0</td><td class="num">0%</td></tr>
+    <tr class="tot"><td>TOTAL MEDIA</td><td></td><td class="num">$1,500</td><td class="num">100%</td></tr>
+  </table>
+  <p style="font-size:13.5px;color:var(--sm-drab);margin-top:10px">Media is contracted and paid by the property directly to each platform. Doubled Rook charges no commission, markup, or percentage of spend. Every dollar of the $1,500 buys media.</p>
+
+  <h3>SEGMENT SEQUENCING · ONE SEGMENT AT A TIME</h3>
+  <p>Doubled Rook's recommendation is to run <em>100% weddings at launch</em>, add meetings and conventions once the group base is restored, and open the remaining segments after that. All five pages go live at launch and earn organic traffic from day one. Paid budget goes to one segment at a time.</p>
+
+  <div class="panel">
+    <div class="panel-t">WHY CONCENTRATE RATHER THAN SPREAD</div>
+    <p style="margin:0 0 10px;font-size:14.5px">Split five ways, a $1,500 monthly budget puts roughly $300 behind each segment. At wedding and venue click costs that is fewer than fifty clicks per campaign per month, which is below the volume any bidding algorithm needs to leave its learning phase. Five underfunded campaigns do not average out to one funded one. They all stall.</p>
+    <p style="margin:0;font-size:14.5px">Concentrating the full budget on a single segment clears that threshold, produces enough conversion data to optimize against within the first term, and gives your leadership team one clean read on whether the channel works before it is asked to fund a wider program.</p>
+  </div>
+
+  <table>
+    <tr><th style="width:14%">STAGE</th><th style="width:26%">PAID FOCUS</th><th>WHY THIS ORDER</th></tr>
+    <tr>
+      <td class="lab">One</td>
+      <td class="lab">Weddings &amp; Celebrations<br><span style="font-family:var(--caps);font-size:11px;letter-spacing:.06em;color:var(--sm-drab)">100% OF PAID BUDGET</span></td>
+      <td>The segment where the property's differentiated physical assets do the selling: a 680-guest ballroom, the Tiffany Patio and Lawn, and the nightly fireworks. Highest consumer search volume of the five, decided by individuals rather than procurement committees, and the segment with the heaviest banquet attach per room night. It is also the fastest segment to produce measurable conversion data at this budget level.</td>
+    </tr>
+    <tr>
+      <td class="lab">Two</td>
+      <td class="lab">Weddings + Meetings &amp; Conventions</td>
+      <td>Once group base is restored, meetings is added alongside weddings. ACC adjacency and 15 dedicated breakouts are the strongest competitive claims the property owns, and average program value is the highest of any segment, but corporate and association booking windows are long, so this segment is funded when the calendar can wait for it.</td>
+    </tr>
+    <tr>
+      <td class="lab">Three</td>
+      <td class="lab">Sports, Reunions, Tour &amp; Crew</td>
+      <td>Opened once the first two segments are producing at a known cost per qualified lead. Sports leads on 395 two-queen rooms, reunions on low competition and repeat characteristics, tour and crew on on-site bus parking. Each is a genuine advantage; none is worth splitting a constrained budget to reach early.</td>
+    </tr>
+  </table>
+
+  <div class="note"><strong>The trigger is yours, not ours.</strong> The move from Stage One to Stage Two is governed by a group pace and occupancy recovery target set by the property. Ownership and revenue management define the threshold; Doubled Rook reports against it at every review call and recommends the shift when it is met. The budget does not move on an agency timetable.</div>
+  <div class="divider"></div>
+</div></div>
+
+<!-- ============ 04 ============ -->
+<div class="sec pagebreak"><div class="wrap">
+  <div class="kicker">04 · The Plan</div>
+  <h2>WHAT HAPPENS, AND WHEN</h2>
+
+  <div class="phase">
+    <div class="ph-when">PHASE 1<span>Weeks 1–2 · August</span></div>
+    <div class="ph-body">
+      <div class="ph-t">BASELINE AND INSTRUMENTATION</div>
+      <ul>
+        <li>GA4 and Google Tag Manager audit; conversion events defined and verified before a dollar of media runs</li>
+        <li>Group vanity site production build, franchise compliance review, and launch</li>
+        <li>Schema.org structured data deployed across all five segment pages</li>
+        <li>RFP form routing configured to group sales inbox with per-segment source attribution</li>
+        <li>Keyword build across five campaigns; negative keyword library seeded</li>
+        <li>Lead response protocol agreed with the sales team. Response speed is the single largest controllable variable in group conversion</li>
+        <li>Current-state benchmark captured: existing group lead volume, source mix, and conversion, so the program is measured against a real starting line</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="ph-when">PHASE 2<span>August – September</span></div>
+    <div class="ph-body">
+      <div class="ph-t">LAUNCH AND LEARN</div>
+      <ul>
+        <li>All five search campaigns live; TikTok creative in market</li>
+        <li>Weekly negative keyword pruning and search term review</li>
+        <li>Landing page conversion work driven by observed behavior, not assumption</li>
+        <li>Expect below-benchmark efficiency in the first six to eight weeks. This is the algorithmic learning period, and budget is deliberately not scaled during it</li>
+        <li>Bimonthly reporting call cadence begins</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="ph-when">PHASE 3<span>October – November</span></div>
+    <div class="ph-body">
+      <div class="ph-t">OPTIMIZE AND CONCENTRATE</div>
+      <ul>
+        <li>Budget reallocated toward the segments producing qualified leads, away from those that are not</li>
+        <li>Ad copy and landing page iteration against real conversion data</li>
+        <li>Quarterly Property Sentiment Report (Google · Expedia · TripAdvisor)</li>
+        <li>Quarterly Group &amp; Transient Business Audit</li>
+        <li>Third-party group channel alignment reviewed across Cvent, The Knot, and WeddingWire, so the numbers there match the fact sheet</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="ph-when">PHASE 4<span>December</span></div>
+    <div class="ph-body">
+      <div class="ph-t">CONSOLIDATE AND PLAN FORWARD</div>
+      <ul>
+        <li>Full-term performance review: leads by segment, cost per qualified lead, pipeline value, and booked programs</li>
+        <li>2027 annual plan and budget, built on five months of the property's own data rather than benchmarks</li>
+        <li>Recommendation on continuation scope, media level, and whether TikTok and organic social earn their place</li>
+      </ul>
+    </div>
+  </div>
+  <div class="divider"></div>
+</div></div>
+
+<!-- ============ 05 ============ -->
+<div class="sec pagebreak"><div class="wrap">
+  <div class="kicker">05 · The Model</div>
+  <h2>ESTIMATED LEAD AND REVENUE OPPORTUNITY</h2>
+  <p>What follows is a planning model, not a forecast. Doubled Rook does not guarantee lead, booking, or revenue outcomes, and no figure below should be read as one. Every input is published so your team can challenge it, replace it with property data, and re-run the arithmetic.</p>
+
+  <h3>STEP ONE · MEDIA TO LEADS, PER STEADY-STATE MONTH</h3>
+  <p>A single conservative case is modeled throughout. There is no base or upside column, by choice: a five-month program at this budget should be underwritten against the outcome your leadership team can afford to be true, not the one that closes the deal.</p>
+  <table>
+    <tr><th>PLATFORM</th><th class="n">BUDGET</th><th class="n">CPC</th><th class="n">CLICKS</th><th class="n">LEAD CVR</th><th class="n">LEADS / MO</th></tr>
+    <tr><td class="lab">Google Search</td><td class="num">$1,000</td><td class="num">$7.00</td><td class="num">143</td><td class="num">3.0%</td><td class="num">4.3</td></tr>
+    <tr><td class="lab">Microsoft Search</td><td class="num">$400</td><td class="num">$4.90</td><td class="num">82</td><td class="num">3.0%</td><td class="num">2.5</td></tr>
+    <tr><td class="lab">Instagram / Facebook</td><td class="num">$100</td><td class="num">$1.50</td><td class="num">67</td><td class="num">0.8%</td><td class="num">0.5</td></tr>
+    <tr class="tot"><td>TOTAL</td><td class="num">$1,500</td><td class="num">—</td><td class="num">292</td><td class="num">—</td><td class="num">7.3</td></tr>
+  </table>
+  <p style="font-size:13.5px;color:var(--sm-drab)">Click costs reflect the wedding and venue auction specifically, which clears materially higher than general travel and hospitality search. TikTok carries no paid budget and is therefore not modeled as a lead source.</p>
+
+  <div class="strip">
+    <div class="met"><div class="v">7.3</div><div class="l">QUALIFIED LEADS<br>PER STEADY MONTH</div></div>
+    <div class="met"><div class="v">$206</div><div class="l">MODELED<br>COST PER LEAD</div></div>
+    <div class="met"><div class="v">$50–150</div><div class="l">PUBLISHED CPL RANGE<br>VENUE / EVENT VERTICAL</div></div>
+    <div class="met"><div class="v">100%</div><div class="l">PAID BUDGET ON<br>WEDDINGS AT LAUNCH</div></div>
+  </div>
+  <p style="font-size:13.5px;color:var(--sm-drab)">The modeled cost per lead sits deliberately <em>above</em> the published range for the venue and event category. If the program lands inside that range, it outperforms this document.</p>
+
+  <h3>STEP TWO · THE RAMP</h3>
+  <p>Campaigns do not perform at steady state on day one. The model discounts August to 40% of steady-state output and September to 70%, reaching full efficiency in October. Across the five-month term that yields 4.1 full-performance months, not 5.0.</p>
+
+  <table>
+    <tr><th>MEASURE</th><th class="n">VALUE</th></tr>
+    <tr><td class="lab">Leads per steady-state month</td><td class="num">7.3</td></tr>
+    <tr><td class="lab">Ramp factor across Aug–Dec</td><td class="num">4.1 of 5.0</td></tr>
+    <tr class="tot"><td>TOTAL QUALIFIED LEADS · AUG–DEC</td><td class="num">30</td></tr>
+  </table>
+
+  <h3>STEP THREE · LEADS TO BOOKED PROGRAMS</h3>
+  <p>Published hospitality RFP win rates run 5–7%. That figure describes platform-sourced RFPs, where a planner distributes the same request to a dozen properties at once and most responses are never read. A lead that originates on your own site is a different animal: the planner arrived by searching for what this hotel specifically offers, read the capacity chart, and chose to inquire. The model nonetheless holds close to the platform benchmark at 8%, which is the conservative choice.</p>
+
+  <table>
+    <tr><th>MEASURE</th><th class="n">VALUE</th></tr>
+    <tr><td class="lab">Total qualified leads, Aug–Dec</td><td class="num">40</td></tr>
+    <tr><td class="lab">Lead to booked program, modeled</td><td class="num">8%</td></tr>
+    <tr class="tot"><td>BOOKED PROGRAMS</td><td class="num">3</td></tr>
+  </table>
+
+  <h3>STEP FOUR · BOOKED PROGRAMS TO ROOM REVENUE</h3>
+  <p>The property has not yet supplied average room nights per booked program. Rather than assume one, the model is run across three block sizes at the property's stated $200 running twelve-month ADR. Your sales team will know immediately which column reflects reality.</p>
+
+  <table>
+    <tr><th>BOOKED PROGRAMS</th><th class="n">@ 25 RN AVG</th><th class="n">@ 50 RN AVG</th></tr>
+    <tr><td class="lab">3</td><td class="num">$10,000</td><td class="num">$20,000</td></tr>
+  </table>
+  <p style="font-size:13.5px;color:var(--sm-drab)">Rooms revenue only, at $200 ADR. Excludes banquet and F&amp;B, audiovisual, bus parking at $250 per night, and the repeat value of a program that rebooks annually, all of which are real and none of which are modeled. This exclusion matters most in Stage One: a wedding typically books a smaller room block than a convention program and a far larger banquet check, so rooms-only revenue understates a wedding-led term more than any other segment mix.</p>
+
+  <h3>THE NUMBER THAT MATTERS MOST</h3>
+  <div class="panel">
+    <table style="margin:0">
+      <tr><td class="lab" style="width:56%">Doubled Rook fees, full five-month term ($1,000 × 5)</td><td class="num">$5,000</td></tr>
+      <tr><td class="lab">Group vanity site: build, SEO, AEO. Maintenance included for the term</td><td class="num">$2,500</td></tr>
+      <tr class="tot"><td>TOTAL AGENCY FEES</td><td class="num">$7,500</td></tr>
+      <tr><td class="lab">Media, paid direct to platforms ($1,500 × 5)</td><td class="num">$7,500</td></tr>
+      <tr class="tot"><td>TOTAL PROGRAM COST</td><td class="num">$15,000</td></tr>
+    </table>
+    <div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--sm-rule)">
+      <p style="margin:0;font-family:var(--body);font-style:italic;font-size:16.5px;color:var(--sm-wax);max-width:none">At $200 ADR, 38 room nights covers everything Doubled Rook is paid across the entire five months. 75 room nights covers the program end to end, media included.</p>
+    </div>
+  </div>
+   <div class="divider"></div>
+</div></div>
+
+<!-- ============ 06 ============ -->
+<div class="sec pagebreak"><div class="wrap">
+  <div class="kicker">06 · The Basis</div>
+  <h2>WHERE THE NUMBERS COME FROM</h2>
+  <p>Doubled Rook's standing rule is that nothing is asserted that cannot be traced to a source. The model above is built entirely from published 2026 benchmark data and one property-supplied figure. Every input is set at or beyond the conservative end of its published range. Here is the full accounting.</p>
+
+  <table>
+    <tr><th>INPUT</th><th>VALUE USED</th><th>SOURCE / STATUS</th></tr>
+    <tr><td class="lab">ADR</td><td>$200</td><td>Property-supplied, running twelve months</td></tr>
+    <tr><td class="lab">Google Search CPC</td><td>$7.00</td><td>Modeled above the general travel and hospitality benchmark of roughly $2.12, because group and venue keywords compete in a costlier auction. Published wedding and venue vendor CPCs run $3–12 depending on market.</td></tr>
+    <tr><td class="lab">Microsoft CPC</td><td>30% below Google</td><td>Published Microsoft Advertising differential at comparable conversion rates</td></tr>
+    <tr><td class="lab">Meta (Instagram / Facebook) CPC</td><td>$1.50</td><td>Toward the upper end of published Meta click costs for this category. Carries paid retargeting only, not prospecting.</td></tr>
+    <tr><td class="lab">Landing page lead CVR</td><td>3.0%</td><td>Travel and hospitality search benchmark is approximately 5.8%; arts, entertainment and event venues approximately 4.8%. Published wedding-venue case studies have exceeded 12%; the model does not use that figure.</td></tr>
+    <tr><td class="lab">Meta lead CVR</td><td>0.8%</td><td>Below published social conversion benchmarks, which cluster near 0.5–1.9% depending on format and objective</td></tr>
+    <tr><td class="lab">Ramp factor</td><td>4.1 of 5 months</td><td>Doubled Rook assumption, applied to avoid overstating early-term output <span class="flag">ASSUMPTION</span></td></tr>
+    <tr><td class="lab">Lead → booked program</td><td>8%</td><td>Published hospitality RFP win rate is 5–7% for platform-sourced RFPs. Direct-sourced leads are modeled barely above that. <span class="flag">ASSUMPTION</span></td></tr>
+    <tr><td class="lab">Room nights per program</td><td>Not assumed</td><td>Property has not supplied historical averages. Modeled as a 10 / 25 / 50 sensitivity rather than a point estimate. <span class="flag">DATA GAP</span></td></tr>
+    <tr><td class="lab">Current group lead baseline</td><td>Not available</td><td>Requires access to the property's group pipeline data and GA4. Captured in Phase 1. <span class="flag">DATA GAP</span></td></tr>
+    <tr><td class="lab">F&amp;B and ancillary attach</td><td>Excluded</td><td>Deliberately omitted. Its inclusion would materially raise every figure above. <span class="flag">DATA GAP</span></td></tr>
+  </table>
+
+  <div class="note"><strong>Two commitments:</strong> Benchmark inputs are planning tools, not promises; the reporting you receive will show actual performance against these assumptions, including where they were wrong.</div>
+  <div class="divider"></div>
+</div></div>
+
+<!-- ============ 07 ============ -->
+<div class="sec pagebreak"><div class="wrap">
+  <div class="kicker">07 · The Scope</div>
+  <h2>DIRECT BOOKINGS MANAGEMENT · GROWTH TIER</h2>
+  <p>The engagement is delivered at the published Growth tier of Doubled Rook's Direct Bookings Management service line, at a reduced rate. Scope is not reduced alongside price. The table below is the standard published Growth tier, unaltered.</p>
+
+  <table>
+    <tr><th>DELIVERABLE</th><th style="width:24%">GROWTH TIER</th></tr>
+    <tr class="grp"><td colspan="2">MARKETING ACCOUNT MANAGEMENT</td></tr>
+    <tr><td>Annual planning &amp; budgeting</td><td class="tick">Included</td></tr>
+    <tr><td>Call cadence &amp; reporting</td><td>Bimonthly</td></tr>
+    <tr><td>Biannual photography &amp; videography planning</td><td class="dash">Not included</td></tr>
+    <tr class="grp"><td colspan="2">DIGITAL MEDIA &amp; PLATFORMS</td></tr>
+    <tr><td>Paid ads: Google &amp; Microsoft search</td><td class="tick">Included</td></tr>
+    <tr><td>OTA management: content, imagery &amp; advertising</td><td class="tick">Included</td></tr>
+    <tr><td>Brand.com &amp; vanity site management</td><td class="tick">Included</td></tr>
+    <tr><td>Search engine optimization</td><td class="tick">Included</td></tr>
+    <tr><td>Email marketing management</td><td class="tick">Included</td></tr>
+    <tr><td>Food &amp; beverage digital support</td><td>Partial support</td></tr>
+    <tr><td>AI automation</td><td>Consultation only</td></tr>
+    <tr><td>Operating, sales &amp; F&amp;B collateral</td><td class="dash">Not included</td></tr>
+    <tr class="grp"><td colspan="2">PROPERTY HEALTH REPORTS</td></tr>
+    <tr><td>Property Sentiment Report (Google · Expedia · TripAdvisor)</td><td>1 per quarter</td></tr>
+    <tr><td>Group &amp; Transient Business Audit</td><td>1 per quarter</td></tr>
+    <tr><td>360 Property Health Audit</td><td>1 per quarter</td></tr>
+  </table>
+
+  <h3>ADDED TO GROWTH TIER FOR THIS ENGAGEMENT</h3>
+  <ul class="plain">
+    <li><strong>Group vanity website:</strong> design, build, launch, SEO, AEO, conversion tracking, and maintenance for the term.</li>
+    <li><strong>Social channel management:</strong> paid retargeting across Instagram and Facebook, funded from the $100 monthly social allocation, plus TikTok campaign build and creative direction held ready for activation. TikTok carries no paid budget in this plan; organic posting is a separate election below.</li>
+    <li><strong>Group channel alignment:</strong> Cvent, The Knot, and WeddingWire listings reconciled against the published fact sheet.</li>
+  </ul>
+  <div class="divider"></div>
+</div></div>
+
+<!-- ============ 08 ============ -->
+<div class="sec pagebreak"><div class="wrap">
+  <div class="kicker">08 · The Terms</div>
+  <h2>FEES AND TERMS</h2>
+
+  <h3>FOUNDING RATE · AUGUST 1 – DECEMBER 31, 2026</h3>
+  <table>
+    <tr><th>ITEM</th><th class="n">PUBLISHED</th><th class="n">THIS AGREEMENT</th></tr>
+    <tr><td class="lab">Direct Bookings Management (Growth Tier)</td><td class="num" style="color:var(--sm-drab);text-decoration:line-through">$2,500 / mo</td><td class="num">$1,000 / mo</td></tr>
+    <tr><td class="lab">TikTok Ads management + Organic social content &amp; publishing </td><td class="num" style="color:var(--sm-drab);text-decoration:line-through">$1,500 / mo</td><td class="num">Included</td></tr>
+    <tr><td class="lab">Group vanity site: build, SEO, AEO, maintenance</td><td class="num" style="color:var(--sm-drab);text-decoration:line-through">$4,000 one-time</td><td class="num">$2,500 one-time</td></tr>
+    <tr class="tot"><td>MONTHLY RECURRING, AS PROPOSED</td><td class="num">$4,000</td><td class="num">$1,000</td></tr>
+  </table>
+  <p style="font-size:13.5px;color:var(--sm-drab)">Site fee is due at signing. Monthly fees are invoiced in advance, due within fifteen days. Media spend is contracted and paid by the property directly to each platform; Doubled Rook takes no commission or markup on it.</p>
+
+  <div class="panel">
+    <div class="panel-t">TERM COMMITMENT</div>
+    <p style="margin:0;font-size:14.5px">Five months, August 1 through December 31, 2026. The founding rate is available only against that commitment. It is priced as a partnership through the build-and-learn period, not as an introductory discount that can be exited in month two. Neither party may terminate for convenience during the initial term.</p>
+  </div>
+
+  <h3>STANDARD RATE · JANUARY 1, 2027 FORWARD</h3>
+  <table>
+    <tr><th>ITEM</th><th class="n">FROM JAN 2027</th><th>NOTE</th></tr>
+    <tr><td class="lab">Direct Bookings Management (Growth Tier)</td><td class="num">$1,750 / mo</td><td>Google & Bing Ads + Vanity Site Maintenance Group Bookings. Held below the published $2,500 rate as a continuing partner</td></tr>
+    <tr><td class="lab">TikTok Ads management & Organic social content &amp; publishing</td><td class="num">$1,000 / mo</td><td>(Optional) Discontinues December 31 unless elected. Held at 33% below the published $1,500 rate as a continuing partner.</td></tr>
+    <tr><td class="lab">Term length</td><td class="num">3 months</td><td>Rolling three-month commitments thereafter</td></tr>
+  </table>
+
+  <div class="note"><strong>Group vanity website ownership.</strong> Doubled Rook builds, owns, hosts, and maintains the group microsite for the duration of the engagement, and the property holds a full license to its use throughout. Should the property elect to end the engagement, the site, including design, content, code, structured data, and accumulated search authority, transfers to the property's outright ownership for a one-time fee of $2,500. All advertising, analytics, and listing accounts remain registered in the property's name with administrative access at all times, and are not subject to any transfer fee. The domain is registered in and paid for by the property.</div>
+
+  <h3>ORGANIC SOCIAL · CONDITIONAL</h3>
+  <p>Organic social publishing is offered as an option rather than a recommendation, because it is not currently deliverable. A social strategy for this property requires photographic and video content from three to five real events. At present the available material consists of renderings from a single Indian wedding, which is not enough to build a credible feed across the wedding, sports, reunion, and meetings segments.</p>
+  <ul class="plain">
+    <li>Doubled Rook will work with the property team to identify upcoming events and secure content permissions from clients and planners</li>
+    <li>Once three to five events are captured, organic social becomes viable and the $500 monthly election opens</li>
+    <li>Until then, TikTok runs as a paid channel using existing property photography and the microsite's motion assets</li>
+  </ul>
+  <div class="divider"></div>
+</div></div>
+
+<!-- ============ 09 ============ -->
+<div class="sec pagebreak"><div class="wrap">
+  <div class="kicker">09 · The Ask</div>
+  <h2>WHAT WE NEED FROM THE PROPERTY</h2>
+  <p>Three of the four largest risks to this program sit on the property side, and all three are inexpensive to remove.</p>
+
+  <table>
+    <tr><th>REQUIREMENT</th><th>WHY IT MATTERS</th></tr>
+    <tr><td class="lab">A named point of contact authorized to approve content and campaigns</td><td>Approval bottlenecks are the most common cause of a launch slipping past its window</td></tr>
+    <tr><td class="lab">A lead response commitment from group sales</td><td>Response speed is the single largest controllable factor in group conversion. The best campaign in the market cannot outrun a lead that sits for four days.</td></tr>
+    <tr><td class="lab">GA4, Google Ads, and Microsoft Ads account access</td><td>Required in Phase 1. Without a baseline, no honest claim about improvement can be made later.</td></tr>
+    <tr><td class="lab">Historical group pipeline data</td><td>Average room nights per program, source mix, and current conversion. This replaces the benchmark assumptions with real ones</td></tr>
+    <tr><td class="lab">Brand assets, logos, and licensed photography</td><td>Production build requires licensed video and imagery in place of the demonstration assets</td></tr>
+    <tr><td class="lab">Domain registration for the group microsite</td><td>Registered in the property's name, at the property's cost</td></tr>
+    <tr><td class="lab" style="border-bottom:none">Event content access, for organic social</td><td style="border-bottom:none">Three to five events with client permission to capture and publish. Doubled Rook will help identify and secure these.</td></tr>
+  </table>
+
+  <h2 style="margin-top:44px">NEXT MOVE</h2>
+  <p>Review the concept build at <em>doubledrook.com/demo/sheraton-park</em>. It is the actual proposed architecture, and every capacity figure on it is drawn from the property's own Marriott.com listing as of July 2026.</p>
+  <p>If the direction is right, the path from here is short: countersign, Phase 1 begins within five business days, and the site is live with campaigns in market inside three weeks.</p>
+  <div class="pull">Stay three moves ahead of your comp set.</div>
+</div></div>
+
+<div class="wrap"><div class="footer">
+  <div class="foot-mark">DOUBLED ROOK</div>
+  <div class="foot-meta">doubledrook.com &nbsp;·&nbsp; michael@doubledrook.com &nbsp;·&nbsp; (619) 981-1286 &nbsp;·&nbsp; STAY THREE MOVES AHEAD</div>
+</div></div>
+
+</body>
+</html>
