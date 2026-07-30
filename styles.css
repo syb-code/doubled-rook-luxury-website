@@ -592,11 +592,56 @@ section { padding: 120px 48px; max-width: 1100px; margin: 0 auto; }
   filter: brightness(0.9) saturate(0.85);
   transition: filter 0.4s ease;
 }
-.case-img {
+.case-img-data {
   object-fit: contain;
   background: var(--bg-card);
 }
 .case-card:hover .case-img { filter: brightness(1) saturate(1); }
+
+/* Case card media carousel (walkthrough video <-> results data) */
+.case-carousel { position: relative; overflow: hidden; }
+.case-slides {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.case-slides .case-media {
+  flex: 0 0 100%;
+  width: 100%; aspect-ratio: 16/10; object-fit: cover;
+  display: block; background: var(--bg-card);
+}
+.case-video {
+  filter: brightness(0.92) saturate(0.9);
+  transition: filter 0.4s ease;
+}
+.case-card:hover .case-video { filter: brightness(1) saturate(1); }
+.case-carousel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 1px solid var(--border); background: rgba(0, 0, 0, 0.45);
+  color: #fff; font-size: 20px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; opacity: 0; transition: opacity 0.3s ease, background 0.3s ease;
+  padding: 0 0 2px;
+}
+.case-carousel-btn.prev { left: 10px; }
+.case-carousel-btn.next { right: 10px; }
+.case-carousel:hover .case-carousel-btn,
+.case-carousel-btn:focus-visible { opacity: 1; }
+.case-carousel-btn:hover { background: var(--accent); border-color: var(--accent); }
+.case-carousel-dots {
+  position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 7px;
+}
+.case-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  border: none; padding: 0; cursor: pointer;
+  background: rgba(255, 255, 255, 0.45);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.case-dot.active { background: var(--accent); transform: scale(1.25); }
+@media (hover: none) {
+  .case-carousel-btn { opacity: 1; }
+}
 .case-info { padding: 24px; }
 .case-label { font-family: var(--caps); font-weight: 700; font-size: 12px; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 6px; display: block; }
 .case-card h3 {

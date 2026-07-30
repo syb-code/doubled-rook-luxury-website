@@ -146,6 +146,81 @@ document.querySelectorAll(
   videos.forEach(v => videoObserver.observe(v));
 })();
 
+// Case study walkthrough videos: lazy-load + autoplay (muted, looping) when in view
+(function setupCaseVideos() {
+  const videos = document.querySelectorAll('.case-video[data-src]');
+  if (!videos.length) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return; // honor the poster still; skip motion
+
+  const play = v => { const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const v = entry.target;
+      if (entry.isIntersecting) {
+        if (!v.src && v.dataset.src) v.src = v.dataset.src;
+        play(v);
+      } else {
+        v.pause();
+      }
+    });
+  }, { threshold: 0.25, rootMargin: '200px 0px' });
+
+  videos.forEach(v => obs.observe(v));
+})();
+
+// Case study media carousels (walkthrough <-> data)
+(function setupCaseCarousels() {
+  document.querySelectorAll('.case-carousel').forEach(carousel => {
+    const slides = carousel.querySelector('.case-slides');
+    const imgs = slides ? slides.querySelectorAll('.case-media') : [];
+    if (!slides || imgs.length < 2) return;
+
+    const dots = carousel.querySelectorAll('.case-dot');
+    let index = 0;
+
+    function goTo(i) {
+      index = (i + imgs.length) % imgs.length;
+      slides.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d, di) => d.classList.toggle('active', di === index));
+      carousel.dataset.activeSlide = index;
+    }
+
+    carousel.querySelector('.case-carousel-btn.prev').addEventListener('click', e => {
+      e.stopPropagation(); goTo(index - 1);
+    });
+    carousel.querySelector('.case-carousel-btn.next').addEventListener('click', e => {
+      e.stopPropagation(); goTo(index + 1);
+    });
+    dots.forEach((dot, di) => dot.addEventListener('click', e => {
+      e.stopPropagation(); goTo(di);
+    }));
+
+    // Arrow keys flip the carousel while the card is focused
+    const card = carousel.closest('.case-card');
+    if (card) {
+      card.addEventListener('keydown', e => {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(index - 1); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); goTo(index + 1); }
+      });
+    }
+
+    // Touch swipe
+    let touchX = null;
+    carousel.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+    carousel.addEventListener('touchend', e => {
+      if (touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 40) goTo(dx < 0 ? index + 1 : index - 1);
+      touchX = null;
+    }, { passive: true });
+
+    goTo(0);
+  });
+})();
+
 // Case study lightbox
 (function setupCaseLightbox() {
   const cards = document.querySelectorAll('.case-card');
@@ -174,7 +249,9 @@ document.querySelectorAll(
   const modalBody = modal.querySelector('.case-modal-body');
 
   function open(card) {
-    const img = card.querySelector('.case-img');
+    // The lightbox always presents the case-study results image + full write-up,
+    // regardless of which carousel slide (walkthrough or data) is showing.
+    const img = card.querySelector('.case-img-data') || card.querySelector('.case-img');
     const label = card.querySelector('.case-label');
     const title = card.querySelector('h3');
     const detail = card.querySelector('.case-detail');
