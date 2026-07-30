@@ -244,6 +244,57 @@ function toggleTheme() {
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+// ===== CALENDLY BOOKING POPUP =====
+// Links pointing at calendly.com open the Calendly popup widget instead of
+// navigating away; the plain href remains as a no-JS / load-failure fallback.
+(function setupCalendly() {
+  let assetsPromise = null;
+
+  function ensureCss() {
+    if (document.querySelector('link[href*="assets.calendly.com"]')) return;
+    const css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://assets.calendly.com/assets/external/widget.css';
+    document.head.appendChild(css);
+  }
+
+  function loadAssets() {
+    ensureCss();
+    if (window.Calendly) return Promise.resolve();
+    if (assetsPromise) return assetsPromise;
+    assetsPromise = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.onload = resolve;
+      script.onerror = () => { assetsPromise = null; reject(); };
+      document.head.appendChild(script);
+    });
+    return assetsPromise;
+  }
+
+  // Warm the widget assets as soon as a booking link is hovered/touched
+  ['mouseover', 'touchstart'].forEach(evt => {
+    document.addEventListener(evt, e => {
+      if (e.target.closest && e.target.closest('a[href*="calendly.com"]')) {
+        loadAssets().catch(() => {});
+      }
+    }, { passive: true });
+  });
+
+  document.addEventListener('click', e => {
+    const link = e.target.closest && e.target.closest('a[href*="calendly.com"]');
+    if (!link) return;
+    e.preventDefault();
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'calendly_cta_click' });
+    loadAssets().then(() => {
+      window.Calendly.initPopupWidget({ url: link.href });
+    }).catch(() => {
+      window.open(link.href, '_blank', 'noopener');
+    });
+  });
+})();
+
 // ===== BELL BUTTON + FORM HANDLING =====
 function handleSubmit(e) {
   e.preventDefault();
