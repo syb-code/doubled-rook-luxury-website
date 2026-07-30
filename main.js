@@ -250,14 +250,19 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 (function setupCalendly() {
   let assetsPromise = null;
 
+  function ensureCss() {
+    if (document.querySelector('link[href*="assets.calendly.com"]')) return;
+    const css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://assets.calendly.com/assets/external/widget.css';
+    document.head.appendChild(css);
+  }
+
   function loadAssets() {
+    ensureCss();
     if (window.Calendly) return Promise.resolve();
     if (assetsPromise) return assetsPromise;
     assetsPromise = new Promise((resolve, reject) => {
-      const css = document.createElement('link');
-      css.rel = 'stylesheet';
-      css.href = 'https://assets.calendly.com/assets/external/widget.css';
-      document.head.appendChild(css);
       const script = document.createElement('script');
       script.src = 'https://assets.calendly.com/assets/external/widget.js';
       script.onload = resolve;
