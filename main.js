@@ -146,27 +146,21 @@ document.querySelectorAll(
   videos.forEach(v => videoObserver.observe(v));
 })();
 
-// Case study walkthrough videos: lazy-load + autoplay (muted, looping) when in view
+// Case study walkthrough videos.
+// Playback is native (autoplay muted loop playsinline on the <video>); this observer
+// only pauses clips while off-screen and resumes them in view, to save resources.
 (function setupCaseVideos() {
-  const videos = document.querySelectorAll('.case-video[data-src]');
-  if (!videos.length) return;
-
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion) return; // honor the poster still; skip motion
+  const videos = document.querySelectorAll('.case-video');
+  if (!videos.length || !('IntersectionObserver' in window)) return;
 
   const play = v => { const p = v.play(); if (p && p.catch) p.catch(() => {}); };
 
   const obs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      const v = entry.target;
-      if (entry.isIntersecting) {
-        if (!v.src && v.dataset.src) v.src = v.dataset.src;
-        play(v);
-      } else {
-        v.pause();
-      }
+      if (entry.isIntersecting) play(entry.target);
+      else entry.target.pause();
     });
-  }, { threshold: 0.25, rootMargin: '200px 0px' });
+  }, { threshold: 0.1, rootMargin: '200px 0px' });
 
   videos.forEach(v => obs.observe(v));
 })();
