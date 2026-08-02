@@ -1,0 +1,47 @@
+{
+  // MyHotelAuditor.com — M2 spike (docs/07 §4).
+  // Infrastructure as configuration, committed as code (docs/07 §9).
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mha-m2-spike",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  "observability": { "enabled": true },
+
+  // Queue-driven run pipeline (docs/07 §2 job orchestrator; RUN-2 states).
+  "queues": {
+    "producers": [{ "queue": "mha-m2-runs", "binding": "RUNS_QUEUE" }],
+    "consumers": [
+      {
+        "queue": "mha-m2-runs",
+        "max_batch_size": 1,
+        "max_retries": 3,
+        "dead_letter_queue": "mha-m2-runs-dlq"
+      }
+    ]
+  },
+
+  // Immutable snapshots + rendered artifacts (non-negotiable #5; ING-2, ING-8).
+  "r2_buckets": [
+    { "binding": "SNAPSHOTS", "bucket_name": "mha-m2-snapshots" },
+    { "binding": "ARTIFACTS", "bucket_name": "mha-m2-artifacts" }
+  ],
+
+  // Neon Postgres via Hyperdrive — deliberately not D1 (docs/07 §3 Option A).
+  // id is filled by `wrangler hyperdrive create` and is not a secret.
+  "hyperdrive": [{ "binding": "HYPERDRIVE", "id": "PLACEHOLDER_SET_BY_HYPERDRIVE_CREATE" }],
+
+  // Chromium for rendered-DOM capture (ING-3) and PDF export (REP-2).
+  "browser": { "binding": "BROWSER" },
+
+  "vars": {
+    // Pinned reproducibility trio (non-negotiable #5; RUN-4, runs table docs/09).
+    "PROMPT_BUNDLE_VERSION": "m2-spike-0.1.0",
+    "RUBRIC_VERSION": "m2-spike-0.1.0",
+    "TEMPLATE_VERSION": "m2-spike-0.1.0"
+  }
+
+  // Secrets (NEON_DATABASE_URL, ANTHROPIC_API_KEY, PSI_API_KEY) are NOT here.
+  // Local: .dev.vars (gitignored). Deployed: `wrangler secret put <NAME>`.
+}

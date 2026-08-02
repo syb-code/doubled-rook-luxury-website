@@ -1,0 +1,13 @@
+# Copy to .dev.vars and fill in. .dev.vars is gitignored and must never be committed.
+# Deployed values go in via: wrangler secret put <NAME>
+
+# Neon Postgres. Use the DIRECT (unpooled) connection string — Hyperdrive pools.
+# Source: neon.tech -> project -> Connection Details
+NEON_DATABASE_URL=
+
+# Anthropic API key. Source: console.anthropic.com -> API Keys
+ANTHROPIC_API_KEY=
+
+# Google PageSpeed Insights API key (Lighthouse lab data, mobile + desktop).
+# Source: console.cloud.google.com -> enable "PageSpeed Insights API" -> Credentials -> API key
+PSI_API_KEY=
