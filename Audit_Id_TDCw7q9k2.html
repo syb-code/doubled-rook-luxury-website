@@ -1,0 +1,2169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The Dewberry Charleston — Multi-Channel Diagnostic | Doubled Rook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,opsz,wght@0,5..1200,400;0,5..1200,500;0,5..1200,600;0,5..1200,700;1,5..1200,400;1,5..1200,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1C1410;
+    --card: #2E2018;
+    --hover: #3A2C22;
+    --accent: #D4956A;
+    --accent-light: #E8AD7E;
+    --text: #E8D5C0;
+    --muted: #A89080;
+    --dim: #6B5848;
+    --sage: #7A8B6F;
+    --sage-light: #9DB48F;
+    --risk: #C4614D;
+    --risk-light: #D98A78;
+    --border: rgba(212,149,106,0.12);
+    --border-hover: rgba(212,149,106,0.25);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SFMono-Regular', monospace;
+    --font-longform: 'Source Serif 4', Georgia, serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  /* ---------- watermark ---------- */
+  #wm {
+    position: fixed; inset: -20%;
+    z-index: 0; pointer-events: none;
+    transform: rotate(-30deg);
+    opacity: 0.045;
+    overflow: hidden;
+  }
+  #wm .wm-row {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 0.28em;
+    white-space: nowrap;
+    color: var(--accent);
+    line-height: 4.6;
+    text-transform: uppercase;
+  }
+  /* ---------- confidential banner ---------- */
+  .conf-banner {
+    position: relative; z-index: 2;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    padding: 11px 28px;
+    background: rgba(46,32,24,0.92);
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 10px; font-weight: 400;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .conf-banner .cb-strong { color: var(--accent); }
+  /* ---------- document frame ---------- */
+  .doc {
+    position: relative; z-index: 1;
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 64px 44px 90px;
+  }
+  /* ---------- cover ---------- */
+  .cover { padding: 34px 0 66px; }
+  .brand-row { display: flex; align-items: center; gap: 16px; margin-bottom: 46px; }
+  .rook-mark { display: flex; align-items: flex-end; }
+  .rook-mark svg { display: block; }
+  .brand-stack .brand-name {
+    font-family: var(--font-body); font-weight: 600;
+    font-size: 14px; letter-spacing: 0.34em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .brand-stack .brand-sub {
+    font-family: var(--font-mono); font-weight: 300;
+    font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--dim); margin-top: 4px;
+  }
+  .doc-meta {
+    font-family: var(--font-mono); font-weight: 300;
+    font-size: 10.5px; letter-spacing: 0.1em;
+    color: var(--dim);
+    margin-left: auto; text-align: right; line-height: 1.8;
+  }
+  .doc-meta .dm-strong { color: var(--muted); }
+  .cover-kicker {
+    font-family: var(--font-mono); font-weight: 400;
+    font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--sage); margin-bottom: 20px;
+  }
+  .cover h1 {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: clamp(42px, 6vw, 62px);
+    line-height: 1.06; letter-spacing: -0.015em;
+    color: var(--text);
+    max-width: 15ch;
+  }
+  .cover .cover-accent {
+    font-family: var(--font-display); font-style: italic; font-weight: 400;
+    font-size: clamp(24px, 3.2vw, 32px);
+    color: var(--accent);
+    margin-top: 14px;
+  }
+  .cover-sub {
+    font-family: var(--font-longform); font-weight: 400;
+    font-size: 16.5px; line-height: 1.72;
+    color: var(--muted);
+    max-width: 66ch; margin-top: 30px;
+  }
+  .cover-tagline {
+    font-family: var(--font-display); font-style: italic; font-weight: 400;
+    font-size: 17px; color: var(--dim); margin-top: 34px;
+  }
+  .cover-tagline .tg-accent { color: var(--accent); }
+  .cover-facts {
+    display: flex; flex-wrap: wrap; gap: 10px 26px;
+    margin-top: 36px; padding-top: 22px;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-mono); font-weight: 300;
+    font-size: 10.5px; letter-spacing: 0.06em;
+    color: var(--dim);
+  }
+  .cover-facts b { font-weight: 400; color: var(--muted); }
+  /* ---------- section / chapter scaffolding ---------- */
+  .gradient-divider {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(212,149,106,0.35), rgba(212,149,106,0.05) 62%, transparent);
+    margin: 74px 0 0;
+  }
+  .chapter { padding-top: 62px; }
+  .chapter-label {
+    font-family: var(--font-mono); font-weight: 400;
+    font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--dim); margin-bottom: 14px;
+  }
+  .chapter-label .cl-fam { color: var(--sage); }
+  .chapter h2 {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: clamp(28px, 3.6vw, 36px);
+    line-height: 1.14; letter-spacing: -0.01em;
+    color: var(--text);
+    max-width: 26ch;
+    margin-bottom: 18px;
+  }
+  .chapter h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .lead {
+    font-family: var(--font-longform); font-weight: 400;
+    font-size: 16px; line-height: 1.74;
+    color: var(--muted);
+    max-width: 72ch;
+    margin-bottom: 30px;
+  }
+  .lead b, .lead strong { color: var(--text); font-weight: 600; }
+  p.body-note {
+    font-size: 14px; color: var(--muted); max-width: 74ch; margin: 18px 0 6px;
+  }
+  p.body-note b { color: var(--text); font-weight: 600; }
+  h3.sub {
+    font-family: var(--font-body); font-weight: 600;
+    font-size: 16px; color: var(--text);
+    margin: 34px 0 12px;
+  }
+  h3.sub .sub-mono {
+    font-family: var(--font-mono); font-weight: 400; font-size: 10px;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim);
+    display: block; margin-bottom: 6px;
+  }
+  /* ---------- data grid ---------- */
+  .data-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 12px; margin: 26px 0 8px;
+  }
+  .dg-cell {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 16px 14px;
+  }
+  .dg-label {
+    font-family: var(--font-mono); font-weight: 400;
+    font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--dim); margin-bottom: 8px; line-height: 1.5;
+  }
+  .dg-value {
+    font-family: var(--font-body); font-weight: 600;
+    font-size: 19px; line-height: 1.2; color: var(--text);
+  }
+  .dg-value small { font-size: 12px; font-weight: 400; color: var(--muted); }
+  .dg-state {
+    font-family: var(--font-mono); font-weight: 400;
+    font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase;
+    margin-top: 7px;
+  }
+  .dg-good { color: var(--sage-light); }
+  .dg-warn { color: var(--accent-light); }
+  .dg-bad  { color: var(--risk-light); }
+  /* ---------- finding cards ---------- */
+  .finding {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 26px 22px;
+    margin: 18px 0;
+    transition: border-color 0.25s ease;
+  }
+  .finding:hover { border-color: var(--border-hover); }
+  .f-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+  .f-code {
+    font-family: var(--font-mono); font-weight: 500;
+    font-size: 11px; letter-spacing: 0.08em;
+    color: var(--accent);
+    background: rgba(212,149,106,0.1);
+    border: 1px solid rgba(212,149,106,0.24);
+    border-radius: 5px; padding: 3px 9px;
+  }
+  .sev {
+    font-family: var(--font-mono); font-weight: 400;
+    font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    border-radius: 5px; padding: 3px 9px;
+  }
+  .sev-crit { color: var(--risk-light); background: rgba(196,97,77,0.13); border: 1px solid rgba(196,97,77,0.32); }
+  .sev-mod  { color: var(--accent-light); background: rgba(212,149,106,0.1); border: 1px solid rgba(212,149,106,0.28); }
+  .sev-min  { color: var(--muted); background: rgba(168,144,128,0.1); border: 1px solid rgba(168,144,128,0.26); }
+  .sev-adv  { color: var(--muted); background: transparent; border: 1px dashed rgba(168,144,128,0.34); }
+  .sev-pos  { color: var(--sage-light); background: rgba(122,139,111,0.13); border: 1px solid rgba(122,139,111,0.32); }
+  .f-title {
+    font-family: var(--font-body); font-weight: 600;
+    font-size: 15.5px; line-height: 1.4; color: var(--text);
+    margin-bottom: 8px;
+  }
+  .f-body {
+    font-size: 14px; line-height: 1.68; color: var(--muted);
+  }
+  .f-body b { color: var(--text); font-weight: 600; }
+  .f-body em { color: var(--accent-light); font-style: italic; }
+  .evidence {
+    background: rgba(20,14,11,0.72);
+    border: 1px solid rgba(212,149,106,0.1);
+    border-left: 2px solid rgba(212,149,106,0.35);
+    border-radius: 0 8px 8px 0;
+    padding: 13px 16px;
+    margin: 13px 0 4px;
+    font-family: var(--font-mono); font-weight: 400;
+    font-size: 11.5px; line-height: 1.72;
+    color: var(--accent-light);
+    overflow-x: auto; white-space: pre-wrap; word-break: break-word;
+  }
+  .evidence .ev-label {
+    display: block;
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--dim); margin-bottom: 6px;
+  }
+  .why {
+    font-size: 13px; line-height: 1.62; color: var(--muted);
+    margin-top: 12px; padding-top: 11px;
+    border-top: 1px solid rgba(212,149,106,0.08);
+  }
+  .why .why-k {
+    font-family: var(--font-mono); font-weight: 400;
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--sage); margin-right: 8px;
+  }
+  /* ---------- callouts ---------- */
+  .callout {
+    border-radius: 0 10px 10px 0;
+    padding: 20px 24px;
+    margin: 26px 0;
+    font-size: 14px; line-height: 1.68; color: var(--muted);
+  }
+  .callout b { color: var(--text); font-weight: 600; }
+  .callout .co-title {
+    font-family: var(--font-mono); font-weight: 400;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .co-sage { background: rgba(122,139,111,0.07); border-left: 2px solid var(--sage); }
+  .co-sage .co-title { color: var(--sage-light); }
+  .co-peach { background: rgba(212,149,106,0.06); border-left: 2px solid var(--accent); }
+  .co-peach .co-title { color: var(--accent); }
+  .co-risk { background: rgba(196,97,77,0.07); border-left: 2px solid var(--risk); }
+  .co-risk .co-title { color: var(--risk-light); }
+  .callout ul { margin: 6px 0 2px 18px; }
+  .callout li { margin: 5px 0; }
+  /* ---------- tables ---------- */
+  .tbl-wrap { overflow-x: auto; margin: 22px 0; }
+  table.dr {
+    width: 100%; border-collapse: collapse;
+    font-size: 13px;
+  }
+  table.dr th {
+    font-family: var(--font-mono); font-weight: 400;
+    font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--dim); text-align: left;
+    padding: 10px 12px 10px 0;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  table.dr td {
+    padding: 12px 12px 12px 0;
+    border-bottom: 1px solid rgba(212,149,106,0.07);
+    vertical-align: top;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  table.dr td b { color: var(--text); font-weight: 600; }
+  table.dr td .cell-mono {
+    font-family: var(--font-mono); font-weight: 400; font-size: 11.5px;
+    color: var(--accent-light);
+  }
+  table.dr td .cell-dim { color: var(--dim); font-size: 12px; }
+  .td-good { color: var(--sage-light) !important; }
+  .td-warn { color: var(--accent-light) !important; }
+  .td-bad  { color: var(--risk-light) !important; }
+  /* ---------- strategy cards (sa-style) ---------- */
+  .sa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0; }
+  .sa-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 22px 20px;
+    transition: border-color 0.25s ease;
+  }
+  .sa-card:hover { border-color: var(--border-hover); }
+  .sa-kicker {
+    font-family: var(--font-mono); font-weight: 400;
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--sage); margin-bottom: 9px;
+  }
+  .sa-title {
+    font-family: var(--font-body); font-weight: 600;
+    font-size: 15px; color: var(--text); line-height: 1.35;
+    margin-bottom: 8px;
+  }
+  .sa-body { font-size: 13.5px; line-height: 1.64; color: var(--muted); }
+  .sa-body b { color: var(--text); font-weight: 600; }
+  .sa-foot {
+    margin-top: 12px; padding-top: 10px;
+    border-top: 1px solid rgba(212,149,106,0.08);
+    font-family: var(--font-mono); font-weight: 400;
+    font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--dim);
+  }
+  .sa-foot .tag-roi { color: var(--sage-light); }
+  .sa-foot .tag-post { color: var(--accent-light); }
+  /* ---------- gap index ---------- */
+  .gap-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; vertical-align: 1px; }
+  .gd-crit { background: var(--risk); }
+  .gd-mod  { background: var(--accent); }
+  .gd-min  { background: #8f7a68; }
+  .gd-adv  { background: transparent; border: 1px solid var(--dim); width: 7px; height: 7px; }
+  table.gap td { padding: 8px 12px 8px 0; font-size: 12.5px; }
+  table.gap td:first-child { white-space: nowrap; font-family: var(--font-mono); font-size: 11px; color: var(--accent); width: 88px; }
+  table.gap td:last-child { white-space: nowrap; font-family: var(--font-mono); font-size: 10px; color: var(--dim); text-align: right; }
+  /* ---------- phases ---------- */
+  .phase {
+    display: grid; grid-template-columns: 158px 1fr; gap: 22px;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(212,149,106,0.08);
+  }
+  .phase:last-of-type { border-bottom: none; }
+  .ph-when {
+    font-family: var(--font-mono); font-weight: 400;
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--sage); line-height: 1.8; padding-top: 3px;
+  }
+  .ph-when .ph-num {
+    display: block;
+    font-family: var(--font-display); font-weight: 500; font-style: italic;
+    font-size: 30px; letter-spacing: 0; text-transform: none;
+    color: var(--accent); margin-bottom: 2px;
+  }
+  .ph-title { font-family: var(--font-body); font-weight: 600; font-size: 15.5px; color: var(--text); margin-bottom: 7px; }
+  .ph-body { font-size: 13.5px; line-height: 1.66; color: var(--muted); }
+  .ph-body b { color: var(--text); font-weight: 600; }
+  .ph-refs {
+    margin-top: 9px;
+    font-family: var(--font-mono); font-weight: 400;
+    font-size: 10px; letter-spacing: 0.06em; color: var(--dim);
+  }
+  /* ---------- programs (ch11) ---------- */
+  .program {
+    background: var(--card);
+    border: 1px solid var(--border-hover);
+    border-radius: 14px;
+    padding: 28px 30px 26px;
+    margin: 20px 0;
+  }
+  .pr-kicker {
+    font-family: var(--font-mono); font-weight: 400;
+    font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--sage); margin-bottom: 10px;
+  }
+  .pr-title {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: 24px; color: var(--text); line-height: 1.2;
+  }
+  .pr-title em { color: var(--accent); font-style: italic; font-weight: 400; }
+  .pr-body { font-size: 14px; line-height: 1.7; color: var(--muted); margin-top: 12px; }
+  .pr-body b { color: var(--text); font-weight: 600; }
+  .pr-list { margin: 12px 0 4px 18px; font-size: 13.5px; color: var(--muted); }
+  .pr-list li { margin: 6px 0; line-height: 1.6; }
+  .pr-list b { color: var(--text); font-weight: 600; }
+  /* ---------- chapter index ---------- */
+  .chix {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6px 34px;
+    margin: 22px 0 4px;
+  }
+  .chix a {
+    display: flex; justify-content: space-between; gap: 14px;
+    text-decoration: none;
+    padding: 8px 2px;
+    border-bottom: 1px solid rgba(212,149,106,0.07);
+    color: var(--muted);
+    font-size: 13px;
+    transition: color 0.2s ease;
+  }
+  .chix a:hover { color: var(--text); }
+  .chix .cx-num { font-family: var(--font-mono); font-size: 10.5px; color: var(--dim); letter-spacing: 0.08em; padding-top: 2px; }
+  .chix .cx-fam { font-family: var(--font-mono); font-size: 10px; color: var(--sage); letter-spacing: 0.08em; padding-top: 2px; }
+  /* ---------- footer ---------- */
+  .doc-footer {
+    margin-top: 84px; padding-top: 30px;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: flex-end; gap: 22px; flex-wrap: wrap;
+  }
+  .df-left .df-brand {
+    font-family: var(--font-body); font-weight: 600;
+    font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .df-left .df-contact {
+    font-family: var(--font-mono); font-weight: 300;
+    font-size: 10.5px; letter-spacing: 0.06em; color: var(--dim); margin-top: 7px;
+  }
+  .df-right {
+    font-family: var(--font-mono); font-weight: 300;
+    font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--dim); text-align: right; line-height: 2;
+  }
+  .df-tag {
+    font-family: var(--font-display); font-style: italic;
+    font-size: 14px; letter-spacing: 0.02em; text-transform: none;
+    color: var(--muted);
+  }
+  /* ---------- misc ---------- */
+  .mono-inline { font-family: var(--font-mono); font-size: 0.86em; color: var(--accent-light); }
+  .hairline { height: 1px; background: rgba(212,149,106,0.08); margin: 30px 0; }
+  a.ext { color: var(--accent-light); text-decoration: none; border-bottom: 1px solid rgba(212,149,106,0.3); }
+  @media (max-width: 860px) {
+    .doc { padding: 40px 22px 70px; }
+    .data-grid { grid-template-columns: 1fr 1fr; }
+    .sa-grid { grid-template-columns: 1fr; }
+    .chix { grid-template-columns: 1fr; }
+    .phase { grid-template-columns: 1fr; gap: 8px; }
+    .cover h1 { font-size: 40px; }
+  }
+  @media print {
+    #wm { opacity: 0.05; }
+    .finding, .sa-card, .program { break-inside: avoid; }
+    .chapter { break-before: auto; }
+  }
+</style>
+</head>
+<body>
+<div id="wm" aria-hidden="true"></div>
+<script>
+(function () {
+  var t = 'CONFIDENTIAL \u00b7 DOUBLED ROOK \u00b7 THE DEWBERRY CHARLESTON \u00b7 JULY 2026 \u00b7 ';
+  var wm = document.getElementById('wm');
+  var row = '';
+  for (var i = 0; i < 14; i++) { row += t; }
+  var html = '';
+  for (var r = 0; r < 60; r++) {
+    html += '<div class="wm-row">' + (r % 2 ? '\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0' : '') + row + '</div>';
+  }
+  wm.innerHTML = html;
+})();
+</script>
+<div class="conf-banner">
+  <span>Confidential &mdash; prepared for <span class="cb-strong">The Dewberry Charleston</span></span>
+  <span>Doubled Rook &middot; Multi-Channel Diagnostic &middot; Jul 2026 &middot; Audit Id TDCw7q9k2</span>
+</div>
+<div class="doc">
+<!-- ============================ COVER ============================ -->
+<section class="cover">
+  <div class="brand-row">
+    <div class="rook-mark" aria-hidden="true">
+      <svg width="46" height="40" viewBox="0 0 92 80" xmlns="http://www.w3.org/2000/svg">
+        <g fill="#D4956A">
+          <path d="M10 12 h6 v6 h5 v-6 h6 v6 h5 v-6 h6 v14 l-5 5 v22 l5 6 v9 H10 v-9 l5-6 V31 l-5-5 Z"/>
+        </g>
+        <g fill="#D4956A" opacity="0.45" transform="translate(92,0) scale(-1,1)">
+          <path d="M10 12 h6 v6 h5 v-6 h6 v6 h5 v-6 h6 v14 l-5 5 v22 l5 6 v9 H10 v-9 l5-6 V31 l-5-5 Z"/>
+        </g>
+      </svg>
+    </div>
+    <div class="brand-stack">
+      <div class="brand-name">Doubled Rook</div>
+      <div class="brand-sub">Hotel Digital Marketing</div>
+    </div>
+    <div class="doc-meta">
+      <span class="dm-strong">Confidential</span> &middot; July 2026<br>
+      Audit Id TDCw7q9k2 &middot; Audited 20 Jul 2026
+    </div>
+  </div>
+
+  <div class="cover-kicker">Master Prospect Audit &middot; Multi-Channel Diagnostic</div>
+  <h1>The Dewberry Charleston</h1>
+  <div class="cover-accent">Across the Channels</div>
+
+  <p class="cover-sub">
+    A first-look diagnostic of how The Dewberry shows up to guests everywhere a booking decision happens &mdash;
+    its own website and booking engine, Google&rsquo;s hotel surfaces, the major OTAs and the resellers beneath them,
+    the review platforms, and social. Every claim in this document was verified live on 20 July 2026, with the exact
+    capture quoted beneath it. Where a surface could not be reached from this environment, that limit is recorded
+    rather than papered over. The pattern the evidence draws: the reigning <b style="color:var(--text)">Best Independent
+    Hotel in the World</b> is quietly ceding rate, discovery, and hard-earned reputation on the surfaces it does not control.
+  </p>
+
+  <div class="cover-tagline">Stay three moves ahead <span class="tg-accent">of your comp set.</span></div>
+
+  <div class="cover-facts">
+    <span><b>Property</b> &nbsp;Independent luxury boutique &middot; 153 rooms &amp; suites (per About page)</span>
+    <span><b>Address</b> &nbsp;334 Meeting St, Charleston, SC 29403</span>
+    <span><b>Opened</b> &nbsp;2016 &middot; L. Mendel Rivers Federal Building (1964)</span>
+    <span><b>Site</b> &nbsp;thedewberrycharleston.com &middot; Tambourine Symphony</span>
+    <span><b>Booking engine</b> &nbsp;SynXis &middot; chain 28420 &middot; hotel 65759</span>
+    <span><b>Flag</b> &nbsp;Unaffiliated &middot; Virtuoso &middot; MICHELIN Key &middot; Historic Hotels of America</span>
+  </div>
+
+  <div class="cover-facts" style="margin-top:14px;">
+    <span><b>Surfaces audited, this run</b> &nbsp;Site source + rendered DOM (desktop &amp; 390px mobile) &middot; schema, robots,
+    GTM container payload, consent behavior &middot; Google entity panel &amp; travel roster &middot; 15 seller/reseller surfaces
+    across OTA, metasearch, and wholesale tiers &middot; 8 review platforms, same-day &middot; Tripadvisor &amp; Google deep reads
+    &middot; 4-property competitive set, parsed identically &middot; social presence across 6 platforms &middot; automated
+    accessibility pass (axe-core). Every claim carries its capture date; every blocked check is named, not papered over.</span>
+  </div>
+</section>
+<div class="gradient-divider"></div>
+<!-- ============================ EXECUTIVE SUMMARY ============================ -->
+<section class="chapter" id="exec">
+  <div class="chapter-label">Executive Summary &middot; <span class="cl-fam">48 findings &middot; 20 Jul 2026</span></div>
+  <h2>A World-Title Property, Quietly Ceding Rate, Recency, and the Rooftop <em>on surfaces it doesn&rsquo;t control</em></h2>
+  <p class="lead">
+    The Dewberry&rsquo;s fundamentals are the envy of its market: Virtuoso&rsquo;s 2025 Best Independent Hotel in the World, a
+    MICHELIN Key, 68,000 Instagram followers, guests who praise staff by name, and same-day scores of 9.6 on Expedia, 9.5 on
+    US News, and 4.6 on Google. This audit found the equity intact &mdash; and leaking through three seams. <b>First, the money
+    seam:</b> the property&rsquo;s own Book Now buttons ship with stale, hard-coded analytics identities that corrupt attribution
+    at the exact website-to-booking-engine handoff where it matters (M-01), while on Google&rsquo;s booking panel a wholesale
+    reseller undercuts the official rate by 12.5% and on KAYAK the hotel isn&rsquo;t listed as a seller at all (D-01, D-02).
+    <b>Second, the truth seam:</b> the two largest OTA families are still selling Henrietta&rsquo;s &mdash; a restaurant closed
+    since 2020 &mdash; as a live four-meal amenity, and the fiction traces upstream to the hotel&rsquo;s own dining-page metadata
+    (D-05, M-05); the schema entity card Google reads declares a $180&ndash;$300 price range against a live $419&ndash;$779 rate
+    card (M-02, D-04). <b>Third, the reputation seam:</b> Tripadvisor&rsquo;s recency-weighted display has slid to 4.0 and #26 in
+    the city while every other platform holds the property in the top band &mdash; and the arithmetic in Chapter 08 proves the
+    slide is a weighting artifact riding on ~2.7 reviews a month of unmanaged volume, which means the same math will reward a
+    managed stream just as fast (R-02, B-01, R-05). None of the three seams requires a rebrand, a renovation, or a rebuild. They
+    require ownership of the surfaces &mdash; a twelve-week remediation arc (Ch.10), an agent layer that keeps it true (Ch.09),
+    and a right-sized engagement to run it (Ch.11).
+  </p>
+
+  <div class="data-grid">
+    <div class="dg-cell">
+      <div class="dg-label">Findings &middot; coded this run</div>
+      <div class="dg-value">48</div>
+      <div class="dg-state dg-warn">+1 advisory &middot; every claim capture-dated</div>
+    </div>
+    <div class="dg-cell">
+      <div class="dg-label">Critical &middot; act this week</div>
+      <div class="dg-value">2</div>
+      <div class="dg-state dg-bad">D-05 false amenities &middot; M-01 attribution</div>
+    </div>
+    <div class="dg-cell">
+      <div class="dg-label">Positives &middot; real assets confirmed</div>
+      <div class="dg-value">11</div>
+      <div class="dg-state dg-good">Service &middot; IG &middot; consent &middot; direct offer</div>
+    </div>
+    <div class="dg-cell">
+      <div class="dg-label">Remediation arc</div>
+      <div class="dg-value">12 wks</div>
+      <div class="dg-state dg-warn">4 phases &middot; damage-per-day ordered</div>
+    </div>
+  </div>
+
+  <p class="body-note"><b>What came back clean &mdash; stated for the record.</b> This audit also checked for the disqualifiers
+  that sink properties quietly, and did not find them: no security or blocklist flags surfaced on the domain in any capture; the
+  site is fully indexed and holds its brand SERP; consent tooling verifiably blocks pre-consent tracking (M-04); a
+  direct-exclusive rate advantage is live and honestly labeled on the booking engine (D-03, F-11); AI crawlers are deliberately
+  welcomed (M-09); and the review-response habit &mdash; the thing most hotels never build &mdash; has run unbroken across four
+  GM eras (D-09). The problems in this document are drift and under-publication on top of a sound foundation. That is the easiest
+  class of problem to fix, and the most expensive to ignore.</p>
+
+  <h3 class="sub"><span class="sub-mono">Gap index &middot; every non-positive finding, one line each</span>37 items &middot; severity &middot; chapter</h3>
+  <div class="tbl-wrap"><table class="dr gap">
+    <tr><td><span class="gap-dot gd-mod"></span>D-01</td><td>Official site absent from KAYAK&rsquo;s 10-seller panel; cheapest seat undercuts direct &minus;8.0%</td><td>Ch.01</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>D-02</td><td>Wholesale resellers live; Super.com &minus;12.5% vs. direct on Google&rsquo;s own panel</td><td>Ch.01</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>D-04</td><td>Machine price anchors disagree by hundreds &mdash; $263/$295/$725 vs. live $419&ndash;$779</td><td>Ch.01</td></tr>
+    <tr><td><span class="gap-dot gd-crit"></span>D-05</td><td>Expedia family still sells Henrietta&rsquo;s (closed 2020) as a live 4-meal amenity; mask-era copy live</td><td>Ch.01</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>D-06</td><td>Fee drift: five valet numbers for one $58 fee; Hotels.com invents a USD 300 deposit</td><td>Ch.01</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>D-07</td><td>Identity drift: 153/154/155 room counts, wrong phone circulating, markup reseller on page one</td><td>Ch.01</td></tr>
+    <tr><td><span class="gap-dot gd-min"></span>D-08</td><td>Yelp shows the hotel &ldquo;Closed&rdquo; Mon&ndash;Tue; Henrietta&rsquo;s ghost listings still indexed</td><td>Ch.01</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>F-01</td><td>Rooms page &mdash; the money page &mdash; has zero H1 raw or rendered; header image no alt</td><td>Ch.02</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>F-02</td><td>role=&quot;region&quot; on headings strips semantics; page-has-heading-one fails both pages tested</td><td>Ch.02</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>F-03</td><td>aria-hidden-focus at serious impact (WCAG 2.0 A 4.1.2) in the offers carousel</td><td>Ch.02</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>F-04</td><td>Junk-ARIA &ldquo;ada-noshow&rdquo; spans &times;5/page; empty Instagram labels; 36 region hits on rooms</td><td>Ch.02</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>F-05</td><td>Mobile: first Book control at 1,193px, no sticky CTA, header RESERVE absent</td><td>Ch.02</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>F-06</td><td>World-title award buried at 2,536px &mdash; 2.8 viewports deep, below the offers carousel</td><td>Ch.02</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>F-07</td><td>No rates on room cards; a Book Now URL hard-codes adult=1 in a couples market</td><td>Ch.02</td></tr>
+    <tr><td><span class="gap-dot gd-min"></span>F-08</td><td>Wedding guide is a 2023 Issuu embed; undated blog; 2019&ndash;20 press PDFs</td><td>Ch.02</td></tr>
+    <tr><td><span class="gap-dot gd-min"></span>F-09</td><td>Concatenated contact H1; About page titled at a generic query it shouldn&rsquo;t chase</td><td>Ch.02</td></tr>
+    <tr><td><span class="gap-dot gd-crit"></span>M-01</td><td>Book Now CTAs hard-code stale _ga/_gac tokens &mdash; attribution corrupted at the handoff</td><td>Ch.03</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>M-02</td><td>Hotel schema built from leftovers: UTM @id, Maps blurb, $180&ndash;$300, no address/ratings</td><td>Ch.03</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>M-03</td><td>Dead UA property wired on-page and in a 550KB unaudited GTM container; no Bing UET</td><td>Ch.03</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>M-05</td><td>Dining-page meta/OG still sell Henrietta&rsquo;s &mdash; the upstream feed for D-05, live in SERPs</td><td>Ch.03</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>M-06</td><td>Home, About, and policies all title-target &ldquo;Charleston SC Hotels&rdquo; &mdash; self-cannibalization</td><td>Ch.03</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>M-07</td><td>No FAQ/answer surface; BringFido owns pets (and cross-sells rivals), Orbitz answers parking wrong</td><td>Ch.03</td></tr>
+    <tr><td><span class="gap-dot gd-min"></span>M-08</td><td>Zero on-site social proof or rating markup against 68K/9.6/9.5-grade equity</td><td>Ch.03</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>S-02</td><td>Facebook split in two; footer points at the 14K shell, not the 96%-recommend working page</td><td>Ch.06</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>S-03</td><td>No owned TikTok; top brand video is a 7,731-like complaint tour; 4.7M-video city hub unattended</td><td>Ch.06</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>S-04</td><td>@henriettas_brasserie live five years post-closure, linking the property in bio</td><td>Ch.06</td></tr>
+    <tr><td><span class="gap-dot gd-min"></span>S-05</td><td>LinkedIn/Pinterest active but unlinked from the site; Citrus Club has no handle anywhere</td><td>Ch.06</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>R-02</td><td>Count-anchored TA trajectory: 4.6 &middot; #20 &rarr; 4.0 &middot; #26 on ~2.7 reviews/month of drift</td><td>Ch.07</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>R-03</td><td>Complaint set triangulates on four surfaces: size, sound, water pressure, coffee, desk</td><td>Ch.07</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>R-04</td><td>Value/fee narrative entering machine summaries: &ldquo;overpriced,&rdquo; &ldquo;steep for what it was&rdquo;</td><td>Ch.07</td></tr>
+    <tr><td><span class="gap-dot gd-min"></span>R-05</td><td>~2.7 reviews/month from 153 keys &mdash; no post-stay capture engine exists</td><td>Ch.07</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>B-01</td><td>4.0 is mathematically impossible as a corpus average &mdash; recency weighting on a weak cohort</td><td>Ch.08</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>B-02</td><td>Recent cohort split: Amex-frame takedown beside same-month five-bubble and qualified praise</td><td>Ch.08</td></tr>
+    <tr><td><span class="gap-dot gd-min"></span>B-04</td><td>TA tag cloud hands over a ten-phrase asset map; none maps to an owned page; count drift 1,516/1,524</td><td>Ch.08</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>G-01</td><td>4.6 &times; 1,348 bounds: up to ~135 one-star-equivalents live inside a healthy headline</td><td>Ch.08</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>G-02</td><td>Google&rsquo;s highlighted set features the full complaint review verbatim on the entity panel</td><td>Ch.08</td></tr>
+    <tr><td><span class="gap-dot gd-mod"></span>G-03</td><td>KAYAK AI crawl variant broadcast Bed 3/10, Noise 2.5/10 &mdash; observed, not reproduced live</td><td>Ch.08</td></tr>
+  </table></div>
+</section>
+<div class="gradient-divider"></div>
+<!-- ============================ CHAPTER INDEX ============================ -->
+<section class="chapter" id="contents" style="padding-top:54px;">
+  <div class="chapter-label">Contents &middot; <span class="cl-fam">11 chapters</span></div>
+  <div class="chix">
+    <a href="#ch-01"><span class="cx-num">01</span><span style="flex:1;">Google &amp; OTA Distribution</span><span class="cx-fam">D</span></a>
+    <a href="#ch-02"><span class="cx-num">02</span><span style="flex:1;">Website &amp; Accessibility</span><span class="cx-fam">F</span></a>
+    <a href="#ch-03"><span class="cx-num">03</span><span style="flex:1;">Marketing &amp; Measurement</span><span class="cx-fam">M</span></a>
+    <a href="#ch-04"><span class="cx-num">04</span><span style="flex:1;">Niche Keyword Opportunity</span><span class="cx-fam">SA</span></a>
+    <a href="#ch-05"><span class="cx-num">05</span><span style="flex:1;">Competitive Position</span><span class="cx-fam">SA</span></a>
+    <a href="#ch-06"><span class="cx-num">06</span><span style="flex:1;">Social Presence</span><span class="cx-fam">S</span></a>
+    <a href="#ch-07"><span class="cx-num">07</span><span style="flex:1;">Guest Sentiment</span><span class="cx-fam">R</span></a>
+    <a href="#ch-08"><span class="cx-num">08</span><span style="flex:1;">Review Deep Dives &middot; Tripadvisor &amp; Google</span><span class="cx-fam">B &middot; G</span></a>
+    <a href="#ch-09"><span class="cx-num">09</span><span style="flex:1;">AI Agent Automation</span><span class="cx-fam">AUTO</span></a>
+    <a href="#ch-10"><span class="cx-num">10</span><span style="flex:1;">Remediation Sequence</span><span class="cx-fam">PLAN</span></a>
+    <a href="#ch-11"><span class="cx-num">11</span><span style="flex:1;">Recommended Engagement</span><span class="cx-fam">ENG</span></a>
+  </div>
+
+  <h3 class="sub"><span class="sub-mono">How to read this document</span>Codes, severities, and the evidence standard</h3>
+  <div class="tbl-wrap"><table class="dr">
+    <tr><th>Element</th><th>Meaning</th></tr>
+    <tr><td><b>Finding codes</b> <span class="cell-dim">D&middot;F&middot;M&middot;S&middot;R&middot;B&middot;G</span></td><td><b>D</b>istribution (Google &amp; OTA) &middot; <b>F</b>ront-end (website &amp; accessibility) &middot; <b>M</b>easurement &amp; marketing infrastructure &middot; <b>S</b>ocial &middot; <b>R</b>eputation (cross-platform sentiment) &middot; <b>B</b> Tripadvisor deep dive &middot; <b>G</b> Google deep dive. Codes are stable identifiers &mdash; the roadmap (Ch.10) and gap index cite them, so remediation can be tracked line-by-line.</td></tr>
+    <tr><td><b><span class="sev sev-crit" style="margin-right:6px;">Critical</span></b></td><td>Actively costing money or credibility today; act inside a week regardless of engagement decisions. Two exist in this document: D-05 and M-01.</td></tr>
+    <tr><td><b><span class="sev sev-mod" style="margin-right:6px;">Moderate</span></b></td><td>Material drag on revenue, discovery, or reputation; scheduled inside the 12-week arc.</td></tr>
+    <tr><td><b><span class="sev sev-min" style="margin-right:6px;">Minor</span></b></td><td>Hygiene and polish; bundled into adjacent phase work rather than tracked standalone.</td></tr>
+    <tr><td><b><span class="sev sev-adv" style="margin-right:6px;">Advisory</span></b></td><td>Could not be verified from this environment; recorded as unknown with the verification path named. Never counted as a gap.</td></tr>
+    <tr><td><b><span class="sev sev-pos" style="margin-right:6px;">Positive</span></b></td><td>Confirmed asset. Eleven exist &mdash; listed deliberately, because a plan that only sees problems misprices the property.</td></tr>
+    <tr><td><b>Evidence blocks</b></td><td>Monospaced blocks quote the actual capture &mdash; URLs, source fragments, parser output &mdash; with the capture date. Prose interprets; evidence is verbatim. Where a check was blocked, the block says so and names the gate (403, robots, quota) rather than substituting inference.</td></tr>
+  </table></div>
+</section>
+<div class="gradient-divider"></div>
+<!-- ============================ CHAPTER 01 ============================ -->
+<section class="chapter" id="ch-01">
+  <div class="chapter-label">Chapter 01 &middot; <span class="cl-fam">Family D</span> &middot; Google &amp; OTA Distribution</div>
+  <h2>Who Is Selling The Dewberry &mdash; <em>and at what price</em></h2>
+  <p class="lead">
+    An independent hotel&rsquo;s rate integrity lives or dies on surfaces it does not operate. This chapter maps every seller
+    found offering The Dewberry on 20 July 2026 &mdash; the booking engine itself, Google&rsquo;s hotel panel, KAYAK&rsquo;s metasearch
+    auction, the Expedia and Booking families, and the wholesale resellers riding beneath them &mdash; and compares what each
+    was quoting against the property&rsquo;s own SynXis engine at the same moment. The headline: <b>direct has a seat at
+    Google&rsquo;s table, but Super.com sits at the head. On KAYAK, direct is not in the room at all.</b>
+  </p>
+
+  <div class="data-grid">
+    <div class="dg-cell">
+      <div class="dg-label">Google booking panel &middot; official site</div>
+      <div class="dg-value">Listed 1st</div>
+      <div class="dg-state dg-good">Present &middot; priced &middot; free-cancel badge</div>
+    </div>
+    <div class="dg-cell">
+      <div class="dg-label">KAYAK provider panel &middot; official site</div>
+      <div class="dg-value">Absent</div>
+      <div class="dg-state dg-bad">0 of 10 sellers are the hotel</div>
+    </div>
+    <div class="dg-cell">
+      <div class="dg-label">Deepest live undercut vs. direct</div>
+      <div class="dg-value">&minus;12.5%</div>
+      <div class="dg-state dg-bad">Super.com $295 vs. $337 direct</div>
+    </div>
+    <div class="dg-cell">
+      <div class="dg-label">Tripadvisor standing &middot; live</div>
+      <div class="dg-value">4.0 <small>&middot; #26 of 77</small></div>
+      <div class="dg-state dg-warn">n=1,516 &middot; detail in Ch.07&ndash;08</div>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="sub-mono">Rate check &middot; the one fully comparable window</span>Direct vs. metasearch, Mon 27 &ndash; Tue 28 Jul 2026 &middot; 2 adults, 1 night</h3>
+  <p class="body-note">KAYAK&rsquo;s property page ignores date parameters both server- and client-side from this environment, so its
+  default window (27&ndash;28 Jul) is the only window where direct and metasearch could be captured side by side in the same
+  session. Display-basis caveat: KAYAK labels its column &ldquo;Nightly total&rdquo; while SynXis renders a base nightly rate &mdash; the
+  comparison direction holds, the exact spread should be re-confirmed with fee-inclusive quotes at contract kickoff.</p>
+  <div class="tbl-wrap"><table class="dr">
+    <tr><th>Seller</th><th>Room quoted</th><th>Rate shown</th><th>vs. direct Signature King ($339)</th></tr>
+    <tr><td><b>Direct &middot; be.synxis.com</b></td><td>Signature King &middot; Sig. Queens &middot; 1-BR Suite</td><td><span class="cell-mono">$339 &middot; $379 &middot; $579</span></td><td class="td-good">baseline</td></tr>
+    <tr><td>Hotels.com <span class="cell-dim">(via KAYAK panel)</span></td><td>Signature Room, 1 King Bed (ADA)</td><td><span class="cell-mono">$312</span></td><td class="td-bad">&minus;$27 &middot; &minus;8.0%</td></tr>
+    <tr><td>Booking.com &middot; Expedia &middot; KAYAK</td><td>King room</td><td><span class="cell-mono">$331</span></td><td class="td-bad">&minus;$8 &middot; &minus;2.4%</td></tr>
+    <tr><td>Agoda.com</td><td>King room</td><td><span class="cell-mono">$339</span></td><td class="td-warn">parity</td></tr>
+    <tr><td>Priceline</td><td>King room</td><td><span class="cell-mono">$341</span></td><td class="td-good">+$2</td></tr>
+  </table></div>
+
+  <h3 class="sub"><span class="sub-mono">Rate check &middot; direct engine, three midweek test dates</span>SynXis rendered sessions &middot; 2 adults, 1 night &middot; captured 20 Jul 2026</h3>
+  <div class="tbl-wrap"><table class="dr">
+    <tr><th>Test date</th><th>Entry rate</th><th>Signature King</th><th>Signature Queens</th><th>One Bedroom Suite</th></tr>
+    <tr><td><b>Tue 18 Aug 2026</b></td><td><span class="cell-mono">from $419</span> <span class="cell-dim">(Grand King)</span></td><td><span class="cell-mono">&mdash;</span></td><td><span class="cell-mono">$429</span></td><td><span class="cell-mono">$535</span></td></tr>
+    <tr><td><b>Tue 15 Sep 2026</b></td><td><span class="cell-mono">from $629</span></td><td><span class="cell-mono">$629</span></td><td><span class="cell-mono">$669</span></td><td><span class="cell-mono">$719</span></td></tr>
+    <tr><td><b>Tue 20 Oct 2026</b></td><td><span class="cell-mono">from $779</span></td><td><span class="cell-mono">$779</span></td><td><span class="cell-mono">$819</span></td><td><span class="cell-mono">$869</span></td></tr>
+  </table></div>
+  <p class="body-note">These are the property&rsquo;s own live asks. Hold them against the numbers third parties publish about
+  this hotel &mdash; the $180&ndash;$300 schema priceRange (Ch.03), the $295 Google default header, Tripadvisor&rsquo;s &ldquo;$263/night
+  expected rate&rdquo; forecast &mdash; and the scale of the story machines are telling about this property becomes visible.</p>
+
+  <h3 class="sub"><span class="sub-mono">Seller census &middot; everyone found offering this hotel, classified</span>Captured 20 Jul 2026</h3>
+  <div class="tbl-wrap"><table class="dr">
+    <tr><th>Tier</th><th>Sellers found this run</th><th>Behavior observed</th></tr>
+    <tr><td><b>Direct</b></td><td>be.synxis.com (chain 28420 &middot; hotel 65759)</td><td class="td-good">Live and priced; first position on Google&rsquo;s panel; absent from KAYAK&rsquo;s panel</td></tr>
+    <tr><td><b>OTA majors</b></td><td>Expedia &middot; Hotels.com &middot; Orbitz &middot; Booking.com &middot; Agoda &middot; Trip.com &middot; Priceline</td><td class="td-warn">Rates near parity to modestly under; content stale to false (D-05, D-06)</td></tr>
+    <tr><td><b>Metasearch</b></td><td>KAYAK &middot; Google Hotels &middot; Tripadvisor (price forecast)</td><td class="td-warn">Aggregating the above; publishing their own conflicting price anchors (D-04)</td></tr>
+    <tr><td><b>Wholesale / opaque</b></td><td>Super.com &middot; Traveluro &middot; Stayforlong</td><td class="td-bad">Undercutting direct on Google&rsquo;s own panel by up to 12.5% (D-02)</td></tr>
+    <tr><td><b>Markup resellers</b></td><td>guestreservations.com <span class="cell-dim">(page-one branded SERP)</span></td><td class="td-bad">Selling on stale amenity copy at marked-up handling (D-07)</td></tr>
+  </table></div>
+  <p class="body-note"><b>City-roster context, same capture:</b> in the rendered &ldquo;hotels charleston&rdquo; panel The Dewberry
+  shows $295 &middot; 4.6 &middot; (1.4K) alongside The Spectator at 4.8 (614) and The Vendue at 4.5 (2.3K) &mdash; the property is
+  merchandised into the city set at a machine-chosen price $124 under its cheapest live midweek direct ask. That roster line is
+  most shoppers&rsquo; first exposure to the brand.</p>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">D-01</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">The official site has no seat in KAYAK&rsquo;s auction &mdash; ten sellers are quoting the hotel, and none of them is the hotel</div>
+    <div class="f-body">KAYAK&rsquo;s provider panel for the property lists ten bookable sellers. The direct channel is not among them,
+    so a metasearch shopper literally cannot choose the hotel &mdash; every path off that page pays a commission or, worse, routes
+    through a wholesale reseller. In the same rendered window, the cheapest seat in the room undercut the direct Signature King
+    by 8.0%.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; kayak.com property page, server-rendered provider set + rendered deal rows</span>providers: ['Agoda.com', 'Booking.com', 'Expedia', 'Hotels.com', 'KAYAK', 'Priceline', 'Stayforlong', 'Super.com', 'Traveluro', 'Trip.com']
+deal block: "Deals from $312 / Cheapest rate per night ... Signature Room, 1 King Bed (ADA) $312 ... Signature King $339 ... Superior King Room $371 ... 20 more The Dewberry Charleston deals"
+DIRECT same window (be.synxis.com, Jul 27-28): Signature King $339 / Signature Queens $379 / One Bedroom Suite $579</div>
+    <div class="why"><span class="why-k">Why it matters</span>Metasearch is where rate-shoppers finish. A property with no direct
+    listing there converts its own demand into commissioned demand &mdash; and hands the &ldquo;cheapest&rdquo; badge to whichever
+    third party discounts hardest.</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">D-02</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">A wholesale-reseller class is live on this property and undercutting direct on Google itself</div>
+    <div class="f-body">Super.com, Traveluro, and Stayforlong &mdash; the opaque-wholesale tier &mdash; are active sellers. In the one
+    Google booking panel rendered anonymously this run, Super.com quoted <b>$295 against the official site&rsquo;s $337</b> for the
+    same window (&minus;12.5%), with &ldquo;more options from $302&rdquo; stacked beneath it. A sponsored unit on the same panel re-sold
+    the hotel through Expedia at $317 &mdash; below direct, on the hotel&rsquo;s own entity page. This is undiscounted brand demand
+    being purchased and resold back at a markdown the property never authorized at retail.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; google.com/travel entity panel, anonymous rendered session &middot; panel window Aug 10&ndash;11</span>"All options | The Dewberry Charleston | Official Site | Free cancellation until Aug 7 | $337 | Visit site | Super.com | $295 | Visit site | View more options from $302"
+"Sponsored - Similar hotels | The Dewberry Charleston | $317 | Expedia.com | 4.6/5 (1.4K) | 5-star hotel"</div>
+    <div class="why"><span class="why-k">Why it matters</span>Wholesale leakage is a sourcing problem, not a marketing problem &mdash;
+    somewhere a contracted rate is escaping into retail. Every $295 booking is roughly $42 of rate integrity gone before commission,
+    and it trains Google&rsquo;s shoppers that direct is the expensive way to buy this hotel.</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">D-03</span><span class="sev sev-pos">Positive</span></div>
+    <div class="f-title">Direct holds the first position in Google&rsquo;s booking panel, with free-cancellation merchandising attached</div>
+    <div class="f-body">Credit where due: in the rendered panel, the official site is present, listed <b>first</b>, and carries a
+    &ldquo;Free cancellation until Aug 7&rdquo; badge &mdash; the connectivity and feed work behind that placement is done and functioning.
+    The problem in D-02 is the company direct is keeping in that list, not the listing itself. This is a real asset the remediation
+    plan builds on rather than creates.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; same rendered panel as D-02</span>"The Dewberry Charleston | Official Site | Free cancellation until Aug 7 | $337 | Visit site" &mdash; first row of All options</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">D-04</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">The machine-published price anchors for this hotel disagree with each other &mdash; and with the live rate card &mdash; by hundreds of dollars</div>
+    <div class="f-body">Google&rsquo;s entity header shows a $295 default price. Tripadvisor&rsquo;s forecast widget tells shoppers the
+    &ldquo;expected rate&rdquo; is $263/night. A Priceline result in the branded search advertises the property &ldquo;from $725.&rdquo; The
+    hotel&rsquo;s own schema declares $180&ndash;$300 (Ch.03). Meanwhile the live direct engine asked $419&ndash;$779 for the three midweek
+    test dates. Five machine surfaces, five different stories, none of them the hotel&rsquo;s. Guests anchored at $263&ndash;$295 arrive
+    at a $629 checkout feeling gouged; guests anchored at $725 never arrive at all.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; four surfaces, one property</span>Google Travel roster: "The Dewberry Charleston | $295 | 4.6 | (1.4K)"
+Tripadvisor review page widget: "The price you found is 11% lower than this hotel's expected rate of $263/night."
+Priceline (branded web-search result title): "The Dewberry Charleston in Charleston from $725"
+Site JSON-LD: "priceRange": "$180-$300"  |  Live direct midweek asks: $419 / $629 / $779</div>
+    <div class="why"><span class="why-k">Why it matters</span>Rate perception is set before the guest ever reaches the booking
+    engine. When the anchors are wrong in both directions, the property pays twice &mdash; in sticker shock on one side and
+    invisible demand on the other. The $180&ndash;$300 schema figure is the one input the hotel fully controls, today.</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">D-05</span><span class="sev sev-crit">Critical</span></div>
+    <div class="f-title">Expedia-family listings are still selling Henrietta&rsquo;s &mdash; a restaurant that closed in 2020 &mdash; as a live, four-meal amenity</div>
+    <div class="f-body">Expedia&rsquo;s live property page promises &ldquo;the on-site French cuisine restaurant, Henrietta&rsquo;s,&rdquo;
+    serving &ldquo;breakfast, brunch, lunch, dinner, and kids&rsquo; meals.&rdquo; Hotels.com carries the same copy. Orbitz sells &ldquo;a
+    restaurant that specializes in French cuisine&rdquo; &mdash; alongside pandemic-era &ldquo;mask requirements for guests&rdquo; cleanliness
+    copy, still live in July 2026. Booking.com&rsquo;s description sells an &ldquo;American Southern brasserie-style restaurant&rdquo; and
+    the &ldquo;Fieldshop from Garden &amp; Gun&rdquo; retail concept the property replaced with The Shop. Henrietta&rsquo;s closed in 2020;
+    local press in March 2025 confirmed the space is rented for events while a new concept is planned. This is <b>false amenity
+    data on the two largest OTA families</b>, five-plus years stale, shaping real bookings today &mdash; and Chapter 03 shows the
+    likely upstream source is the hotel&rsquo;s own page metadata.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; live OTA property pages</span>Expedia h12880056: "The on-site French cuisine restaurant, Henrietta's, offers breakfast, brunch, lunch, dinner, and kids' meals."
+Orbitz (same property id): "a restaurant that specializes in French cuisine" ... "mask requirements for guests, enhanced cleaning"
+Booking.com: "features an American Southern brasserie-style restaurant" ... "the Fieldshop from Garden & Gun on-site shop"
+Post & Courier (Mar 2025): Henrietta's space rented for events; new F&B concept planned under incoming leadership.</div>
+    <div class="why"><span class="why-k">Why it matters</span>Guests are booking a signature restaurant that does not exist. That
+    is a refund conversation, a review complaint, and a trust debit waiting to happen &mdash; at scale, on the channels producing a
+    large share of room nights. It is also the fastest, cheapest fix in this document: an extranet content sweep, this week.</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">D-06</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">Fee facts disagree across the Expedia family itself &mdash; five different valet numbers circulate for one $58 fee</div>
+    <div class="f-body">The hotel&rsquo;s policy page states overnight parking at $58 and daytime valet at $30. Expedia publishes
+    valet at $45. Orbitz &mdash; same property ID, same parent company &mdash; answers the parking question with $40. Hotwire says
+    $58. The Points Guy&rsquo;s review says $45/day. Add breakfast: Hotels.com estimates ~$25 per person, Hotwire ~$30, and the
+    hotel prices it near $30 on-property. Hotels.com also demands a &ldquo;USD 300 per stay&rdquo; deposit against the hotel&rsquo;s
+    actual one-night-inclusive policy. Every mismatch is a check-in dispute or an abandoned booking.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; policy surfaces compared</span>Hotel (hotel-policies): "Overnight parking is available at the prevailing rate of $58 per night, with valet service offered at a daily rate of $30."
+Expedia: valet "$45.00/night"  |  Orbitz: "valet parking is offered for USD 40.00 per night"  |  Hotwire: "USD 58.00 per night (in/out privileges)"
+Hotels.com: deposit "USD 300 per stay" vs. hotel policy: one-night room deposit inclusive of fees and taxes, charged at booking.</div>
+    <div class="why"><span class="why-k">Why it matters</span>Fee surprises are the most reliable generator of &ldquo;nickel-and-dimed&rdquo;
+    review language &mdash; a theme already live in this property&rsquo;s corpus (Ch.07). The fix is unglamorous and fast: one
+    authoritative fee sheet, pushed through every extranet, verified quarterly.</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">D-07</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">Identity drift: three room counts, two wrong phone numbers, and a markup reseller selling the property on stale data</div>
+    <div class="f-body">The property&rsquo;s About page says <b>153 rooms and suites</b>. Expedia and the designer&rsquo;s own portfolio
+    say 155; KAYAK says 154. TripExpert publishes a wrong phone number for the hotel &mdash; (843) 508-2949 &mdash; and a scraper
+    listing for Citrus Club circulates (843) 872-9063. In the branded search itself, guestreservations.com &mdash; a third-party
+    markup reseller &mdash; ranks on page one selling the property with the closed restaurant and retired Fieldshop as live
+    amenities. None of these surfaces is the hotel&rsquo;s; all of them are answering for it.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026</span>About page: "The Dewberry offers 153 rooms and suites"  |  Expedia: "All 155 rooms"  |  KAYAK: "154 guest rooms"
+TripExpert listing phone: (843) 508-2949  &mdash;  hotel: (843) 558-8000
+guestreservations.com (page-one branded result): "Dine in style at the hotel's American Southern brasserie-style restaurant ... the Fieldshop from Garden & Gun"</div>
+    <div class="why"><span class="why-k">Why it matters</span>Entity consistency is now an AI-answer input, not just a directory
+    chore. When assistants reconcile conflicting facts, the version that wins is whichever is repeated most &mdash; and right now
+    the stale version is winning on volume.</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">D-08</span><span class="sev sev-min">Minor</span></div>
+    <div class="f-title">Yelp shows the hotel &ldquo;Closed&rdquo; Mondays and Tuesdays, and Henrietta&rsquo;s ghost listings still rank</div>
+    <div class="f-body">The hotel&rsquo;s Yelp record carries what appear to be bar hours as property hours &mdash; &ldquo;Mon &ndash;
+    Closed, Tue &ndash; Closed, Wed 2:00pm&ndash;10:00pm&rdquo; &mdash; for a 24-hour luxury hotel. Henrietta&rsquo;s meanwhile survives as
+    closed-but-indexed listings on Tripadvisor (4.2 &middot; 154 reviews) and Yelp (82 reviews, 110 photos), keeping the dead
+    venue in the property&rsquo;s search shadow.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; Yelp hotel record (45 reviews); record-level pages 403-gated, hours from indexed listing surface</span>"Mon - Closed, Tue - Closed, Wed 2:00pm-10:00pm ..." on the hotel listing
+Tripadvisor: Henrietta's &mdash; CLOSED &mdash; 4.2 (154)  |  Yelp: Henrietta's &mdash; CLOSED &mdash; 82 reviews</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">D-09</span><span class="sev sev-pos">Positive</span></div>
+    <div class="f-title">The Tripadvisor listing is claimed and worked &mdash; management responses span four leadership eras without a gap</div>
+    <div class="f-body">Response continuity on the record is genuinely strong: GM-signed replies trace from Scott Dawson (2018)
+    through Matthew Whiteheart (2021), Viva Johnson and Anthony Rector (2023), to Brian Sommer and Emily Christian (2025), with
+    service recovery routed to a named Director of Guest Services with a direct email. Most independents cannot show one era of
+    that discipline. Chapter 08 builds on this machinery rather than replacing it.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; indexed Tripadvisor review records</span>"Brian Sommer, General Manager ... Responded June 26, 2025" / "please feel free to reach out to our Director of Guest Services, Jared Laidlaw, at jlaidlaw@dewberryhotels.com"
+Earlier eras on record: "Scott Dawson, General Manager" (2018) &middot; "Matthew Whiteheart, General Manager ... Responded Nov 12, 2021" &middot; "Viva Johnson Director of Operations" (Nov 2023)</div>
+  </div>
+
+  <div class="callout co-sage">
+    <div class="co-title">Checks not completable from this environment</div>
+    Recorded honestly rather than inferred. <b>Per-test-date seller panels:</b> Google&rsquo;s booking panel rendered once for its
+    default window (Aug 10&ndash;11) in an anonymous session; repeated attempts with the three test dates did not reproduce the
+    panel, so cross-seller parity per test date remains unverified. <b>Booking.com record-level reviews</b> (robots-disallowed;
+    202 bot challenge captured) &middot; <b>Tripadvisor record-level pagination</b> (403 DataDome: &ldquo;Please enable JS and disable
+    any ad blocker&rdquo;) &middot; <b>Yelp record-level</b> (403) &middot; <b>Google Business Profile native surface</b> &middot;
+    <b>PageSpeed Insights lab + CrUX field data</b> (API quota 429, keyless) &middot; <b>web.archive.org historicals</b>
+    (egress-blocked; Tripadvisor rating trajectory therefore count-anchored, not date-anchored &mdash; Ch.08) &middot;
+    <b>Instagram native counters</b> (counts taken from indexed profile metadata instead). All become verifiable with owner-side
+    access or standard tooling in an engagement&rsquo;s first week.
+  </div>
+</section>
+<div class="gradient-divider"></div>
+<!-- ============================ CHAPTER 02 ============================ -->
+<section class="chapter" id="ch-02">
+  <div class="chapter-label">Chapter 02 &middot; <span class="cl-fam">Family F</span> &middot; Website &amp; Accessibility</div>
+  <h2>A Beautiful Site With Its <em>Selling Muscles Switched Off</em></h2>
+  <p class="lead">
+    thedewberrycharleston.com (Tambourine Symphony platform) was pulled raw and rendered &mdash; desktop and iPhone-13-class
+    mobile &mdash; with axe-core accessibility runs injected on the homepage and the rooms page. The build is lean and the
+    editorial voice is genuinely strong. But the pages carrying the most commercial weight are structurally hollowed out:
+    the rooms page has no H1 at all, the site&rsquo;s biggest award sits two and a half screens deep, mobile guests see no way
+    to book in the first viewport, and a template-wide ARIA pattern quietly strips the heading semantics the &ldquo;ada-&rdquo;
+    class names were presumably meant to protect.
+  </p>
+
+  <div class="data-grid">
+    <div class="dg-cell">
+      <div class="dg-label">Rendered page weight &middot; home</div>
+      <div class="dg-value">~2.8 MB <small>&middot; 50 req</small></div>
+      <div class="dg-state dg-good">Lean &middot; largest media ~317 KB webp</div>
+    </div>
+    <div class="dg-cell">
+      <div class="dg-label">H1 on /rooms-suites</div>
+      <div class="dg-value">0</div>
+      <div class="dg-state dg-bad">Raw and rendered DOM</div>
+    </div>
+    <div class="dg-cell">
+      <div class="dg-label">First Book control &middot; mobile</div>
+      <div class="dg-value">1,193 px</div>
+      <div class="dg-state dg-bad">~1.4 viewports below the fold</div>
+    </div>
+    <div class="dg-cell">
+      <div class="dg-label">axe-core &middot; serious violations</div>
+      <div class="dg-value">1 <small>+ 5 rule fams</small></div>
+      <div class="dg-state dg-warn">aria-hidden-focus &middot; WCAG 2.0 A 4.1.2</div>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="sub-mono">Page inventory &middot; what each key URL tells the machines</span>Parsed from raw source, 20 Jul 2026</h3>
+  <div class="tbl-wrap"><table class="dr">
+    <tr><th>URL</th><th>Title (verbatim lead)</th><th>H1 status</th><th>Note</th></tr>
+    <tr><td><span class="cell-mono">/</span></td><td>"Charleston SC Hotels | Best Hotels in Charleston SC"</td><td class="td-warn">Present; role=&quot;region&quot; strips semantics</td><td>Award block at 2,536px (F-06)</td></tr>
+    <tr><td><span class="cell-mono">/rooms-suites</span></td><td>"Luxury Hotels in Charleston SC"</td><td class="td-bad">Zero &mdash; raw and rendered</td><td>755 words &middot; header img no alt &middot; no rates (F-01, F-07)</td></tr>
+    <tr><td><span class="cell-mono">/About</span></td><td>"Charleston SC Hotels | Places to Stay"</td><td>"Quintessentially Charleston"</td><td>Brand page chasing a generic query (F-09, M-06)</td></tr>
+    <tr><td><span class="cell-mono">/drinks-dining</span></td><td>Dining-intent title</td><td>Present</td><td class="td-bad">Meta/OG still sell Henrietta&rsquo;s &mdash; &times;5 in source (M-05)</td></tr>
+    <tr><td><span class="cell-mono">/charleston-spa</span></td><td>"Spa in Charleston SC"</td><td>Present</td><td class="td-good">Correctly targeted &mdash; the template to extend (Cluster 04)</td></tr>
+    <tr><td><span class="cell-mono">/offers</span></td><td>"Charleston Hotel Deals"</td><td>Present</td><td class="td-good">Direct-exclusive offer live (F-11)</td></tr>
+    <tr><td><span class="cell-mono">/hotel-policies</span></td><td>"Hotels in Downtown Charleston"</td><td>Present</td><td class="td-warn">~1,150 words unstructured; no FAQ schema (M-07)</td></tr>
+    <tr><td><span class="cell-mono">/meetings-and-events</span></td><td>Events-intent title</td><td>Present</td><td class="td-bad">Carries all wedding demand; no /weddings exists (Cluster 05)</td></tr>
+    <tr><td><span class="cell-mono">/contact</span></td><td>Contact title</td><td class="td-warn">"Stay In Touch The Dewberry Charleston" (concatenated)</td><td>Template artifact (F-09)</td></tr>
+  </table></div>
+
+  <h3 class="sub"><span class="sub-mono">Automated accessibility pass &middot; axe-core rule-level summary</span>Homepage + /rooms-suites, rendered DOM, 20 Jul 2026</h3>
+  <div class="tbl-wrap"><table class="dr">
+    <tr><th>Rule / pattern</th><th>Impact</th><th>Where observed</th><th>Read</th></tr>
+    <tr><td><span class="cell-mono">aria-hidden-focus</span></td><td class="td-bad">Serious &middot; WCAG 2.0 A 4.1.2</td><td>Homepage offers carousel</td><td>Focusable controls inside aria-hidden regions &mdash; keyboard users tab into invisible UI (F-03)</td></tr>
+    <tr><td><span class="cell-mono">page-has-heading-one</span></td><td class="td-warn">Best-practice fail</td><td>Both pages tested</td><td>Compounded by the role=&quot;region&quot; stripping on real headings (F-01, F-02)</td></tr>
+    <tr><td><span class="cell-mono">role=&quot;region&quot; on headings</span></td><td class="td-warn">Semantic erasure</td><td>Template-wide &middot; 36 hits on /rooms-suites alone</td><td>Headings announce as generic regions to assistive tech (F-02)</td></tr>
+    <tr><td><span class="cell-mono">&ldquo;ada-noshow&rdquo; spans</span></td><td class="td-warn">Junk ARIA</td><td>&times;5 per page, template-injected</td><td>Vendor accessibility shim leaving artifacts, not fixing structure (F-04)</td></tr>
+    <tr><td><span class="cell-mono">image-alt</span> gaps</td><td class="td-warn">Moderate</td><td>/rooms-suites header image; empty Instagram link labels</td><td>The money page&rsquo;s hero is invisible to screen readers and image search alike (F-01, F-04)</td></tr>
+  </table></div>
+  <p class="body-note">One serious violation, template-level causes, page-level symptoms &mdash; which is good news: these clear
+  as a handful of template edits in Phase 2, not a page-by-page remediation slog.</p>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">F-01</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">The rooms page &mdash; the money page &mdash; has no H1 in either the raw HTML or the rendered DOM</div>
+    <div class="f-body">/rooms-suites carries the site&rsquo;s most ambitious commercial title (&ldquo;Luxury Hotels in Charleston SC&rdquo;),
+    755 words of copy, and all eight room categories &mdash; and zero H1 elements, confirmed both in source and after full render.
+    Search engines and screen readers alike get a headless page where the strongest topical signal should live. One of six page
+    images also ships without alt text (the rooms header itself).</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; BeautifulSoup parse + Playwright rendered DOM</span>rooms-suites | title: "Luxury Hotels in Charleston SC | The Dewberry Charleston" | h1(0): [] | words~755 | imgs 6, noalt 1 ['...berry-header-rooms-59984786caec3-1500x409.jpg']
+ROOMS rendered h1: []  &mdash;  headings present as styled text only: In-Room Amenities, The John Derian Flat, Charleston Flat, One-Bedroom Suite, Grand King ...</div>
+    <div class="why"><span class="why-k">Why it matters</span>This is the page every rate-shopper and every &ldquo;luxury hotel
+    charleston&rdquo; crawl lands on. It is currently the least machine-legible page on the site.</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">F-02</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">Where H1s do exist, a template pattern strips their heading semantics with role=&quot;region&quot;</div>
+    <div class="f-body">Site headings carry <span class="mono-inline">role="region"</span> plus an aria-label &mdash; which tells
+    assistive tech &ldquo;this is a labeled container,&rdquo; not &ldquo;this is the page heading.&rdquo; axe flags it as
+    <b>aria-allowed-role</b> on 5 nodes on the homepage and 9 on the rooms page, and <b>page-has-heading-one fails on both</b>
+    despite an H1 tag existing in the homepage source. The ADA intent is visible; the implementation inverts it.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; axe-core via Playwright</span>AXE / -> [aria-allowed-role] impact=minor nodes=5 e.g. h1 | [page-has-heading-one] impact=moderate FAIL
+AXE /rooms-suites -> [aria-allowed-role] nodes=9 | [page-has-heading-one] FAIL
+H1 markup pattern: &lt;h1 role="region" aria-label="main title"&gt;</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">F-03</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">A carousel slide traps a focusable element inside aria-hidden &mdash; the run&rsquo;s one serious-impact violation</div>
+    <div class="f-body">axe records <b>aria-hidden-focus</b> at serious impact against WCAG 2.0 A 4.1.2 on the homepage offers
+    carousel (<span class="mono-inline">#item-621936</span>): a slide marked hidden from assistive technology still contains a
+    keyboard-focusable control. A keyboard or screen-reader user can land on an element that, per the page&rsquo;s own markup,
+    does not exist.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; axe-core</span>[aria-hidden-focus] impact=serious nodes=1 wcag=['wcag2a','wcag412'] e.g. #item-621936 (slick-slide, aria-hidden="true" containing focusable element)</div>
+    <div class="why"><span class="why-k">Why it matters</span>Serious-impact WCAG 2.0 A failures are the tier that shows up in
+    ADA demand letters &mdash; a live exposure for hospitality specifically, and a one-line template fix.</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">F-04</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">Junk-ARIA spans and empty Instagram labels ship on every page &mdash; noise dressed as compliance</div>
+    <div class="f-body">A sitewide component injects <span class="mono-inline">&lt;span class="ada-noshow" role="region"
+    aria-label="text"&gt;Image about&lt;/span&gt;</span> &mdash; five per page &mdash; and the Instagram feed tiles carry
+    <span class="mono-inline">aria-label="Instagram photo about  "</span> with the description left blank. axe&rsquo;s region rule
+    fires on 11 homepage nodes and 36 on the rooms page. A screen-reader pass through this site is a wall of &ldquo;region, text,
+    Image about&rdquo; announcements.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; raw source + axe</span>&lt;span class="ada-noshow" role="region" aria-label="text"&gt;Image about   &lt;/span&gt;  &times;5 per page
+&lt;a ... class="instagram-image" aria-label="Instagram photo about  "&gt;  (empty description, 5 tiles/page)
+AXE [region]: 11 nodes on / &middot; 36 nodes on /rooms-suites</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">F-05</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">On mobile, there is no way to book from the first screen &mdash; and no persistent CTA anywhere on the page</div>
+    <div class="f-body">On an iPhone-13-class viewport (~844 px), the first Book control renders at <b>1,193 px</b> &mdash; nearly a
+    full screen and a half of scrolling before a guest can act. The desktop header&rsquo;s RESERVE control does not render on
+    mobile, and nothing sticks as the guest scrolls. Every mobile session starts with the sell switched off.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; Playwright mobile emulation, rendered geometry</span>viewport ~844px | first booking control offsetTop: 1,193px | sticky/persistent CTA: none detected during scroll | header RESERVE: not rendered on mobile</div>
+    <div class="why"><span class="why-k">Why it matters</span>Mobile is the majority of leisure discovery sessions. A persistent
+    Book bar is the single highest-leverage conversion change available on this site, and it requires no redesign.</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">F-06</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">&ldquo;Best Independent Hotel in the World&rdquo; is buried two and a half screens deep on its own homepage</div>
+    <div class="f-body">The Virtuoso 2025 world-title block &mdash; the strongest single conversion asset an independent hotel can
+    own &mdash; renders at <b>2,536 px</b> of a 6,437 px homepage: roughly 2.8 desktop viewports down, below the offers carousel.
+    The &ldquo;Benefits of Booking Direct&rdquo; block sits at 1,178 px. The hierarchy currently asks guests to consider discounts
+    before it tells them this is, by Virtuoso&rsquo;s judgment, the best independent hotel on earth.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; rendered element offsets, desktop 1366&times;900</span>"Best Independent Hotel In The World" block offsetTop: 2,536px / page height 6,437px
+"Benefits of Booking Direct" offsetTop: 1,178px | H2 order: Benefits of Booking Direct &rarr; Exclusive Offers &rarr; A DECADE OF THE DEWBERRY &rarr; ... &rarr; Best Independent Hotel In The World</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">F-07</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">Room cards show no rates, and one Book Now handoff hard-codes a single adult</div>
+    <div class="f-body">Eight room categories present beautifully on /rooms-suites with no from-rates anywhere &mdash; the guest
+    must leave the brand experience and enter SynXis blind to learn a single price. One homepage Book Now URL additionally
+    hard-codes <span class="mono-inline">adult=1</span>, opening the engine pre-set for a solo guest in a market dominated by
+    couples (Booking.com&rsquo;s own couples score for the property: 9.8).</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026</span>rooms-suites rendered: rate strings on page: None (8 room categories listed)
+homepage CTA: https://be.synxis.com/?adult=1&amp;chain=28420&amp;child=0&amp;...&amp;hotel=65759&amp;level=hotel&amp;locale=en-US</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">F-08</span><span class="sev sev-min">Minor</span></div>
+    <div class="f-title">Marquee sales collateral is dated or lives off-site: a 2023 wedding guide in an Issuu iframe, undated blog, 2019&ndash;20 press PDFs</div>
+    <div class="f-body">The Wedding Guide link resolves to an Issuu embed whose own filename dates it <b>8.24.23</b>; the Meeting
+    Guide is likewise an Issuu document. Blog posts (Barton &amp; Gray yachting, the Volvo Drive Experience, wellness features)
+    carry no dates at all &mdash; evergreen by omission &mdash; and the press page, while current through 2026 up top, still serves
+    2019&ndash;2020 clipping PDFs from the CDN. Planners evaluating a $30k+ wedding are handed a three-year-old brochure hosted on
+    someone else&rsquo;s platform.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026</span>Wedding Guide -&gt; https://issuu.com/thedewberry/docs/wedding_overview_8.24.23  |  Meeting Guide -&gt; issuu.com/thedewberry/docs/corporateguide
+blog dates found: []  |  press CDN PDFs incl. ad_com-clever_dewberry_scent_12_10_19.pdf, businessinsider_com_charleston_4_15_20.pdf</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">F-09</span><span class="sev sev-min">Minor</span></div>
+    <div class="f-title">Small hygiene tells: a concatenated contact H1 and an About page titled for a query it should not want</div>
+    <div class="f-body">The contact page&rsquo;s H1 reads as one run-on string &mdash; &ldquo;Stay In Touch The Dewberry Charleston&rdquo; &mdash;
+    a template concatenation artifact. The About page, meanwhile, is titled &ldquo;Charleston SC Hotels | Places to Stay&rdquo; &mdash;
+    aiming a brand-story page at a generic commercial query the homepage already targets (the full title-strategy collision is
+    scored in Ch.03, M-06).</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026</span>contact | h1(1): ['Stay In Touch The Dewberry Charleston']
+About | title: "Charleston SC Hotels | Places to Stay | The Dewberry" | h1: 'Quintessentially Charleston'</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">F-10</span><span class="sev sev-pos">Positive</span></div>
+    <div class="f-title">The technical baseline is genuinely clean: light pages, disciplined media, full alt coverage on home, honest canonicals</div>
+    <div class="f-body">Rendered homepage weight is ~2.8 MB across 50 requests with the largest image a 317 KB webp &mdash; lean for
+    the luxury tier. All 15 homepage images carry alt text; all 48 links are labeled; menus are real HTML pages rather than PDFs;
+    canonicals are correct sitewide. Whatever gets rebuilt here starts from a healthy chassis, not a teardown.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026</span>home: IMG total 15, missing alt 0 | A total 48, unlabeled 0 | scripts 19 | raw 59KB / rendered ~2.8MB, 50 requests
+canonical / , /rooms-suites , /offers , /About all self-referencing and correct | cc-menu / lr-menu / MB-Menu served as HTML</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">F-11</span><span class="sev sev-pos">Positive</span></div>
+    <div class="f-title">The book-direct case already exists on-page &mdash; including a genuinely direct-exclusive offer</div>
+    <div class="f-body">&ldquo;Benefits of Booking Direct&rdquo; leads with a Best Rate Guarantee, bikes for the city, and a morning
+    beverage bar, and the offers inventory includes <b>Best Available Dates</b>, &ldquo;offered exclusively when booking direct.&rdquo;
+    The raw material for a direct-first funnel is written and live; Chapters 03 and 10 are about giving it structure, placement,
+    and measurement rather than inventing it.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; homepage copy, verbatim</span>"Benefits of Booking Direct | Best Rate Guarantee | Bikes For City Exploring | Morning Beverage Bar"
+"Best Available Dates ... our best available rates for flexible travel dates on select dates, offered exclusively when booking direct."
+Offers inventory: Summer Longer (10/15/25% through Sep 3, 2026) &middot; A Decade of The Dewberry ($100/$200/$400 credit + champagne) &middot; Best Available Dates &middot; Rise and Dine</div>
+  </div>
+</section>
+<div class="gradient-divider"></div>
+<!-- ============================ CHAPTER 03 ============================ -->
+<section class="chapter" id="ch-03">
+  <div class="chapter-label">Chapter 03 &middot; <span class="cl-fam">Family M</span> &middot; Marketing &amp; Measurement</div>
+  <h2>The Measurement Layer Is <em>Quietly Lying to Everyone</em></h2>
+  <p class="lead">
+    Before a dollar of media is spent, the pipes have to tell the truth. This chapter reads the site&rsquo;s actual tag payloads,
+    consent tooling, structured data, and answer surfaces &mdash; the machinery that decides whether a booking gets credited,
+    what Google believes about the hotel, and who answers a guest&rsquo;s questions. The single worst defect in this entire
+    document lives here: <b>the site&rsquo;s own Book Now buttons are stamping every visitor with recycled analytics identities</b>,
+    corrupting the one handoff &mdash; website to booking engine &mdash; where attribution matters most.
+  </p>
+
+  <div class="data-grid">
+    <div class="dg-cell">
+      <div class="dg-label">Pre-consent tracking collects</div>
+      <div class="dg-value">0</div>
+      <div class="dg-state dg-good">Termly autoBlock verified working</div>
+    </div>
+    <div class="dg-cell">
+      <div class="dg-label">Booking handoff &middot; linker tokens</div>
+      <div class="dg-value">Hard-coded</div>
+      <div class="dg-state dg-bad">Stale _ga/_gac in CTA URLs</div>
+    </div>
+    <div class="dg-cell">
+      <div class="dg-label">Analytics stack on page</div>
+      <div class="dg-value">GA4 + dead UA</div>
+      <div class="dg-state dg-warn">UA-64314303-1 still wired &middot; no Bing UET</div>
+    </div>
+    <div class="dg-cell">
+      <div class="dg-label">FAQ / answer surface</div>
+      <div class="dg-value">None</div>
+      <div class="dg-state dg-bad">1,150-word Fine Print, zero schema</div>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="sub-mono">Measurement stack inventory &middot; every tag found on the page</span>Extracted from source + GTM container, 20 Jul 2026</h3>
+  <div class="tbl-wrap"><table class="dr">
+    <tr><th>Component</th><th>Identifier</th><th>Status</th><th>Read</th></tr>
+    <tr><td><b>GA4 property</b></td><td><span class="cell-mono">G-GH0N19N94R</span></td><td class="td-good">Live, consent-gated</td><td>The system of record &mdash; pending M-01 repair, its cross-domain data is suspect</td></tr>
+    <tr><td><b>Universal Analytics</b></td><td><span class="cell-mono">UA-64314303-1</span></td><td class="td-bad">Dead since 2023, still wired twice</td><td>On-page gtag config and inside the container &mdash; remove both (M-03)</td></tr>
+    <tr><td><b>Google Ads</b></td><td><span class="cell-mono">AW-745904035</span></td><td class="td-warn">Conversion tag present</td><td>Evidence of paid history or intent &mdash; discovery question, not assumption</td></tr>
+    <tr><td><b>Tag Manager</b></td><td><span class="cell-mono">GTM-WHLRSS6</span></td><td class="td-warn">550,799 bytes</td><td>Container size signals years of unaudited accretion; full audit in Phase 2</td></tr>
+    <tr><td><b>Consent (Termly)</b></td><td><span class="cell-mono">bf3e079f&hellip;autoBlock=on</span></td><td class="td-good">Verified blocking pre-consent</td><td>The one piece of this stack working exactly as designed (M-04)</td></tr>
+    <tr><td><b>Bing UET</b></td><td>&mdash;</td><td class="td-bad">Absent</td><td>No Microsoft Ads plumbing exists; stand up in Phase 2</td></tr>
+    <tr><td><b>Booking handoff</b></td><td><span class="cell-mono">be.synxis.com hrefs</span></td><td class="td-bad">Hard-coded stale linkers</td><td>The critical defect &mdash; M-01, first item in Phase 1</td></tr>
+  </table></div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">M-01</span><span class="sev sev-crit">Critical</span></div>
+    <div class="f-title">Book Now CTAs hard-code stale Google Analytics linker tokens &mdash; every guest is handed a recycled identity at the exact moment attribution is decided</div>
+    <div class="f-body">Cross-domain measurement between thedewberrycharleston.com and be.synxis.com is supposed to work by GA
+    generating a fresh, per-visitor <span class="mono-inline">_ga</span> linker at click time. Instead, at least two homepage
+    Book Now URLs ship with <b>literal _ga and _gac values pasted into the href</b> &mdash; someone copied a tagged URL from a
+    browser session and saved it into the CMS. The embedded epochs decode to sessions from roughly September 2025 and May 2026.
+    The consequence: visitors arriving at SynXis through these buttons can present a months-old client ID and a fossilized ad-click
+    token. Sessions fragment, revenue mis-attributes, and any Smart Bidding fed by those conversions learns from fiction.
+    <em>Every media decision downstream of this defect inherits it.</em></div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; homepage source, two CTA hrefs, verbatim</span>https://be.synxis.com/?_ga=2.251986953.1804546444.1770219059-598302143.1757606670&amp;_gac=1.116425185.1770219059.CjwKCAiA...&amp;adult=1&amp;chain=28420&amp;hotel=65759...
+https://be.synxis.com/?_ga=2.206687060.610936735.1778691563-1997346306.1774621996&amp;chain=28420&amp;hotel=65759&amp;level=hotel...
+epoch decode: 1757606670 &rarr; Sep 2025 &middot; 1770219059 &rarr; Feb 2026 &middot; 1778691563 &rarr; May 2026 (client-id mint &amp; session stamps)</div>
+    <div class="why"><span class="why-k">Why it matters</span>This is the highest-leverage fix in the document. Until the hrefs are
+    stripped to clean parameters and the GA4 linker is allowed to do its job, no report about where bookings come from &mdash;
+    theirs or anyone&rsquo;s &mdash; can be trusted, and no paid program should be scaled on top of it.</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">M-02</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">The Hotel schema &mdash; Google&rsquo;s primary structured read of the property &mdash; is built from leftovers</div>
+    <div class="f-body">The JSON-LD Hotel entity&rsquo;s <span class="mono-inline">@id</span> is a UTM-tagged campaign URL. Its
+    description is Google Maps&rsquo; own auto-generated blurb pasted back at Google (&ldquo;this posh federal building-turned-hotel&rdquo;).
+    Its priceRange declares <b>$180&ndash;$300</b> against a live rate card running $419&ndash;$779 midweek &mdash; the machine anchor
+    dissected in D-04, published by the hotel itself. The email is a malformed <span class="mono-inline">mailto:</span> value,
+    &ldquo;hasmap&rdquo; is not a schema.org property, there is no postalAddress, no starRating, no aggregateRating &mdash; and the
+    entity image is a 2018 Tambourine map asset. This is the property&rsquo;s machine-readable identity card, and nearly every
+    field on it is wrong, stale, or missing.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; homepage JSON-LD, verbatim fields</span>"@id": "https://www.thedewberrycharleston.com/?utm_source=google&amp;utm_medium=business_listing&amp;utm_campaign=gmb"
+"description": "Overlooking Marion Square, this posh federal building-turned-hotel is a 3-minute walk from the Charleston Museum..."
+"priceRange": "$180-$300"  |  "email": "mailto:reservations@dewberryhotels.com"  |  "hasmap": "https://www.google.com/maps?cid=2214417798668651823"
+missing: postalAddress, starRating, aggregateRating  |  image: Tambourine-Map-...-5aa065bf47e65.jpg (2018 asset)</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">M-03</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">A Universal Analytics ghost still rides every page &mdash; hard-coded and duplicated inside the GTM container</div>
+    <div class="f-body">UA-64314303-1 &mdash; a property Google stopped processing in 2023 &mdash; is still wired both directly in the
+    page and inside GTM-WHLRSS6, alongside the live GA4 property (G-GH0N19N94R) and Google Ads (AW-745904035). The container
+    itself weighs 550,799 bytes, suggesting years of unaudited accretion. Bing UET is absent entirely &mdash; whatever Microsoft
+    Ads history exists or is planned has no conversion plumbing on this site.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; page source + fetched GTM container</span>page: gtag('config','UA-64314303-1') present alongside G-GH0N19N94R
+gtm.js?id=GTM-WHLRSS6 &rarr; 550,799 bytes; contains UA-64314303-1, G-GH0N19N94R, AW-745904035; UET/bat.bing: absent</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">M-04</span><span class="sev sev-pos">Positive</span></div>
+    <div class="f-title">Consent is not theater here &mdash; Termly&rsquo;s auto-blocker verifiably holds tracking until the guest answers</div>
+    <div class="f-body">Termly loads first with <span class="mono-inline">autoBlock=on</span>, and a rendered pre-consent session
+    confirmed <b>zero</b> collect requests to Google Analytics endpoints before interaction. In a landscape where most hotel CMPs
+    are decorative, this one works. It also means measurement design must be consent-aware from day one &mdash; modeled conversions
+    and server-side tagging belong in the roadmap, not as afterthoughts.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; rendered pre-consent network log</span>app.termly.io/resource-blocker/bf3e079f-4bf2-4278-b787-e3c99f8b5ab2?autoBlock=on  (first script)
+pre-consent requests to google-analytics.com/collect | /g/collect: 0</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">M-05</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">The dining page&rsquo;s own metadata still sells Henrietta&rsquo;s &mdash; the hotel is the upstream source of the OTA fiction in D-05</div>
+    <div class="f-body">/drinks-dining&rsquo;s meta description and OpenGraph tags &mdash; the exact fields OTA content teams and
+    crawlers ingest &mdash; still pitch &ldquo;Henrietta&rsquo;s, our beloved brasserie.&rdquo; The string &ldquo;Henrietta&rdquo; appears five
+    times in the page source, and the stale description renders today in live Google results for the hotel&rsquo;s dining queries.
+    The OTAs aren&rsquo;t inventing the dead restaurant; <em>they&rsquo;re syndicating the hotel&rsquo;s own tags.</em> Fixing D-05
+    starts here, or it doesn&rsquo;t stick.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; /drinks-dining source + live SERP snippet</span>&lt;meta name="description" content="...enjoy craft cocktails in The Living Room, and dine at Henrietta's, our beloved brasserie."&gt;
+og:description: same string  |  grep -c "Henrietta" drinks-dining.html &rarr; 5
+Live SERP snippet for site dining query renders the Henrietta's description verbatim.</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">M-06</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">Three pages fight each other for the same generic title while brand pages abandon their own names</div>
+    <div class="f-body">Home, About, and even the hotel-policies page all lead their titles with &ldquo;Charleston SC Hotels&rdquo;
+    variants &mdash; three pages cannibalizing one commercial query &mdash; while pages with distinct intents (About the brand story,
+    policies the answer queries) surrender their natural targets. The commercial pages that should carry query-matched titles
+    (rooms, spa, offers) do &mdash; the strategy exists; it&rsquo;s just been photocopied across pages where it competes with
+    itself.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; title inventory</span>/            "Charleston SC Hotels | Best Hotels in Charleston SC | The Dewberry"
+/About       "Charleston SC Hotels | Places to Stay | The Dewberry"
+/hotel-policies  "Hotels in Downtown Charleston | The Dewberry Charleston"
+/rooms-suites "Luxury Hotels in Charleston SC | ..."  /charleston-spa "Spa in Charleston SC | ..."  /offers "Charleston Hotel Deals | ..."</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">M-07</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">Guests&rsquo; most-asked questions are answered by everyone except the hotel &mdash; sometimes wrongly, sometimes for a competitor</div>
+    <div class="f-body">The policy page holds ~1,150 words of genuinely good Fine Print &mdash; pets, parking, deposits, ages,
+    smoking &mdash; as one unstructured wall with no FAQ markup, no headings-as-questions, no FAQPage schema. The market answers
+    instead: BringFido holds the #1 pet-policy result and uses it to merchandise <em>other</em> Charleston hotels; Orbitz answers
+    the parking question with the wrong number ($40 against the hotel&rsquo;s $58). In the AI-assistant era every one of these
+    is a lost or mis-served guest interaction the hotel could own with one structured page.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; policy source + answer-surface checks</span>/hotel-policies: ~1,150 words, h2/h3 question headings: 0, FAQPage schema: absent
+"the dewberry charleston pet policy" &rarr; #1 bringfido.com (cross-sells pet-friendly alternatives)  |  "parking" intent &rarr; Orbitz snippet: "USD 40.00 per night"</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">M-08</span><span class="sev sev-min">Minor</span></div>
+    <div class="f-title">Sixty-eight thousand followers and four platform-nines of social proof &mdash; none of it surfaced or marked up on the site</div>
+    <div class="f-body">No review module, no aggregateRating, no award schema &mdash; the site never shows a guest what Expedia
+    (9.6), Google (4.6), US News (9.5), or 68K Instagram followers already believe. The newsletter capture in the footer is a
+    real positive &mdash; owned-audience plumbing exists &mdash; but the proof layer above it is empty, on a property whose proof
+    is world-class.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026</span>on-site review widgets: 0 &middot; aggregateRating: absent (M-02) &middot; award structured data: absent
+footer: newsletter signup present and functional (email capture form)</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">M-09</span><span class="sev sev-pos">Positive</span></div>
+    <div class="f-title">robots.txt explicitly welcomes the AI crawlers &mdash; the property has opted into the answer-engine era</div>
+    <div class="f-body">GPTBot, ClaudeBot, and PerplexityBot are expressly allowed. Someone made a deliberate, current-era choice
+    to let AI systems read this site &mdash; which makes the empty answer surfaces (M-07) and broken entity card (M-02) the only
+    things standing between the property and being quoted correctly. The door is open; the house just isn&rsquo;t staged.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; robots.txt</span>User-agent: GPTBot / Allow: /  &middot;  User-agent: ClaudeBot / Allow: /  &middot;  User-agent: PerplexityBot / Allow: /</div>
+  </div>
+
+  <div class="callout co-peach">
+    <div class="co-title">Discovery questions &mdash; for the first working session</div>
+    Answers to these determine sequencing, not scope. <b>Access &amp; ownership:</b> Who holds admin on GA4 (G-GH0N19N94R), GTM-WHLRSS6,
+    Google Ads (AW-745904035), and Google Business Profile &mdash; agency or property? Does the hotel have owner-level access to each
+    today? <b>Attribution:</b> What is GA4 currently calling a conversion, and is SynXis passing revenue back (which integration &mdash;
+    native connector, gtag on confirmation, or nothing)? Who edited the Book Now buttons last, and is there a CMS change log?
+    <b>Distribution:</b> Who manages the Expedia and Booking extranets day to day, and when were content sections last touched?
+    Which wholesale contracts (bedbanks, FIT) are live &mdash; the D-02 resellers are sourcing rate from somewhere. <b>Product:</b>
+    What is the announced timeline and name for the Henrietta&rsquo;s-space concept, so dining metadata gets rewritten once, not twice?
+    <b>History:</b> Any paid media running now or in the last 24 months (the AW- tag suggests yes) &mdash; can we see it before
+    touching anything? <b>Voice:</b> Who signs review responses today, and does Jared Laidlaw&rsquo;s recovery inbox route anywhere
+    measured?
+  </div>
+</section>
+<div class="gradient-divider"></div>
+<!-- ============================ CHAPTER 04 ============================ -->
+<section class="chapter" id="ch-04">
+  <div class="chapter-label">Chapter 04 &middot; <span class="cl-fam">Search Strategy</span> &middot; Niche Keyword Opportunity</div>
+  <h2>The Queries This Hotel Deserves to Own &mdash; <em>and currently rents</em></h2>
+  <p class="lead">
+    The Dewberry&rsquo;s losing battle is the generic one: &ldquo;best hotels charleston sc&rdquo; returned five aggregators and zero
+    hotel-owned pages in this run&rsquo;s capture &mdash; that auction belongs to Tripadvisor and Cond&eacute; Nast, and buying it
+    head-on is how independents burn budgets. The winnable war is jargon-gated intent: the specific, high-signal queries where the
+    property holds a genuine claim &mdash; the highest rooftop bar in the city, a nationally documented mid-century interior, a
+    walled garden built for two hundred guests &mdash; and where today it either ranks through other people&rsquo;s pages or not at
+    all. Seven clusters below, each anchored to evidence from this run. Phrase and exact match only; the negative set at the end
+    is what keeps a name this collision-prone clean.
+  </p>
+
+  <div class="sa-grid">
+    <div class="sa-card">
+      <div class="sa-kicker">Cluster 01 &middot; Rooftop &amp; Citrus Club</div>
+      <div class="sa-title">&ldquo;rooftop bar charleston&rdquo; &middot; &ldquo;citrus club charleston&rdquo; &middot; &ldquo;highest rooftop bar charleston&rdquo;</div>
+      <div class="sa-body">The city&rsquo;s highest rooftop, a 2020 James Beard design-award finalist &mdash; and the property&rsquo;s
+      only ranking surface for it is the generic /drinks-dining page. Meanwhile The Vendue&rsquo;s own page claims &ldquo;#1
+      rooftop,&rdquo; and Fiat Lux (Bennett), The Pavilion, and Pour Taproom all rank with dedicated venue pages. Bloggers set the
+      facts &mdash; reservations 12&ndash;2 p.m. then first-come, cocktails ~$15&ndash;20 &mdash; because the hotel publishes none of
+      them. <b>Build the Citrus Club page; own the claim.</b></div>
+      <div class="sa-foot">Evidence: run SERP captures &middot; venue-page gap vs. 4 competitors</div>
+    </div>
+    <div class="sa-card">
+      <div class="sa-kicker">Cluster 02 &middot; Design &amp; Mid-Century</div>
+      <div class="sa-title">&ldquo;mid century modern hotel charleston&rdquo; &middot; &ldquo;design hotels charleston&rdquo; &middot; &ldquo;workstead dewberry&rdquo;</div>
+      <div class="sa-body">Wikipedia lists the property among notable American mid-century-modern interiors; the Workstead
+      collaboration is design-press canon; the review corpus organically tags &ldquo;mid century&rdquo; (Ch.08, B-04). This is a
+      durable, low-competition identity cluster no Charleston competitor can credibly contest &mdash; and the site has no page
+      that says the words. Editorial build: one design-story page, shot inventory already exists.</div>
+      <div class="sa-foot">Evidence: Wikipedia MCM listing &middot; TA tag cloud &middot; zero on-site target</div>
+    </div>
+    <div class="sa-card">
+      <div class="sa-kicker">Cluster 03 &middot; Boutique Intent</div>
+      <div class="sa-title">&ldquo;boutique hotel charleston&rdquo; &middot; &ldquo;luxury boutique hotels downtown charleston&rdquo;</div>
+      <div class="sa-body">In this run&rsquo;s capture, The Pinch, The Ryder, and Palmetto Bluff-adjacent players surface with owned
+      pages on boutique intent; The Dewberry appears only inside a Travelocity roster. For the reigning Virtuoso Best Independent
+      Hotel in the World to be absent from &ldquo;boutique&rdquo; results in its own city is pure positioning leakage &mdash; fixable
+      with title strategy (M-06) plus one authority page, not a site rebuild.</div>
+      <div class="sa-foot">Evidence: run SERP capture &middot; roster-only presence</div>
+    </div>
+    <div class="sa-card">
+      <div class="sa-kicker">Cluster 04 &middot; Spa &amp; Adult-Leaning Stays</div>
+      <div class="sa-title">&ldquo;spa hotel charleston&rdquo; &middot; &ldquo;29 spa lydia mondavi&rdquo; &middot; &ldquo;couples spa charleston&rdquo;</div>
+      <div class="sa-body">The Spa page is one of the few with a correctly targeted title, and the product has proper nouns worth
+      owning &mdash; the Lydia Mondavi 29 partnership, the Carolina Cocoon signature treatment. The couples skew is confirmed by
+      platform data (Booking couples 9.8). Extend the working title strategy into treatment-level pages and capture the
+      long-tail the brand already earns in reviews.</div>
+      <div class="sa-foot">Evidence: title inventory &middot; Booking segment score &middot; treatment nouns on-page</div>
+    </div>
+    <div class="sa-card">
+      <div class="sa-kicker">Cluster 05 &middot; Weddings &amp; The Walled Garden</div>
+      <div class="sa-title">&ldquo;charleston hotel wedding venue&rdquo; &middot; &ldquo;walled garden wedding charleston&rdquo; &middot; &ldquo;dewberry wedding&rdquo;</div>
+      <div class="sa-body">Third-party venue directories publish the specs &mdash; ~1,710 sq ft ballroom, ~2,400 sq ft Walled
+      Garden, capacity to 200 &mdash; but the property has <b>no /weddings URL at all</b>; the intent routes to a generic
+      meetings-and-events page and a 2023 Issuu brochure (F-08). Hotel Bennett runs a three-deep weddings architecture
+      (overview / RFP / tour). Highest-revenue-per-page gap in this chapter.</div>
+      <div class="sa-foot">Evidence: URL map diff vs. Bennett &middot; directory spec listings</div>
+    </div>
+    <div class="sa-card">
+      <div class="sa-kicker">Cluster 06 &middot; Location &amp; Event Windows</div>
+      <div class="sa-title">&ldquo;hotels near marion square&rdquo; &middot; &ldquo;hotels near gaillard center&rdquo; &middot; &ldquo;college of charleston graduation hotel&rdquo;</div>
+      <div class="sa-body">The property literally faces Marion Square &mdash; the festival lawn for the city&rsquo;s marquee events
+      &mdash; sits minutes from the Gaillard, and rides CofC&rsquo;s parent-weekend and graduation demand cycles. These are
+      calendar-predictable, high-intent windows with commercial CPCs a fraction of &ldquo;charleston hotels.&rdquo; One
+      neighborhood/events page plus dated campaign flights covers the cluster.</div>
+      <div class="sa-foot">Evidence: geo adjacency &middot; things-to-do page mentions, no dedicated target</div>
+    </div>
+    <div class="sa-card">
+      <div class="sa-kicker">Cluster 07 &middot; Policy &amp; Answer Queries (AEO)</div>
+      <div class="sa-title">&ldquo;dewberry charleston parking&rdquo; &middot; &ldquo;dewberry pet policy&rdquo; &middot; &ldquo;dewberry resort fee&rdquo;</div>
+      <div class="sa-body">Branded answer queries are the cheapest wins in search &mdash; and Ch.03 showed BringFido and Orbitz
+      answering them today, one of them wrongly. A structured FAQ page with FAQPage schema, built from the existing Fine Print,
+      claims this cluster in weeks and feeds every AI assistant the hotel just opted to welcome (M-09).</div>
+      <div class="sa-foot">Evidence: M-07 answer-surface audit &middot; robots.txt AI allowlist</div>
+    </div>
+    <div class="sa-card">
+      <div class="sa-kicker">Guardrail &middot; Negative Keywords</div>
+      <div class="sa-title">The name collides &mdash; gate it or fund strangers&rsquo; clicks</div>
+      <div class="sa-body">&ldquo;Dewberry&rdquo; is also a 2,000-person engineering firm (dewberry.com) that dominates the naked-name
+      SERP, a Houston-area attraction farm, and the berry itself. Launch set: <span class="mono-inline">engineering, architects,
+      dewberry.com, farm, texas, plant, berry, fruit, recipe, wine, jam</span> &mdash; plus standard hotel hygienics
+      (<span class="mono-inline">jobs, careers, salary, application</span>). Phrase/exact only; Search Partners and Display off on
+      Google; syndicated partners off on Microsoft.</div>
+      <div class="sa-foot">Evidence: naked-name SERP capture &middot; collision entities verified live</div>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="sub-mono">Launch seed set &middot; by cluster and intent stage</span>Phrase + exact match only &middot; volumes directional pending the Planner pull</h3>
+  <div class="tbl-wrap"><table class="dr">
+    <tr><th>Cluster</th><th>Seed terms (launch)</th><th>Intent stage</th><th>Landing surface</th></tr>
+    <tr><td><b>01 Rooftop</b></td><td><span class="cell-mono">citrus club charleston &middot; rooftop bar charleston sc &middot; highest rooftop bar charleston &middot; rooftop bar near marion square</span></td><td>Venue-decided &rarr; hotel-curious</td><td>New Citrus Club page (Phase 3)</td></tr>
+    <tr><td><b>02 Design</b></td><td><span class="cell-mono">mid century modern hotel charleston &middot; design hotel charleston &middot; workstead hotel</span></td><td>Identity-led discovery</td><td>New design-story page (Phase 3)</td></tr>
+    <tr><td><b>03 Boutique</b></td><td><span class="cell-mono">boutique hotel charleston &middot; luxury boutique hotel downtown charleston &middot; independent hotel charleston</span></td><td>Category shortlist</td><td>Homepage + retitled About (Phase 3)</td></tr>
+    <tr><td><b>04 Spa</b></td><td><span class="cell-mono">spa hotel charleston &middot; hotel with spa downtown charleston &middot; couples spa weekend charleston</span></td><td>Package-ready</td><td>/charleston-spa (live, working)</td></tr>
+    <tr><td><b>05 Weddings</b></td><td><span class="cell-mono">charleston hotel wedding venue &middot; walled garden wedding charleston &middot; downtown charleston wedding venue 200 guests</span></td><td>RFP-stage</td><td>New /weddings (Phase 3)</td></tr>
+    <tr><td><b>06 Events geo</b></td><td><span class="cell-mono">hotels near marion square &middot; hotels near gaillard center &middot; college of charleston graduation hotels</span></td><td>Date-locked</td><td>Neighborhood/events page + flights</td></tr>
+    <tr><td><b>07 Answers</b></td><td><span class="cell-mono">dewberry charleston parking &middot; dewberry pet policy &middot; dewberry charleston resort fee &middot; citrus club reservations</span></td><td>Branded, pre-arrival</td><td>New FAQ page (Phase 2)</td></tr>
+  </table></div>
+
+  <div class="callout co-peach">
+    <div class="co-title">Account settings doctrine &mdash; why the gate is the strategy</div>
+    Low-volume, industry-specific terms filter non-ICP traffic more effectively than match-type settings ever will &mdash; which is
+    why every cluster above is jargon-first and the launch runs <b>phrase and exact match only</b>, no broad. Network hygiene:
+    <b>Search Partners and Display off on Google; Audience Network and syndicated partners off on Microsoft</b> &mdash; those
+    surfaces convert branded luxury intent into junk clicks that then poison the bidding model. Which is the deeper point:
+    <b>Smart Bidding learns from whatever the conversion stream feeds it</b>, so protecting signal integrity (clean attribution
+    per M-01, gated traffic per this page) is worth more than any credited refund for invalid clicks after the fact &mdash; the
+    filtered click still taught the model before the money came back.
+  </div>
+
+  <div class="callout co-sage">
+    <div class="co-title">Keyword Planner pull &mdash; spec for engagement week one</div>
+    Volumes in this chapter are <b>directional pending the pull</b> &mdash; run from the property&rsquo;s own Google Ads account so
+    the numbers carry account-level context. Spec: all seven clusters, exact + phrase, geo splits for <b>Charleston-local</b> plus
+    the feeder markets the review corpus surfaced this run &mdash; <b>New York metro, DC&ndash;Baltimore, Detroit, Kansas City</b>
+    (reviewer-origin sample is small-n; treat as hypotheses to confirm against GA4 geography, not conclusions) &mdash; trailing
+    24 months for seasonality, device split retained. Output feeds the Ch.10 Phase 3 page builds and the Ch.11 program&rsquo;s
+    launch ad groups.
+  </div>
+</section>
+<div class="gradient-divider"></div>
+<!-- ============================ CHAPTER 05 ============================ -->
+<section class="chapter" id="ch-05">
+  <div class="chapter-label">Chapter 05 &middot; <span class="cl-fam">Search Strategy</span> &middot; Competitive Position</div>
+  <h2>The Comp Set&rsquo;s Websites, <em>Read the Way Google Reads Them</em></h2>
+  <p class="lead">
+    Four direct luxury-boutique competitors were pulled and parsed the same afternoon as the Dewberry: Hotel Bennett, The
+    Spectator, Zero George, and The Loutrel. The question wasn&rsquo;t who has the prettier site &mdash; it&rsquo;s who has built
+    machine-legible claims on the demand that matters. The short answer: <b>The Loutrel is the only property in the set
+    publishing its review proof as structured data, and Hotel Bennett is the only one with a full weddings architecture.</b>
+    The Dewberry out-classes this set on product and proof &mdash; and under-publishes both.
+  </p>
+
+  <h3 class="sub"><span class="sub-mono">Head-to-head &middot; homepage machine posture</span>Captured &amp; parsed 20 Jul 2026</h3>
+  <div class="tbl-wrap"><table class="dr">
+    <tr><th>Property</th><th>Title strategy</th><th>H1</th><th>Schema posture</th><th>Niche architecture</th></tr>
+    <tr>
+      <td><b>The Dewberry</b> <span class="cell-dim">153 rms &middot; independent</span></td>
+      <td>"Charleston SC Hotels | Best Hotels in Charleston SC"</td>
+      <td class="td-warn">Present, semantics stripped (F-02)</td>
+      <td class="td-bad">Hotel entity, corrupted fields, no ratings (M-02)</td>
+      <td class="td-bad">No /weddings &middot; no venue pages &middot; policies unstructured</td>
+    </tr>
+    <tr>
+      <td><b>Hotel Bennett</b> <span class="cell-dim">179 rms &middot; Salamander</span></td>
+      <td>"Charleston Luxury Hotels | Hotel Bennett Charleston, SC"</td>
+      <td>"Charleston Roots Reimagined"</td>
+      <td class="td-warn">Hotel entity; starRating declared but <span class="cell-mono">empty {"@type":"Rating"}</span></td>
+      <td class="td-good">/gatherings/weddings/{overview, rfp, tour} &middot; 4 named F&amp;B sub-brand pages (Camellias, Fiat Lux, Gabrielle, La Patisserie)</td>
+    </tr>
+    <tr>
+      <td><b>The Spectator</b> <span class="cell-dim">41 rms &middot; independent</span></td>
+      <td>"The Spectator Hotel | Homepage | Official Site"</td>
+      <td>"The Most Elite Way"</td>
+      <td class="td-warn">Hotel entity, basic fields</td>
+      <td class="td-warn">event-venues-charleston-sc page &middot; butler positioning carried in copy</td>
+    </tr>
+    <tr>
+      <td><b>Zero George</b> <span class="cell-dim">18 rms &middot; independent</span></td>
+      <td>"Boutique Hotel, Downtown Charleston | Zero George Street Hotel"</td>
+      <td>Brand-led</td>
+      <td class="td-bad">No Hotel entity at all &mdash; Organization/WebSite only</td>
+      <td class="td-warn">offers-enhancements &middot; cooking-school equity carried editorially</td>
+    </tr>
+    <tr>
+      <td><b>The Loutrel</b> <span class="cell-dim">50 rms &middot; independent</span></td>
+      <td>"The Loutrel Hotel | Official Site | Hotels in Charleston SC"</td>
+      <td>Brand-led</td>
+      <td class="td-good">Hotel entity <b>with aggregateRating 4.9 (348)</b> + priceRange "$$$$"</td>
+      <td class="td-good">meetings-and-events/{celebrations, corporate, rfp}</td>
+    </tr>
+  </table></div>
+
+  <h3 class="sub"><span class="sub-mono">Niche SERP landscape &middot; who owns the winnable queries today</span>Run captures, 20 Jul 2026</h3>
+  <div class="tbl-wrap"><table class="dr">
+    <tr><th>Query intent</th><th>Hotel-owned pages ranking</th><th>The Dewberry&rsquo;s presence</th><th>Read</th></tr>
+    <tr><td><b>"best hotels charleston sc"</b></td><td>0 of 5 &mdash; all aggregators (Tripadvisor, US News, Cond&eacute; Nast tier)</td><td>Inside aggregator lists only</td><td class="td-warn">Don&rsquo;t buy this war; win it via the lists (Ch.07 equity)</td></tr>
+    <tr><td><b>Rooftop / Citrus Club</b></td><td>Vendue ("#1 rooftop" claim page), Bennett&rsquo;s Fiat Lux, The Pavilion, Pour Taproom</td><td class="td-bad">Generic /drinks-dining only</td><td class="td-bad">Category asset, unclaimed &mdash; Cluster 01</td></tr>
+    <tr><td><b>Boutique hotel charleston</b></td><td>The Pinch, The Ryder (owned pages)</td><td class="td-bad">Travelocity roster only</td><td class="td-bad">Positioning leakage &mdash; Cluster 03</td></tr>
+    <tr><td><b>Wedding venue intent</b></td><td>Bennett three-deep architecture; venue directories</td><td class="td-bad">No dedicated URL; 2023 Issuu brochure</td><td class="td-bad">Highest revenue-per-page gap &mdash; Cluster 05</td></tr>
+    <tr><td><b>Branded policy answers</b></td><td>BringFido (#1 pets, cross-sells competitors), Orbitz (parking, wrong)</td><td class="td-bad">Unstructured Fine Print</td><td class="td-warn">Cheapest wins on the board &mdash; Cluster 07</td></tr>
+  </table></div>
+
+  <h3 class="sub"><span class="sub-mono">What each competitor&rsquo;s posture teaches</span>Strategic read per property</h3>
+  <div class="tbl-wrap"><table class="dr">
+    <tr><th>Property</th><th>The lesson</th><th>The counter</th></tr>
+    <tr><td><b>Hotel Bennett</b></td><td>Architecture wins RFPs. Three dedicated wedding URLs plus four named F&amp;B sub-brand
+    pages mean every high-value intent has a purpose-built landing surface &mdash; and a Salamander-scale content budget behind
+    it.</td><td>Match the architecture where the money is (weddings, Citrus Club), not page-for-page. The Dewberry&rsquo;s product
+    story is stronger; it needs two pages, not twenty.</td></tr>
+    <tr><td><b>The Spectator</b></td><td>Title discipline compounds. &ldquo;Official Site&rdquo; branding plus a clean butler
+    narrative gives a 41-room property outsized brand-SERP control &mdash; nothing cannibalizes anything.</td><td>Adopt the
+    discipline (M-06 fix), keep the scale advantage. The Dewberry has 3.7&times; the keys and the world title; it should never
+    lose a brand-adjacent SERP to a 41-room comp.</td></tr>
+    <tr><td><b>Zero George</b></td><td>The schema floor in this market is on the ground. An acclaimed property running no Hotel
+    entity at all proves competitors aren&rsquo;t winning on structured data &mdash; they&rsquo;re just not losing on it
+    yet.</td><td>Move first. A correct, complete entity card (Phase 2) is a durable advantage precisely because nobody local has
+    built one.</td></tr>
+    <tr><td><b>The Loutrel</b></td><td>Structured proof works at any size. Fifty rooms publishing aggregateRating 4.9/348 as
+    schema means machines can quote its excellence verbatim &mdash; the only property in the set that made itself
+    machine-quotable.</td><td>Do it with bigger numbers. The Dewberry&rsquo;s 4.6&times;1.4K on Google and 9.6 on Expedia are a
+    stronger proof set the moment they&rsquo;re marked up (M-08 close, Phase 4).</td></tr>
+  </table></div>
+
+  <p class="body-note"><b>Review-equity texture around the set</b> (Google, this run): The Dewberry 4.6 (1.4K) &middot; The
+  Spectator 4.8 (614) &middot; The Vendue 4.5 (2.3K) &middot; The Loutrel publishing 4.9 (348) as schema. The Dewberry&rsquo;s
+  volume-weighted position is strong &mdash; it simply isn&rsquo;t <em>published</em> anywhere the machines can quote it.</p>
+
+  <div class="callout co-peach">
+    <div class="co-title">The read</div>
+    Nobody in this set is running away with search &mdash; Bennett&rsquo;s schema is half-built, Zero George has no hotel entity at
+    all, Spectator is thin beyond its brand terms. The Loutrel, the smallest threat on product, is the only one doing structured
+    proof correctly &mdash; and it&rsquo;s a 50-room property publishing a 4.9. The window is open: a property with The
+    Dewberry&rsquo;s equity that ships the Ch.10 fixes &mdash; entity card rebuilt, venue and weddings pages live, proof marked up
+    &mdash; doesn&rsquo;t catch up to this comp set. It laps it. <b>Stay three moves ahead of your comp set</b> is, in this market,
+    a two-quarter project.
+  </div>
+</section>
+<div class="gradient-divider"></div>
+<!-- ============================ CHAPTER 06 ============================ -->
+<section class="chapter" id="ch-06">
+  <div class="chapter-label">Chapter 06 &middot; <span class="cl-fam">Family S</span> &middot; Social Presence</div>
+  <h2>One Great Channel, One Split Channel, <em>One Empty Chair, One Ghost</em></h2>
+  <p class="lead">
+    Social was audited from indexed profile metadata and rendered public surfaces (native app counters were not reachable from
+    this environment &mdash; noted where it matters). The shape is unusual: a genuinely elite Instagram, a Facebook presence
+    split across two accounts pointing different directions, an owned TikTok that simply does not exist while a complaint video
+    racks up likes in the property&rsquo;s name, and a closed restaurant still running a live account that links back to the hotel.
+  </p>
+
+  <div class="data-grid">
+    <div class="dg-cell">
+      <div class="dg-label">Instagram &middot; @thedewberrycharleston</div>
+      <div class="dg-value">68K <small>&middot; 1,702 posts</small></div>
+      <div class="dg-state dg-good">Elite for 153 keys &middot; awards in bio</div>
+    </div>
+    <div class="dg-cell">
+      <div class="dg-label">Facebook &middot; two accounts</div>
+      <div class="dg-value">14K <small>vs.</small> 2.4K</div>
+      <div class="dg-state dg-bad">Footer points at the wrong one</div>
+    </div>
+    <div class="dg-cell">
+      <div class="dg-label">TikTok &middot; owned handle</div>
+      <div class="dg-value">None</div>
+      <div class="dg-state dg-bad">Top video = 7.7K-like complaint</div>
+    </div>
+    <div class="dg-cell">
+      <div class="dg-label">LinkedIn &middot; company page</div>
+      <div class="dg-value">3,020</div>
+      <div class="dg-state dg-warn">Active hiring &middot; unlinked from site</div>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="sub-mono">Channel scorecard &middot; six platforms, one action each</span></h3>
+  <div class="tbl-wrap"><table class="dr">
+    <tr><th>Channel</th><th>State this run</th><th>Verdict</th><th>The one action</th></tr>
+    <tr><td><b>Instagram</b></td><td>68K &middot; 1,702 posts &middot; awards in bio</td><td class="td-good">Protect</td><td>Syndicate from it; change nothing about the voice</td></tr>
+    <tr><td><b>Facebook</b></td><td>Split: 14K shell linked, 96%-recommend page orphaned</td><td class="td-bad">Consolidate</td><td>Merge/repoint footer to the working page (S-02)</td></tr>
+    <tr><td><b>TikTok</b></td><td>No owned handle; complaint video is the brand&rsquo;s top result</td><td class="td-bad">Build</td><td>Stand up the handle; answer S-03&rsquo;s themes in-voice</td></tr>
+    <tr><td><b>LinkedIn</b></td><td>3,020 &middot; active hiring &middot; unlinked from site</td><td class="td-warn">Link &amp; use</td><td>Footer link + group-sales content lane (S-05)</td></tr>
+    <tr><td><b>Pinterest</b></td><td>Owned wedding/interior boards, unlinked</td><td class="td-warn">Link &amp; align</td><td>Point boards at the new /weddings page (S-05)</td></tr>
+    <tr><td><b>@henriettas_brasserie</b></td><td>Live 5 years post-closure, 1,841 followers</td><td class="td-bad">Resolve</td><td>Sunset or convert to successor-concept teaser (S-04)</td></tr>
+  </table></div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">S-01</span><span class="sev sev-pos">Positive</span></div>
+    <div class="f-title">Instagram is the flagship it should be &mdash; scale, cadence history, and the right proof stacked in the bio</div>
+    <div class="f-body">Sixty-eight thousand followers and 1,702 lifetime posts is elite territory for a 153-key independent
+    &mdash; multiples of what the local set carries. The bio does real merchandising work: Virtuoso Best Independent Hotel in the
+    World 2025 and MICHELIN Key 2024&ndash;25 stacked above the booking link. Owned Pinterest boards (weddings, interiors) round
+    out a visual layer that matches the product. This channel is an asset to protect and syndicate from &mdash; not a fix.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; indexed profile metadata</span>@thedewberrycharleston &mdash; 68K followers &middot; 1,702 posts &middot; bio: "Best Independent Hotel in the World &mdash; Virtuoso 2025 | MICHELIN Key 2024 &amp; 2025"
+Pinterest: owned boards live under the property&rsquo;s name (weddings / interiors)</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">S-02</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">Facebook is split in two &mdash; and the website footer points at the smaller, quieter half</div>
+    <div class="f-body">Two live pages carry the brand. The footer links <span class="mono-inline">facebook.com/thedewberrycharleston</span>
+    &mdash; ~14K followers, following 4, thin recent activity in indexed captures. A second page,
+    <span class="mono-inline">facebook.com/DewberryCharleston</span>, holds the living equity: <b>96% recommend across 816
+    reviews, 12,433 check-ins, posted one day before this audit.</b> Guests landing from the site reach the shell; the page doing
+    the work is unlinked. Merge or consolidate, then point everything at the survivor.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; footer href + indexed page metadata</span>site footer &rarr; facebook.com/thedewberrycharleston (14K followers &middot; following 4)
+facebook.com/DewberryCharleston &rarr; 2.4K followers &middot; "96% recommend (816 Reviews)" &middot; 12,433 check-ins &middot; last post: 1 day ago</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">S-03</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">No owned TikTok &mdash; so the platform&rsquo;s top answer for the brand is a 7,731-like complaint tour</div>
+    <div class="f-body">There is no official handle. The property&rsquo;s TikTok place page is creator-built, and the most-liked
+    video attached to the brand is @nickgraynews&rsquo;s room tour cataloguing no desk, no coffee maker, and no bathtub &mdash;
+    7,731 likes and compounding. A &ldquo;Dewberry vs Hotel Bennett&rdquo; comparison page exists on the discover surface; the
+    citywide hotels hub the property is absent from carries 4.7M videos of demand. The audience is already talking; the hotel
+    just has no microphone in the room.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; TikTok discover/place surfaces (indexed)</span>owned handle: none found &middot; place page: creator-generated
+top brand video: @nickgraynews room-tour complaint &mdash; 7,731 likes ("no desk... no coffee maker... no bathtub")
+discover: "Dewberry Charleston vs Hotel Bennett" page live &middot; "Hotels in Charleston" hub: 4.7M videos</div>
+    <div class="why"><span class="why-k">Why it matters</span>The complaint themes on TikTok are the same physical-plant themes in
+    the review corpus (Ch.07, R-03). Unanswered, they become the platform&rsquo;s permanent first impression for the youngest
+    high-value cohort the property courts.</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">S-04</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">Henrietta&rsquo;s Instagram is still live, still branded, still linking to the hotel &mdash; five years after the restaurant closed</div>
+    <div class="f-body">@henriettas_brasserie stands at 1,841 followers and 616 posts with the property linked in bio &mdash; a
+    functioning digital storefront for a restaurant that closed in 2020. It corroborates every stale OTA description in D-05 and
+    hands anyone checking &ldquo;is Henrietta&rsquo;s open?&rdquo; a misleading yes. Archive-and-redirect (or a pinned closure/teaser
+    post if the space&rsquo;s successor concept is near) belongs in the same sweep as the metadata fix in M-05.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; indexed profile metadata</span>@henriettas_brasserie &mdash; 1,841 followers &middot; 616 posts &middot; bio links property &middot; last era of posts: pre-closure
+Closure corroboration: Post &amp; Courier, Mar 2025 (space rented for events; concept TBD)</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">S-05</span><span class="sev sev-min">Minor</span></div>
+    <div class="f-title">LinkedIn and Pinterest exist and work &mdash; the website just never mentions them; Citrus Club has no handle anywhere</div>
+    <div class="f-body">The LinkedIn company page (3,020 followers) is active with hiring &mdash; relevant for the group-sales
+    audience in Ch.09&rsquo;s automation targets &mdash; and Pinterest carries real wedding-planning surface area. The site footer
+    links Facebook and Instagram only. Citrus Club, the most searched sub-brand (Cluster 01), has no social handle on any
+    platform &mdash; its identity lives entirely in guests&rsquo; geotags.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026</span>footer social hrefs: facebook, instagram &mdash; linkedin/pinterest absent
+LinkedIn: The Dewberry Charleston &middot; 3,020 followers &middot; active job postings &middot; Citrus Club handle: none found on IG/TikTok/FB</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">&mdash;</span><span class="sev sev-adv">Advisory</span></div>
+    <div class="f-title">Posting cadence could not be verified from indexed metadata &mdash; scored as unknown, not as a gap</div>
+    <div class="f-body">Native per-post timestamps for Instagram and the primary Facebook page were not reachable anonymously from
+    this environment, so publishing rhythm, Reels mix, and engagement rates are deliberately unscored here. First week of an
+    engagement: pull native insights owner-side and baseline all three before any content calendar is written.</div>
+  </div>
+</section>
+<div class="gradient-divider"></div>
+<!-- ============================ CHAPTER 07 ============================ -->
+<section class="chapter" id="ch-07">
+  <div class="chapter-label">Chapter 07 &middot; <span class="cl-fam">Family R</span> &middot; Guest Sentiment</div>
+  <h2>Nine-Point-Six Everywhere &mdash; <em>Except the One Platform Broadcasting Decline</em></h2>
+  <p class="lead">
+    Reputation was read across eight platforms in a single afternoon, so every number below is the same moment in time. Seven of
+    the eight tell one story: a warm, service-led luxury property in the mid-4.6s and high-9s. The eighth &mdash; Tripadvisor,
+    the platform whose recency-weighted math punishes a weak recent cohort hardest &mdash; has the property at 4.0 and sliding
+    down the city ranks. That divergence is the chapter: the underlying corpus and the broadcast headline have come apart, and
+    Chapter 08 shows the arithmetic of exactly how.
+  </p>
+
+  <div class="data-grid">
+    <div class="dg-cell">
+      <div class="dg-label">Cross-platform spread &middot; same day</div>
+      <div class="dg-value">9.6 / 9.5 / 4.6</div>
+      <div class="dg-state dg-warn">vs. Tripadvisor 4.0 outlier</div>
+    </div>
+    <div class="dg-cell">
+      <div class="dg-label">Tripadvisor review velocity</div>
+      <div class="dg-value">~2.7 <small>/mo</small></div>
+      <div class="dg-state dg-bad">Thin for 153 keys &middot; no post-stay engine</div>
+    </div>
+    <div class="dg-cell">
+      <div class="dg-label">KAYAK low-band share (&le;4/10)</div>
+      <div class="dg-value">8.7%</div>
+      <div class="dg-state dg-warn">46 of 527 &middot; themes consistent</div>
+    </div>
+    <div class="dg-cell">
+      <div class="dg-label">Named-staff praise on record</div>
+      <div class="dg-value">12+</div>
+      <div class="dg-state dg-good">Service is the compounding asset</div>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="sub-mono">The board &middot; every platform, one capture window</span>All figures live 20 Jul 2026 unless noted</h3>
+  <div class="tbl-wrap"><table class="dr">
+    <tr><th>Platform</th><th>Score</th><th>Volume</th><th>Standing / note</th></tr>
+    <tr><td><b>Tripadvisor</b></td><td class="td-bad"><span class="cell-mono">4.0 / 5</span></td><td>1,516</td><td>#26 of 77 Charleston hotels &middot; the outlier &mdash; deep dive Ch.08 Part A. Same-day footer variant showed 1,524; count drift noted.</td></tr>
+    <tr><td><b>Google</b></td><td class="td-good"><span class="cell-mono">4.6 / 5</span></td><td>1,348&ndash;1.4K</td><td>1,348 via Wanderlog syndication; panel rounds to "(1.4K)" &middot; deep dive Ch.08 Part B</td></tr>
+    <tr><td><b>Expedia</b></td><td class="td-good"><span class="cell-mono">9.6 / 10</span></td><td>&mdash;</td><td>"Exceptional" band &middot; family-wide copy issues per D-05 sit atop this score</td></tr>
+    <tr><td><b>Hotels.com</b></td><td class="td-good"><span class="cell-mono">9.6 / 10</span></td><td>&mdash;</td><td>"Last rated Jun 19, 2026" &mdash; fresh signal</td></tr>
+    <tr><td><b>KAYAK</b></td><td class="td-good"><span class="cell-mono">8.9 / 10</span></td><td>527</td><td>Distribution captured: 399 &middot; 51 &middot; 31 &middot; 13 &middot; 15 &middot; 7 &middot; 11 by band; &le;4/10 = 46 (8.7%). Crawl variants same day: 9.0/521, 9.0/523</td></tr>
+    <tr><td><b>Facebook</b></td><td class="td-good"><span class="cell-mono">96%</span></td><td>816</td><td>Recommend rate &middot; on the unlinked page (S-02) &middot; 12,433 check-ins</td></tr>
+    <tr><td><b>US News</b></td><td class="td-good"><span class="cell-mono">9.5 / 10</span></td><td>1,152</td><td>Editorial + aggregate tier; complaint themes in its summary match R-03</td></tr>
+    <tr><td><b>Yelp</b></td><td><span class="cell-mono">&mdash;</span></td><td>45</td><td>Record-level gated (403) &middot; volume from indexed listing; hours defect per D-08</td></tr>
+  </table></div>
+
+  <h3 class="sub"><span class="sub-mono">The one full distribution on record &middot; KAYAK, 527 reviews</span>Seven display bands, highest &rarr; lowest &middot; captured 20 Jul 2026</h3>
+  <div class="tbl-wrap"><table class="dr">
+    <tr><th>Band</th><th>1 (top)</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7 (bottom)</th><th>&le;4/10 total</th></tr>
+    <tr>
+      <td><b>Count</b></td>
+      <td class="td-good"><span class="cell-mono">399</span></td>
+      <td><span class="cell-mono">51</span></td>
+      <td><span class="cell-mono">31</span></td>
+      <td class="td-warn"><span class="cell-mono">13</span></td>
+      <td class="td-warn"><span class="cell-mono">15</span></td>
+      <td class="td-bad"><span class="cell-mono">7</span></td>
+      <td class="td-bad"><span class="cell-mono">11</span></td>
+      <td class="td-warn"><b>46 &middot; 8.7%</b></td>
+    </tr>
+    <tr>
+      <td><b>Share</b></td>
+      <td>75.7%</td><td>9.7%</td><td>5.9%</td><td>2.5%</td><td>2.8%</td><td>1.3%</td><td>2.1%</td><td>&mdash;</td>
+    </tr>
+  </table></div>
+  <p class="body-note">Three quarters of the corpus sits in the top band &mdash; the shape of a genuinely loved property with a
+  thin, persistent dissatisfied tail. Same-day crawl variants of the headline (8.9/527 &middot; 9.0/521 &middot; 9.0/523) also
+  confirm platform-side count lag is normal &mdash; context for reading the Tripadvisor drift in B-04. This distribution is the
+  closest available proxy for the true shape behind every rounded headline in the table above.</p>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">R-01</span><span class="sev sev-pos">Positive</span></div>
+    <div class="f-title">Service is the compounding asset &mdash; guests praise this staff by name, across platforms, across years</div>
+    <div class="f-body">The corpus is unusually rich in named-person praise: Lucas, Tyler, Christopher, Griffin, Francis, Peyton,
+    Alexa, Ethan, Caroline, Morgan, and Suzanne Kassel all appear in guest text, with Jared Laidlaw fielding recovery. KAYAK&rsquo;s
+    decomposed Service score runs 9.5 even where its physical-plant sub-scores wobble (G-03). Every marketing asset this document
+    proposes &mdash; review generation, response voice, social proof modules &mdash; is amplification of something real, which is
+    the only kind that compounds.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; cross-platform review text (indexed exemplars)</span>named in guest text: Lucas &middot; Tyler &middot; Christopher &middot; Griffin &middot; Francis &middot; Peyton &middot; Alexa &middot; Ethan &middot; Caroline &middot; Morgan &middot; Suzanne Kassel
+KAYAK category read: Service 9.5 &middot; recovery routing: "Director of Guest Services, Jared Laidlaw" (D-09)</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">R-02</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">The Tripadvisor slide is real and recent &mdash; three count-anchored snapshots trace 4.6 &rarr; 4.0 and #20 &rarr; #26</div>
+    <div class="f-body">Because archive access was blocked this run, the trajectory is anchored to review <em>counts</em> rather
+    than calendar dates &mdash; a conservative method that still tells one story. At n=1,437 the property displayed 4.6 and ranked
+    #20 of 80. At n=1,487 it still held #20 of 83 (a snapshot whose visible titles include March 2026 stays). At today&rsquo;s
+    n=1,516 the display is <b>4.0, #26 of 77</b>. A cached count of 1,480 dated 11 Jun 2025 brackets velocity at roughly 2.7
+    reviews/month &mdash; meaning the entire displayed collapse rode in on a few dozen recent reviews. Chapter 08 does the math on
+    why that&rsquo;s possible.</div>
+    <div class="evidence"><span class="ev-label">Count-anchored snapshots, captured/verified 20 Jul 2026</span>n=1,437 &rarr; 4.6 &middot; #20 of 80   |   n=1,487 &rarr; #20 of 83 (titles incl. Mar 2026 stays)   |   n=1,516 (live) &rarr; 4.0 &middot; #26 of 77
+velocity bracket: 1,480 (cache dated 11 Jun 2025) &rarr; 1,516 (live) &asymp; 2.7 reviews/month</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">R-03</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">The complaint set triangulates across four independent surfaces &mdash; and it is a product list, not a service list</div>
+    <div class="f-body">US News&rsquo;s aggregate summary, Google&rsquo;s highlighted reviews, the TikTok complaint video, and the
+    Tripadvisor low-cohort all converge on the same items: rooms that read small for the price, sound bleed between rooms, weak
+    water pressure, no in-room coffee maker, no desk, and a dated hairdryer. When four uncoordinated surfaces converge on one
+    list, the list is real. None of it is fixable by marketing &mdash; but all of it is <em>manageable</em> by marketing:
+    expectation-setting copy, room-attribute pages, and response language that acknowledges rather than deflects.</div>
+    <div class="evidence"><span class="ev-label">Convergent sources, captured 20 Jul 2026</span>US News summary: "small rooms... noise... water pressure" themes present
+Google highlighted review: "hear everything in adjacent room" / "lousy water pressure" / "no coffee maker"
+TikTok top video: no desk &middot; no coffee &middot; no bathtub (S-03)  |  TA exemplar "Not Worth It": soundproofing (B-02)</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">R-04</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">A value-and-fees narrative is forming in the machines&rsquo; own summaries</div>
+    <div class="f-body">Tripadvisor&rsquo;s AI summary now includes &ldquo;some finding it overpriced&rdquo;; Google&rsquo;s highlighted
+    set carries &ldquo;steep for what it was&rdquo;; breakfast, valet, and minibar pricing recur as friction points. This is the
+    compounding risk of D-04&rsquo;s broken price anchors and D-06&rsquo;s fee drift: guests arrive with the wrong number in their
+    head, and the gap gets written down as a value complaint. Fixing the anchors upstream is reputation work as much as revenue
+    work.</div>
+    <div class="evidence"><span class="ev-label">Machine-summary language, captured 20 Jul 2026</span>Tripadvisor AI summary: "...some finding it overpriced"  |  Google highlighted: "steep for what it was"
+recurring fee friction in text: breakfast pricing &middot; valet $58 &middot; minibar</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">R-05</span><span class="sev sev-min">Minor</span></div>
+    <div class="f-title">Review velocity is a fraction of what the guest base could produce &mdash; there is no post-stay capture engine</div>
+    <div class="f-body">Roughly 2.7 Tripadvisor reviews a month from a 153-key property running high occupancy &mdash; with 68K
+    Instagram followers and 12,433 Facebook check-ins &mdash; is a plumbing gap, not a sentiment gap. At this velocity a single
+    bad month can steer the displayed score (R-02 proved it just did). The Ch.09 post-stay agent exists to change the
+    denominator.</div>
+    <div class="evidence"><span class="ev-label">Derived from R-02 velocity bracket + audience metrics this run</span>~2.7 TA reviews/mo vs. 153 keys &middot; 68K IG &middot; 12,433 FB check-ins &middot; no post-stay review ask found in any owned surface</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">R-06</span><span class="sev sev-pos">Positive</span></div>
+    <div class="f-title">Where machines summarize this hotel, they lead with warmth &mdash; the featured quotes are still on the property&rsquo;s side</div>
+    <div class="f-body">Tripadvisor&rsquo;s summary opens on charm and staff before its caveats; KAYAK&rsquo;s featured line praises
+    the stay outright; Google&rsquo;s snippet set includes &ldquo;most comfortable hotel bed ever.&rdquo; The narrative high ground is
+    intact. The work in Chapters 08&ndash;10 is about defending it with volume and structure before the recency math erodes it
+    further &mdash; not about rehabilitation.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026</span>TA AI summary leads: charm / staff warmth &middot; KAYAK featured quote: positive stay language &middot; Google snippet: "most comfortable hotel bed ever"</div>
+  </div>
+
+  <h3 class="sub"><span class="sub-mono">Complaint mix &middot; classification for response strategy</span></h3>
+  <div class="tbl-wrap"><table class="dr">
+    <tr><th>Class</th><th>Items (from converged corpus)</th><th>Marketing&rsquo;s lane</th></tr>
+    <tr><td><b>Physical plant</b></td><td>Room size vs. price &middot; soundproofing &middot; water pressure &middot; hairdryer</td><td>Expectation-setting room pages &middot; attribute transparency &middot; response language that owns it</td></tr>
+    <tr><td><b>Product policy</b></td><td>No in-room coffee maker &middot; no desk (design-intent choices) &middot; minibar model</td><td>Narrate the intent (morning beverage bar as the coffee answer) &middot; pre-arrival comms</td></tr>
+    <tr><td><b>Operational / fee</b></td><td>Valet $58 friction &middot; breakfast pricing &middot; deposit surprises (OTA-side, D-06)</td><td>Fix the anchors upstream &middot; one fee sheet everywhere &middot; FAQ page (Cluster 07)</td></tr>
+  </table></div>
+</section>
+<div class="gradient-divider"></div>
+<!-- ============================ CHAPTER 08 ============================ -->
+<section class="chapter" id="ch-08">
+  <div class="chapter-label">Chapter 08 &middot; <span class="cl-fam">Families B &amp; G</span> &middot; Review Deep Dives</div>
+  <h2>Two Platforms, Two Deep Reads: <em>the outlier and the anchor</em></h2>
+  <p class="lead">
+    Chapter 07 established the divergence; this chapter dissects the two platforms that matter most to it. <b>Part A</b> takes
+    apart Tripadvisor &mdash; the outlier &mdash; and shows arithmetically that the 4.0 headline cannot be the corpus average and
+    must be recency weighting broadcasting a small weak cohort. <b>Part B</b> reads Google &mdash; the anchor &mdash; whose 4.6
+    holds, but whose own highlighting choices and syndication variants carry the complaint themes into places the property
+    doesn&rsquo;t watch.
+  </p>
+
+  <div class="callout co-sage">
+    <div class="co-title">Methodology &mdash; what this sample is, and is not</div>
+    Record-level review scraping is bot-gated across the industry, and this audit does not pretend otherwise. Tripadvisor&rsquo;s
+    record pages returned <b>403 via DataDome</b> (verbatim interstitial: &ldquo;Please enable JS and disable any ad blocker&rdquo;).
+    Booking.com&rsquo;s review endpoints are robots-disallowed and returned a <b>202 bot-challenge</b>; its listed corpus at the
+    gate was n=90, too thin and too gated to headline, so <b>Part A pivots to Tripadvisor</b> &mdash; the platform actually
+    broadcasting the problem. The working sample is therefore: platform-published aggregates and distributions, machine
+    summaries, and individually indexed review exemplars (title + body fragments with dates), all captured 20 Jul 2026.
+    Conclusions below are drawn only where that sample supports them; everything else is labeled a bound, not a fact.
+  </div>
+
+  <h3 class="sub" style="color:var(--accent);"><span class="sub-mono" style="color:var(--sage);">Part A &middot; Family B</span>Tripadvisor &mdash; anatomy of a 4.0 that isn&rsquo;t an average</h3>
+
+  <p class="body-note"><b>How the platform&rsquo;s number works, in one paragraph.</b> Tripadvisor documents that its bubble rating
+  and Popularity Index are not simple means: they weight by <em>recency</em> (new reviews count more, and old ones decay),
+  <em>quantity</em> (thin recent volume makes the display volatile), and <em>quality</em> of contribution. In practice a property
+  with a large, aging, excellent corpus and a trickle of mixed recent reviews can display a number far below its true average
+  &mdash; and a property that manages fresh volume can move its display far faster than the corpus math would suggest. Both edges
+  of that blade are visible in the findings below.</p>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">B-01</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">The arithmetic: even 79 straight one-bubble reviews couldn&rsquo;t drag a true average from 4.6 to 4.0 &mdash; the headline is recency weighting, and it will respond to recency</div>
+    <div class="f-body">Run the worst case. At the n=1,437 snapshot the display was 4.6. Assume every one of the 79 reviews added
+    since then was a 1.0 &mdash; an impossibly bad streak. The true mean would be (1,437 &times; 4.6 + 79 &times; 1.0) &divide;
+    1,516 = <b>4.41</b>, which Tripadvisor rounds to 4.5. The displayed <b>4.0</b> is therefore not the corpus average; it is
+    Tripadvisor&rsquo;s recency-and-quality weighting amplifying a small, recent, weak cohort. That cuts both ways: <em>the same
+    math that produced the slide will reward a managed stream of fresh positives just as disproportionately.</em> This is the
+    single most actionable number in the reputation stack.</div>
+    <div class="evidence"><span class="ev-label">Arithmetic on captured anchors (R-02)</span>floor case: (1437 &times; 4.6 + 79 &times; 1.0) / 1516 = 6688.2 / 1516 = 4.412  &rarr; displays "4.5"
+observed display at n=1,516: 4.0  &rArr; weighting, not averaging  |  TA method: recency- and quality-weighted (platform-documented)</div>
+    <div class="why"><span class="why-k">Why it matters</span>Chasing old one-bubbles is low-yield; feeding the weighting engine
+    fresh volume (R-05&rsquo;s missing post-stay capture) is high-yield. Strategy follows the math.</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">B-02</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">The recent cohort in exemplars: a scathing luxury-expectations review sits beside same-month five-bubble praise</div>
+    <div class="f-body">The indexed recent set is genuinely split, which is exactly the mix recency weighting is most volatile on.
+    The negative anchor is a June 2025 review titled &ldquo;Disappointing and dull,&rdquo; written from an Amex Fine Hotels &amp;
+    Resorts expectation frame. Against it, March 2026 stays post &ldquo;5 Stars!&rdquo; and the telling &ldquo;Good Value for What It
+    Is&rdquo; &mdash; qualified praise that concedes the value framing. A &ldquo;Not Worth It&rdquo; entry carries the soundproofing
+    theme. The cohort is winnable; it is currently just unattended.</div>
+    <div class="evidence"><span class="ev-label">Indexed exemplars, captured 20 Jul 2026 &middot; titles + fragments verbatim</span>"Disappointing and dull" (Jun 2025): "...booked through Amex Fine Hotels and Resorts..." (expectation frame explicit)
+"5 Stars!" (Mar 2026 stay) &middot; "Good Value for What It Is" (Mar 2026 stay) &middot; "Not Worth It": soundproofing/noise theme</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">B-03</span><span class="sev sev-pos">Positive</span></div>
+    <div class="f-title">The response machinery is already running &mdash; four leadership eras, zero gaps, named recovery routing</div>
+    <div class="f-body">As documented in D-09: continuous GM-signed responses from 2018 to 2025 across four leadership
+    transitions, with recovery routed to a named director and a live inbox. The Ch.10 plan adds SLA timing, theme-aware language
+    (own the plant issues, narrate the design-intent ones), and volume &mdash; it does not need to build the habit, which is the
+    hard part most properties never clear.</div>
+    <div class="evidence"><span class="ev-label">Cross-reference D-09 &middot; captured 20 Jul 2026</span>response chain: Dawson '18 &rarr; Whiteheart '21 &rarr; Johnson/Rector '23 &rarr; Sommer/Christian '25 &middot; recovery: jlaidlaw@dewberryhotels.com</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">B-04</span><span class="sev sev-min">Minor</span></div>
+    <div class="f-title">Tripadvisor&rsquo;s own tag cloud is a free asset map &mdash; ten guest-language handles, none of which map to an owned page</div>
+    <div class="f-body">The platform&rsquo;s review-tag cloud &mdash; the phrases guests actually search within reviews &mdash;
+    reads: <em>living room, mid century, citrus club, federal building, house car, rooftop bar, marion square, soaking tub, king
+    street, valet.</em> That is Clusters 01, 02, and 06 of Chapter 04, written by guests, ranked by frequency. Not one has a
+    dedicated owned page. When guests hand you the sitemap, build it. A same-day count drift is also noted for the record: the
+    hotel page showed 1,516 reviews while the review-page footer showed 1,524 &mdash; platform-side lag, worth knowing when
+    tracking velocity.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; TA tag cloud + count drift</span>tags: living room &middot; mid century &middot; citrus club &middot; federal building &middot; house car &middot; rooftop bar &middot; marion square &middot; soaking tub &middot; king street &middot; valet
+count drift same day: hotel page 1,516 vs. review-page footer 1,524</div>
+  </div>
+
+  <h3 class="sub" style="color:var(--accent);"><span class="sub-mono" style="color:var(--sage);">Part B &middot; Family G</span>Google &mdash; the anchor holds, but watch what it highlights</h3>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">G-01</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">What 4.6 &times; 1,348 can and cannot hide &mdash; the truncation bounds</div>
+    <div class="f-body">Google publishes the rounded score and count, not the distribution &mdash; but the pair still bounds the
+    corpus. At 4.6 across 1,348 reviews, a five-star-heavy shape leaves room for on the order of <b>~135 one-star-equivalents</b>
+    (in a pure 5s-and-1s model, the low band is capped near 10% of n); shift the mass toward fours and the same average
+    accommodates up to roughly <b>~539 four-star reviews</b> with almost no true negatives. Translation: the Google corpus is
+    healthy at any plausible shape, and its low band is small enough that individual complaint reviews carry outsized visibility
+    &mdash; which is exactly what G-02 shows Google doing.</div>
+    <div class="evidence"><span class="ev-label">Bound arithmetic on published pair (4.6, n=1,348)</span>pure {5,1} model: 5a + 1b = 4.6n, a+b=n &rarr; b = 0.1n &asymp; 135 max one-stars
+pure {5,4} model: b = 0.4n &asymp; 539 max four-stars &middot; true shape lies between; both bounds healthy</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">G-02</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">Google&rsquo;s own highlighted set features the complaint review &mdash; verbatim, above the fold of the entity</div>
+    <div class="f-body">Among the handful of reviews Google chooses to surface on the property panel is the full product-complaint
+    set in one review: small tight room, lousy water pressure, no coffee maker, &ldquo;steep for what it was.&rdquo; The score says
+    4.6; the merchandising says caveat emptor. Owner-side, this is addressable: highlighted reviews respond to response activity,
+    recency, and helpfulness signals &mdash; all levers the Ch.09 response agent pulls.</div>
+    <div class="evidence"><span class="ev-label">Captured 20 Jul 2026 &middot; Google panel highlighted review, fragments verbatim</span>"...room was small and tight... water pressure was lousy... no coffee maker in the room... steep for what it was."</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">G-03</span><span class="sev sev-mod">Moderate</span></div>
+    <div class="f-title">A KAYAK AI-summary crawl variant broadcast Bed Comfort 3/10 and Noise 2.5/10 &mdash; while guests call the beds the best they&rsquo;ve slept in</div>
+    <div class="f-body">Observed once and honestly labeled: an earlier crawl surface of KAYAK&rsquo;s AI category panel carried
+    <b>Bed Comfort 3/10</b> and <b>Noise 2.5/10</b> &mdash; numbers wildly out of line with a corpus where &ldquo;most comfortable
+    hotel bed ever&rdquo; is Google-featured praise. The live 20 Jul fetch showed only Location 9.5 / Atmosphere 9.0 / Cleanliness
+    8.5, so the defamatory variant is <em>observed-not-reproduced</em> &mdash; likely an AI summarization artifact over a thin
+    negative slice. It matters anyway: variant panels get cached, syndicated, and quoted by other machines. This is precisely
+    what the Ch.09 AEO-monitoring agent exists to catch in the wild.</div>
+    <div class="evidence"><span class="ev-label">Two captures, both this run</span>variant panel (earlier crawl surface): "Bed comfort 3/10 &middot; Noise level 2.5/10"
+live fetch 20 Jul 2026: Location 9.5 &middot; Atmosphere 9.0 &middot; Cleanliness 8.5 (bed/noise rows absent)  |  human counterpoint: "most comfortable hotel bed ever" (Google-featured)</div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-code">G-04</span><span class="sev sev-pos">Positive</span></div>
+    <div class="f-title">Every non-recency-weighted platform holds the property in the top band &mdash; the decline is a Tripadvisor display phenomenon, not a sentiment collapse</div>
+    <div class="f-body">Same-day: Google 4.6, Expedia 9.6, Hotels.com 9.6 (rated as recently as 19 Jun 2026), US News 9.5 across
+    1,152, Facebook 96% across 816. One platform &mdash; the one that re-weights by recency &mdash; shows 4.0. The corpus is an
+    asset in good standing; the broadcast layer on a single high-visibility platform is the liability. That is a much better
+    problem to have, and a much faster one to fix.</div>
+    <div class="evidence"><span class="ev-label">Same-day board (Ch.07 table)</span>Google 4.6 &middot; Expedia 9.6 &middot; Hotels.com 9.6 ("Last rated Jun 19, 2026") &middot; US News 9.5 (1,152) &middot; FB 96% (816)  vs.  TA 4.0</div>
+  </div>
+</section>
+<div class="gradient-divider"></div>
+<!-- ============================ CHAPTER 09 ============================ -->
+<section class="chapter" id="ch-09">
+  <div class="chapter-label">Chapter 09 &middot; <span class="cl-fam">Automation</span> &middot; AI Agent Layer</div>
+  <h2>Eight Agents That Keep This Audit <em>From Ever Needing to Exist Again</em></h2>
+  <p class="lead">
+    Nearly every defect in this document is a drift problem: something was true once, changed, and nobody was watching the
+    surface where it changed. Drift problems are exactly what always-on agents are for. Eight below, each mapped to findings it
+    would have caught or prevented. <b>Day-one ROI</b> agents run against external surfaces immediately, before anything is
+    fixed; <b>Post-fix</b> agents come online once the Phase 1&ndash;2 remediation gives them a clean substrate to work from.
+  </p>
+
+  <div class="sa-grid">
+    <div class="sa-card">
+      <div class="sa-kicker">Agent 01 &middot; Distribution</div>
+      <div class="sa-title">Listing-consistency crawler</div>
+      <div class="sa-body">Weekly sweep of Expedia family, Booking, KAYAK, Google, Yelp, and the reseller tier against one
+      canonical fact sheet &mdash; amenities, F&amp;B, fees, hours, phone, room count. Diffs land as a ticket, not a surprise.
+      Would have caught <b>D-05, D-06, D-07, D-08</b> years ago; catches the next Henrietta&rsquo;s the week it drifts.</div>
+      <div class="sa-foot"><span class="tag-roi">Day-one ROI</span> &middot; runs against live surfaces now</div>
+    </div>
+    <div class="sa-card">
+      <div class="sa-kicker">Agent 02 &middot; Revenue</div>
+      <div class="sa-title">Rate-parity watch</div>
+      <div class="sa-body">Scheduled shops across metasearch and the wholesale tier on a rolling date grid, alerting on undercuts
+      past a set threshold with seller, window, and screenshot attached &mdash; the evidence pack a revenue manager needs to run a
+      wholesale-leak trace. Institutionalizes the <b>D-01/D-02</b> capture this audit did once, forever.</div>
+      <div class="sa-foot"><span class="tag-roi">Day-one ROI</span> &middot; first report in week one</div>
+    </div>
+    <div class="sa-card">
+      <div class="sa-kicker">Agent 03 &middot; Discovery</div>
+      <div class="sa-title">AEO &amp; answer monitoring</div>
+      <div class="sa-body">Standing panel of branded and niche questions run against Google&rsquo;s AI surfaces, ChatGPT,
+      Perplexity, and Claude on a schedule &mdash; logging what each machine says about parking, pets, the rooftop, the
+      restaurant, and &ldquo;best boutique hotel Charleston.&rdquo; The <b>G-03</b> defamatory-variant class and the <b>M-07</b>
+      wrong-answer class get caught in days instead of discovered in an audit.</div>
+      <div class="sa-foot"><span class="tag-roi">Day-one ROI</span> &middot; baseline before fixes = proof of lift after</div>
+    </div>
+    <div class="sa-card">
+      <div class="sa-kicker">Agent 04 &middot; Reputation</div>
+      <div class="sa-title">Review-response drafting</div>
+      <div class="sa-body">Drafts responses in the property&rsquo;s established GM voice within hours of posting, theme-aware per
+      the Ch.07 complaint-mix table &mdash; own the plant issues, narrate the design-intent choices, route recovery to the named
+      inbox. Human signs every send. Extends the <b>B-03/D-09</b> machinery to an SLA no manual process sustains.</div>
+      <div class="sa-foot"><span class="tag-roi">Day-one ROI</span> &middot; voice model trained on 7 years of real responses</div>
+    </div>
+    <div class="sa-card">
+      <div class="sa-kicker">Agent 05 &middot; Volume</div>
+      <div class="sa-title">Post-stay review generation</div>
+      <div class="sa-body">Segmented post-checkout sequences (email/SMS via the PMS feed) asking the right guests for the right
+      platform &mdash; Tripadvisor prioritized while the recency math of <b>B-01</b> is working against the property, Google
+      steady-state. The direct fix for <b>R-05&rsquo;s</b> 2.7/month velocity, and the engine that turns B-01&rsquo;s weighting
+      from liability into lever.</div>
+      <div class="sa-foot"><span class="tag-post">Post-fix</span> &middot; wants clean attribution (M-01) + PMS hook first</div>
+    </div>
+    <div class="sa-card">
+      <div class="sa-kicker">Agent 06 &middot; Intelligence</div>
+      <div class="sa-title">Sentiment digest</div>
+      <div class="sa-body">Weekly synthesis across all eight Ch.07 platforms plus TikTok mentions: theme deltas, velocity,
+      named-staff praise for internal recognition, and an early-warning line when any platform&rsquo;s displayed score moves. The
+      <b>R-02</b> slide happened over months in public; this makes the next one a Tuesday email instead.</div>
+      <div class="sa-foot"><span class="tag-roi">Day-one ROI</span> &middot; leadership-ready, five minutes a week</div>
+    </div>
+    <div class="sa-card">
+      <div class="sa-kicker">Agent 07 &middot; Guest Service</div>
+      <div class="sa-title">Policy concierge chat</div>
+      <div class="sa-body">A grounded assistant on the site answering the <b>M-07</b> question set &mdash; parking, pets,
+      deposits, ages, the rooftop&rsquo;s reservation window &mdash; from the canonical fact sheet only, with booking handoff.
+      Every answer it gives is one BringFido or Orbitz doesn&rsquo;t give wrong, and its query log becomes next quarter&rsquo;s
+      content plan.</div>
+      <div class="sa-foot"><span class="tag-post">Post-fix</span> &middot; launches on the Phase 2 FAQ substrate</div>
+    </div>
+    <div class="sa-card">
+      <div class="sa-kicker">Agent 08 &middot; Media</div>
+      <div class="sa-title">Demand-calendar &amp; paid steering</div>
+      <div class="sa-body">Maintains the Cluster 06 event calendar (Marion Square festivals, Gaillard runs, CofC weekends),
+      watches pickup pace against it, and proposes flight timing and budget shifts for the Ch.11 program &mdash; with jargon-gated
+      keywords and the negative set enforced. Smart Bidding only steers well on clean signals, which is why this agent waits for
+      <b>M-01</b>.</div>
+      <div class="sa-foot"><span class="tag-post">Post-fix</span> &middot; gated on attribution repair by design</div>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="sub-mono">Operating spec &middot; cadence, inputs, and the human in the loop</span>Every agent reports; humans decide</h3>
+  <div class="tbl-wrap"><table class="dr">
+    <tr><th>Agent</th><th>Cadence</th><th>Inputs</th><th>Output &amp; human gate</th></tr>
+    <tr><td><b>01 Listing consistency</b></td><td>Weekly sweep</td><td>Canonical fact sheet vs. live OTA/meta/reseller surfaces</td><td>Diff ticket per drift; property approves the correction push</td></tr>
+    <tr><td><b>02 Rate parity</b></td><td>2&times;/week shop, rolling 90-day grid</td><td>Direct rate vs. metasearch + wholesale tier</td><td>Undercut alert with seller/window/screenshot; revenue manager runs the trace</td></tr>
+    <tr><td><b>03 AEO monitoring</b></td><td>Weekly question panel</td><td>Standing branded + niche prompts across AI surfaces</td><td>Answer-change log; flags wrong or defamatory variants for escalation</td></tr>
+    <tr><td><b>04 Review response</b></td><td>Within hours of post</td><td>New reviews + 7-year GM-voice corpus + complaint-mix playbook</td><td>Draft only &mdash; a human signs every send, always</td></tr>
+    <tr><td><b>05 Post-stay generation</b></td><td>Trigger: checkout +1 day</td><td>PMS departure feed, segmented</td><td>Platform-routed review ask; suppression rules for recovery cases</td></tr>
+    <tr><td><b>06 Sentiment digest</b></td><td>Weekly, Monday a.m.</td><td>All Ch.07 platforms + TikTok mentions</td><td>One-page leadership brief: deltas, themes, named-staff praise, score-movement alarm</td></tr>
+    <tr><td><b>07 Policy concierge</b></td><td>Always-on</td><td>Canonical fact sheet only &mdash; grounded, no improvisation</td><td>On-site answers + booking handoff; query log feeds the content plan</td></tr>
+    <tr><td><b>08 Demand steering</b></td><td>Weekly proposal cycle</td><td>Event calendar, pickup pace, campaign performance</td><td>Flight/budget proposals; nothing changes in the account without sign-off</td></tr>
+  </table></div>
+</section>
+<div class="gradient-divider"></div>
+<!-- ============================ CHAPTER 10 ============================ -->
+<section class="chapter" id="ch-10">
+  <div class="chapter-label">Chapter 10 &middot; <span class="cl-fam">Roadmap</span> &middot; Remediation Sequence</div>
+  <h2>Twelve Weeks, Four Phases, <em>Ordered by Damage per Day</em></h2>
+  <p class="lead">
+    Sequencing logic: stop active harm first (false amenities, corrupted attribution), rebuild the truth layer second (schema,
+    tags, structured answers), build the claim layer third (the pages that own Chapter 04&rsquo;s clusters), then turn on the
+    engines that keep it all true (capture, cadence, agents). Every line item cites the finding it retires.
+  </p>
+
+  <div class="phase">
+    <div class="ph-when"><span class="ph-num">01</span>Week 1<br>Stop the bleeding</div>
+    <div>
+      <div class="ph-title">Kill the false and the corrupting &mdash; nothing here waits for strategy</div>
+      <div class="ph-body">OTA content sweep across the Expedia family, Booking, and the extranet-fed tier: Henrietta&rsquo;s out,
+      current F&amp;B in, mask-era copy deleted, one fee sheet (valet $58 / $30 day, deposit terms) pushed everywhere. Open the
+      parity escalation: file the Super.com/Traveluro/Stayforlong undercuts with the market managers and start the wholesale
+      contract trace. Strip the hard-coded <span class="mono-inline">_ga/_gac</span> tokens from every Book Now href and fix
+      <span class="mono-inline">adult=1</span>. Retitle /rooms-suites and restore its H1. Purge Henrietta&rsquo;s from
+      /drinks-dining meta and OG tags so the syndication source runs dry.</div>
+      <div class="ph-refs">Retires: D-05 &middot; D-06 &middot; M-01 &middot; M-05 &middot; F-01 (title/H1) &middot; opens D-01/D-02 escalation</div>
+      <div class="ph-body" style="margin-top:8px;"><b>Done means:</b> Expedia and Booking property pages show current F&amp;B and
+      correct fees on a live re-check; a test click on every Book Now href lands on SynXis with zero literal _ga/_gac in the URL
+      and a fresh linker minted; /rooms-suites returns exactly one H1; the Henrietta&rsquo;s string count in /drinks-dining source
+      is zero.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="ph-when"><span class="ph-num">02</span>Weeks 2&ndash;4<br>Rebuild the truth layer</div>
+    <div>
+      <div class="ph-title">Make the machine-readable hotel match the real one</div>
+      <div class="ph-body">Hotel schema rebuilt end to end: clean @id, written description, honest priceRange, postalAddress,
+      starRating, aggregateRating, current imagery, valid properties only. Remove UA-64314303-1 from page and container; audit
+      GTM-WHLRSS6 down from 550KB of accretion; configure the GA4 cross-domain linker properly against SynXis and verify
+      end-to-end with a test booking; stand up Bing UET. Convert the Fine Print into a structured FAQ page with FAQPage schema
+      &mdash; the Cluster 07 claim and the Agent 07 substrate in one build. Fix the aria-hidden-focus trap, the role=&quot;region&quot;
+      heading pattern, and the junk-ARIA spans at template level.</div>
+      <div class="ph-refs">Retires: M-02 &middot; M-03 &middot; M-07 &middot; F-02 &middot; F-03 &middot; F-04 &middot; D-04 (schema anchor) &middot; completes M-01 verification</div>
+      <div class="ph-body" style="margin-top:8px;"><b>Done means:</b> the rebuilt schema validates clean in Google’s Rich Results
+      test with address, ratings, and an honest priceRange; UA-64314303-1 appears nowhere in page or container; a monitored test
+      booking attributes end-to-end in GA4 with SynXis revenue attached; the FAQ page returns FAQPage rich-result eligibility;
+      axe re-run shows the serious violation and the heading-rule failures cleared.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="ph-when"><span class="ph-num">03</span>Weeks 5&ndash;8<br>Build the claim layer</div>
+    <div>
+      <div class="ph-title">Ship the pages the demand already exists for</div>
+      <div class="ph-body">Weddings &amp; Walled Garden page with specs, gallery, and RFP path (Cluster 05, closing the Bennett
+      architecture gap). Citrus Club venue page owning the highest-rooftop claim, hours, and reservation window (Cluster 01).
+      Design-story page for the mid-century/Workstead identity (Cluster 02). Boutique-positioning title strategy resolving the
+      M-06 cannibalization. Mobile persistent Book bar and first-viewport CTA; Virtuoso world-title block elevated above the
+      offers carousel; from-rates on room cards; current wedding/meeting collateral brought on-site from Issuu.</div>
+      <div class="ph-refs">Retires: F-05 &middot; F-06 &middot; F-07 &middot; F-08 &middot; F-09 &middot; M-06 &middot; claims Clusters 01/02/03/05/06</div>
+      <div class="ph-body" style="margin-top:8px;"><b>Done means:</b> /weddings and the Citrus Club page are live, indexed, and
+      each holds a top-ten position for its primary term within one crawl cycle of launch tracking; a Book control is visible in
+      the first mobile viewport on every commercial page; the Virtuoso block renders above the offers carousel; no two pages share
+      a lead title phrase.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="ph-when"><span class="ph-num">04</span>Weeks 9&ndash;12<br>Turn on the engines</div>
+    <div>
+      <div class="ph-title">Volume, voice, and the watchers</div>
+      <div class="ph-body">Post-stay review capture live (Agent 05) with Tripadvisor prioritized while B-01&rsquo;s weighting is
+      the lever; response SLAs formalized on the existing GM-voice machinery (Agent 04). Facebook consolidation onto the working
+      page and footer repointed; owned TikTok stood up against the S-03 narrative; @henriettas_brasserie sunset or converted to
+      the successor concept&rsquo;s teaser; LinkedIn and Pinterest linked from the footer. Agents 01&ndash;03 and 06 running on
+      cadence; 07&ndash;08 launched on their now-clean substrates. On-site proof modules (review scores, award schema) published
+      &mdash; the M-08 close.</div>
+      <div class="ph-refs">Retires: S-02 &middot; S-03 &middot; S-04 &middot; S-05 &middot; R-05 &middot; M-08 &middot; D-08 &middot; operationalizes Ch.09</div>
+      <div class="ph-body" style="margin-top:8px;"><b>Done means:</b> post-stay sequences are sending on PMS triggers and Tripadvisor
+      velocity has measurably lifted off the ~2.7/month baseline; the footer links one Facebook page and it is the working one;
+      an owned TikTok exists with its launch series published; all Day-one agents have produced at least four weekly reports and
+      both Post-fix agents are live on their cleared substrates.</div>
+    </div>
+  </div>
+</section>
+<div class="gradient-divider"></div>
+<!-- ============================ CHAPTER 11 ============================ -->
+<section class="chapter" id="ch-11">
+  <div class="chapter-label">Chapter 11 &middot; <span class="cl-fam">Engagement</span> &middot; Recommended Structure</div>
+  <h2>The Right-Sized Engagement <em>for What the Evidence Shows</em></h2>
+  <p class="lead">
+    Two Doubled Rook service lines map onto this diagnostic. The tier recommendations below are sized to the findings &mdash;
+    not to a menu. Direct bookings carries the heavier load because that&rsquo;s where the money is leaking; social starts at
+    foundations because the flagship channel is already excellent and the work is consolidation and defense before expansion.
+    Current pricing for both lines travels on the separate rate sheets that accompany this document.
+  </p>
+
+  <div class="program">
+    <div class="pr-kicker">Program 1 &middot; Primary Engagement</div>
+    <div class="pr-title">Direct Bookings Management &mdash; <em>Growth</em></div>
+    <div class="pr-body">The full Ch.10 arc under one owner: measurement repaired before media, distribution truth enforced,
+    the claim pages shipped, and paid search launched jargon-gated on the Cluster 01&ndash;07 map once &mdash; and only once &mdash;
+    the M-01 attribution repair verifies clean.</div>
+    <ul class="pr-list">
+      <li><b>Weeks 1&ndash;4:</b> Phase 1&ndash;2 execution in full &mdash; OTA sweep, parity escalation, linker repair with test-booking
+      verification, schema rebuild, GTM audit, FAQ build. GA4/GTM audit at kickoff is the standard, here it is also the emergency.</li>
+      <li><b>Weeks 5&ndash;8:</b> Claim-layer builds (weddings, Citrus Club, design story), mobile conversion fixes, Keyword Planner
+      pull per the Ch.04 spec from the property&rsquo;s own Ads account.</li>
+      <li><b>Weeks 9&ndash;12:</b> Paid launch &mdash; branded defense plus Clusters 01/05/06/07, phrase and exact only, negative set
+      enforced, Search Partners and Display off; reporting stood up against the now-trustworthy conversion stream.</li>
+      <li><b>Standing:</b> Agents 01&ndash;03 and 06 on cadence from week one; 05/07/08 as their substrates clear; monthly parity and
+      listing-truth reporting alongside booking performance.</li>
+    </ul>
+  </div>
+
+  <div class="program">
+    <div class="pr-kicker">Program 2 &middot; Companion Engagement</div>
+    <div class="pr-title">Social Media Management &mdash; <em>Foundations</em></div>
+    <div class="pr-body">Protect the 68K-follower flagship, consolidate the split, and stop ceding the youngest platform to a
+    complaint video &mdash; without disturbing a voice that is already working.</div>
+    <ul class="pr-list">
+      <li><b>Consolidation:</b> Facebook merge/repoint (S-02), footer social links completed (S-05), @henriettas_brasserie
+      resolved (S-04), native insights baselined across all channels (the advisory item, closed).</li>
+      <li><b>Defense:</b> Owned TikTok stood up with a launch series answering the S-03 themes in the property&rsquo;s own voice
+      &mdash; the design-intent story, the rooftop, the staff guests already name.</li>
+      <li><b>Syndication:</b> Award and proof moments (Virtuoso, MICHELIN Key, named-staff praise from R-01) turned into a
+      repeatable cross-platform cadence; Pinterest wedding boards aligned to the new weddings page.</li>
+    </ul>
+  </div>
+
+  <h3 class="sub"><span class="sub-mono">Reporting cadence &middot; what lands on whose desk, when</span>Both programs</h3>
+  <div class="tbl-wrap"><table class="dr">
+    <tr><th>Rhythm</th><th>Deliverable</th><th>Audience</th></tr>
+    <tr><td><b>Weekly</b></td><td>Agent digests as they come online &mdash; parity alerts, listing diffs, the Monday sentiment brief, AEO answer-change log</td><td>DOSM / revenue manager &middot; five-minute reads, action-flagged</td></tr>
+    <tr><td><b>Monthly</b></td><td>Booking performance vs. baseline with the now-trustworthy attribution stream; paid performance once live (spend, gated-cluster conversion, quality signals); roadmap burn-down scored against this document&rsquo;s gap index, code by code</td><td>GM &middot; one meeting, one page ahead of it</td></tr>
+    <tr><td><b>Quarterly</b></td><td>Strategy review: what the evidence says about tier, budget, and the next quarter&rsquo;s claim-layer targets &mdash; including the day-90 checkpoint below</td><td>GM + ownership as invited</td></tr>
+  </table></div>
+  <p class="body-note">The gap index is the scoreboard. Every monthly report re-states which codes are retired, in progress, and
+  scheduled &mdash; so the engagement is always auditable against the document that justified it.</p>
+
+  <div class="callout co-peach">
+    <div class="co-title">Day-90 expansion trigger</div>
+    Built-in checkpoint, not an upsell: if by day 90 the attribution stream is verified clean, the claim pages are live, and paid
+    is converting at target on the gated clusters, the natural expansions are <b>Growth &rarr; Scale on the direct-bookings line</b>
+    (adding the group/wedding demand-gen motion the new pages enable) and <b>Foundations &rarr; Growth on social</b> (moving from
+    defense to full content production). If the checkpoints aren&rsquo;t met, the engagement holds tier and we fix why. Evidence
+    decides, both directions.
+  </div>
+
+  <div class="callout co-sage">
+    <div class="co-title">Social Content Package &mdash; available add-on</div>
+    For the TikTok stand-up and award-syndication cadence above, the packaged production add-on covers <b>10 reels and 20
+    static/carousel posts per month</b>, shot and edited to the property&rsquo;s visual standard, on a <b>two-week production
+    lead time</b>. Priced on the rate sheet; scoped here only so Program 2&rsquo;s cadence has a named production engine behind
+    it.
+  </div>
+
+  <div class="callout co-peach">
+    <div class="co-title">Commercial terms &mdash; how Doubled Rook engagements run</div>
+    <b>No media commission on ad spend</b> &mdash; flat monthly fee only, so budget recommendations are never self-dealing.
+    <b>Creative is included in scope</b> &mdash; no hourly billing, ever. <b>The property owns every account</b> &mdash; GA4, GTM,
+    Google Ads, Business Profile, social &mdash; with Doubled Rook operating as an admitted user; if we part ways, everything
+    stays with the hotel. Full terms per the Marketing Services Agreement.
+  </div>
+
+  <div class="callout co-sage">
+    <div class="co-title">About Doubled Rook</div>
+    Doubled Rook is a boutique digital marketing agency built exclusively for independent and boutique hotels, founded by an
+    operator &mdash; hotel operations and turnaround work at Evolution Hospitality and Aimbridge before the agency. That
+    background is why this document reads the way it does: measurement audited before media is proposed, findings tied to the
+    revenue mechanics a GM actually manages, and a roadmap sequenced by damage per day rather than by deliverable convenience.
+    The practice is measurement-first (a GA4/GTM audit opens every engagement), direct-booking-obsessed, and built for the
+    AI-discovery era &mdash; answer-engine optimization is core scope, not an add-on. <b>doubledrook.com</b>
+  </div>
+</section>
+<!-- ============================ FOOTER ============================ -->
+<div class="doc-footer">
+  <div class="df-left">
+    <div class="df-brand">Doubled Rook</div>
+    <div class="df-contact">doubledrook.com &nbsp;&middot;&nbsp; michael@doubledrook.com &nbsp;&middot;&nbsp; (619) 981-1286</div>
+  </div>
+  <div class="df-right">
+    <div class="df-tag">Stay three moves ahead of your comp set.</div>
+    Audit Id TDCw7q9k2 &middot; Audited 20 Jul 2026 &middot; Confidential &mdash; prepared for The Dewberry Charleston<br>
+    All captures dated in-line &middot; Unverifiable items labeled, never asserted
+  </div>
+</div>
+</div>
+</body>
+</html>
