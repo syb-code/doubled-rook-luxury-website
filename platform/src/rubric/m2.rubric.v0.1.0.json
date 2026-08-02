@@ -1,0 +1,52 @@
+{
+  "version": "m2-spike-0.1.0",
+  "module": "M2",
+  "source": "docs/08 §5.2 — v1 draft numeric layer, tunable, not doctrine.",
+  "status": "SPIKE PLACEHOLDER — supersede with the v7 rubric verbatim import (open item #7).",
+
+  "numeric_layer": {
+    "start": 100,
+    "floor": 0,
+    "ceiling": 100,
+    "severity_deltas": {
+      "critical": -25,
+      "moderate": -8,
+      "minor": -3,
+      "advisory": 0,
+      "positive": 2,
+      "data_gap": 0
+    },
+    "positive_cap": 6
+  },
+
+  "_note_data_gap": "docs/08 §5.2 does not assign data_gap a weight. Scored at 0 here: a declared gap is an absence of evidence, not a defect claim (PRD M2 acceptance criteria draws exactly that line). JUDGMENT CALL — confirm with the v7 import.",
+
+  "dimensions": [
+    "performance",
+    "accessibility",
+    "measurement_integrity",
+    "seo_aeo_readiness",
+    "booking_path_cro"
+  ],
+
+  "bands": [
+    { "label": "Strong", "min": 90, "max": 100 },
+    { "label": "Sound", "min": 75, "max": 89 },
+    { "label": "Needs Attention", "min": 60, "max": 74 },
+    { "label": "Materially Deficient", "min": 40, "max": 59 },
+    { "label": "Critically in Need", "min": 0, "max": 39 }
+  ],
+
+  "_note_bands": "Only 'Critically in Need' is confirmed from v7 (docs/08 §5.1, the band the Ivey's audit received). The other four labels and every boundary are SPIKE PLACEHOLDERS invented to make the band mapping executable. They must not reach a customer-facing report before the v7 verbatim import.",
+
+  "rule_triggers": [
+    {
+      "id": "rule_2_volume",
+      "description": "Volume trigger — finding count at or above threshold forces a band regardless of the computed average (docs/08 §5.1, the trigger that rated the Ivey's audit).",
+      "counts_severities": ["critical", "moderate", "minor"],
+      "threshold": 25,
+      "forces_band": "Critically in Need",
+      "status": "SPIKE PLACEHOLDER — threshold reverse-engineered from the Ivey's finding mix (1C/20Mo/5Mi = 26). The real threshold and the remaining v7 rules are founder-held."
+    }
+  ]
+}
